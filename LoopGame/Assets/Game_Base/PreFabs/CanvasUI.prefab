@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 827148566251525}
   - component: {fileID: 1353903679276687428}
   - component: {fileID: 69412552235765154}
+  - component: {fileID: 719528383866870684}
   m_Layer: 5
   m_Name: HealthOrb
   m_TagString: Untagged
@@ -209,6 +210,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &719528383866870684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464770342106109104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca6a10e98a98414cb196404c96aa237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  currenthealth: {fileID: 69412552235765154}
+  FullHP: {fileID: 21300000, guid: 7d6debbc4fce1fa4baa093dc72b0740b, type: 3}
+  AboveHalfHP: {fileID: 21300000, guid: 343bf74ed1ad6e0458c95e3a3186ffc1, type: 3}
+  HalfHP: {fileID: 21300000, guid: 3a7d31beedf7b4e4abea9996dc966f9e, type: 3}
+  BelowHalfHP: {fileID: 21300000, guid: b8dcc6cdaf52bab4eba86f1e600add51, type: 3}
+  NoHP: {fileID: 21300000, guid: cb4d0f36d171b0b4383075c97cc3220e, type: 3}
 --- !u!1 &3654643967866852251
 GameObject:
   m_ObjectHideFlags: 0
