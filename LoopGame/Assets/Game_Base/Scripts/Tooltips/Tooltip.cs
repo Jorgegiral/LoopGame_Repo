@@ -30,10 +30,10 @@ public class Tooltip : MonoBehaviour
     #region UnityFunctions
     private void Awake()
     {
-      /*  colorEpic = ;
-        colorRare;
-        colorSpecial;
-      */
+        colorEpic = Color.red;
+        colorRare = Color.blue;
+        colorSpecial = Color.yellow;
+      
         rectTransform = GetComponent<RectTransform>();
         headerField.enableVertexGradient = true;
     }
@@ -81,19 +81,19 @@ public class Tooltip : MonoBehaviour
         }
         else
         {
-            if(rarityContent == "Special")
+            if(rarityContentField.text == "Special")
             {
                 headerField.colorGradient = new VertexGradient(colorSpecial);
 
             }
-            else if (rarityContent == "Rare")
+            else if (rarityContentField.text == "Rare")
             {
                 headerField.colorGradient = new VertexGradient(colorRare);
 
             }
             else
             {
-                headerField.colorGradient = new VertexGradient(colorLegendary);
+                headerField.colorGradient = new VertexGradient(colorEpic);
 
             }
 
