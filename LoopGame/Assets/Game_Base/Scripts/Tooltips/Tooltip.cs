@@ -31,6 +31,7 @@ public class Tooltip : MonoBehaviour
         rectTransform.pivot = pivot;
         transform.position = position;
     }
+    
     #endregion
     #region Functions
     private Vector2 CalculatePivot(Vector2 normalizedPosition)
