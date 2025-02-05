@@ -7,7 +7,7 @@ public class OrbHealth : MonoBehaviour
     #region Variables
     public static OrbHealth instance;
     public float startingHealth = 3;
-    public float currentHealth; //CAMBIAR IMPORTANTE UNA VEZ LO VEA JORGE
+    public float currentHealth;
 
     #endregion
 
