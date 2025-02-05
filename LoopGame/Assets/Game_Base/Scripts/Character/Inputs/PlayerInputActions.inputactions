@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputMap",
+    "name": "PlayerInputActions",
     "maps": [
         {
             "name": "Gameplay",
@@ -28,17 +28,6 @@
                 {
                     "name": "",
                     "id": "aa147880-3490-4ac4-ae65-148e271ae75e",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Basic Scheme",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "189bd255-67ee-409f-8ab0-115d6a7663bd",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",

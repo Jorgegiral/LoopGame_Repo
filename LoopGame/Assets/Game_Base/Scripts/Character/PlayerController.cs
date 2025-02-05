@@ -40,7 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         Flip();
         GroundCheck();
+    }
+    private void FixedUpdate()
+    {
         Movement();
+
     }
 
     #endregion
@@ -89,8 +93,10 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleJump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
+        if (isGrounded && context.started) 
         {
+            Debug.Log("Jump Triggered");
+
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
         }
     }
