@@ -8,8 +8,17 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
+    [SerializeField] TMP_Text scoretext;
+    [SerializeField] TMP_Text coinstext;
+
     private int score = 0;
     private int coins = 0;
+    public enum GameState
+    {
+        GameRunning,
+        GamePaused,
+        GameOver
+    }
     #endregion
     #region UnityFunctions
     void Awake()
@@ -24,6 +33,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        GetComponent<TMP_Text>();
+
     }
     #endregion
     #region Functions
