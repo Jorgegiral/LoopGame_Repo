@@ -24,9 +24,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849494957252814750}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.007, y: -0.651, z: 0}
-  m_LocalScale: {x: 0.22757788, y: 0.22757788, z: 0.22757788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3852481532942753037}
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 5070920986122192500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.021, y: 0.662, z: 0.024960343}
+  m_LocalPosition: {x: 0.021, y: 1.298, z: 0.024960343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1969917715173393847}
   - component: {fileID: 1362819705799316288}
   m_Layer: 7
-  m_Name: personaje
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8490ca2e3bf72484c8931936af20fe04, type: 3}
+  m_Sprite: {fileID: 1042288743, guid: 7efa56b6113b4674b8e067be1622a709, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -249,7 +249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  maxHealth: 0
   currentHealth: 0
+  healingUses: 0
 --- !u!50 &413086058709073092
 Rigidbody2D:
   serializedVersion: 4
@@ -309,8 +311,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06617105, y: 0}
-  m_Size: {x: 0.4766423, y: 1.3130219}
+  m_Offset: {x: -0.0071190596, y: 0.6625596}
+  m_Size: {x: 0.40491152, y: 1.3187091}
   m_Direction: 0
 --- !u!114 &1969917715173393847
 MonoBehaviour:
@@ -326,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 0
   damageCooldown: 2
-  speed: 8
+  speed: 7
   isFacingRight: 0
   jumpForce: 5
   isGrounded: 0
@@ -347,7 +349,7 @@ Animator:
   m_GameObject: {fileID: 8386939249848452067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a10002eb77b30f74faab63dab329df8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
