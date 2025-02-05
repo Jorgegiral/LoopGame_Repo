@@ -4,24 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering;
+using static System.Net.Mime.MediaTypeNames;
+using System.Drawing;
+using Color = UnityEngine.Color; 
 
 [ExecuteInEditMode]
 public class Tooltip : MonoBehaviour
 {
     #region Variables
-    [Header("Resize Variables")]
+    [Header("Content Variables")]
     public TextMeshProUGUI headerField;
     public TextMeshProUGUI leftContentField;
     public TextMeshProUGUI rarityContentField;
+    [Header("Resize Variables")]
     public LayoutElement layoutElement;
     public int characterWrapLimit;
     public RectTransform rectTransform;
+    [Header("Color Variables")]
+    private Color colorSpecial, colorRare, colorEpic;
+
+    
+
 
     #endregion
     #region UnityFunctions
     private void Awake()
     {
+      /*  colorEpic = ;
+        colorRare;
+        colorSpecial;
+      */
         rectTransform = GetComponent<RectTransform>();
+        headerField.enableVertexGradient = true;
     }
     private void Update()
     {
@@ -62,15 +76,34 @@ public class Tooltip : MonoBehaviour
     {
         if (string.IsNullOrEmpty(header))
         {
+            
             headerField.gameObject.SetActive(false);
         }
         else
         {
+            if(rarityContent == "Special")
+            {
+                headerField.colorGradient = new VertexGradient(colorSpecial);
+
+            }
+            else if (rarityContent == "Rare")
+            {
+                headerField.colorGradient = new VertexGradient(colorRare);
+
+            }
+            else
+            {
+                headerField.colorGradient = new VertexGradient(colorLegendary);
+
+            }
+
+
             headerField.gameObject.SetActive(true);
             headerField.text = header;
         }
         leftContentField.text = leftContent;
         rarityContentField.text = rarityContent;
     }
+    
     #endregion
 }
