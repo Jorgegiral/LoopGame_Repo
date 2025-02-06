@@ -19,9 +19,10 @@ public class OrbBar : MonoBehaviour
     #region UnityFunctions
     private void Start()
     {
-        halfHPCalculator = playerHealth.startingHealth / 2;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<OrbHealth>();
+        halfHPCalculator = playerHealth.startingHealth / 2;
+
 
     }
     private void Update()

@@ -71,7 +71,7 @@ public class OrbHealth : MonoBehaviour
                 else
                 {
                     
-                    HealDamage(startingHealth / 2f);
+                    HealDamage(0.5f);
                     healingUses -= 1; 
                     PotionReady = false; 
 
