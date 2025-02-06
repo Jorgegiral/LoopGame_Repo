@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d790039bb9c5c24b995527c722ea1c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 010d31fc2833d304b9282e018ec27dfe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -224,11 +224,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
   currenthealth: {fileID: 69412552235765154}
-  FullHP: {fileID: 21300000, guid: 6d790039bb9c5c24b995527c722ea1c4, type: 3}
-  AboveHalfHP: {fileID: 21300000, guid: 1f47bda9a5096a249ab478f04692088e, type: 3}
-  HalfHP: {fileID: 21300000, guid: 7681283b213cfec46b3a35197ca63541, type: 3}
-  BelowHalfHP: {fileID: 21300000, guid: 60cbfa1bedb06ce45a843b19e5079501, type: 3}
-  NoHP: {fileID: 21300000, guid: 48d9b5fb69362dd4f86bf7632e20c832, type: 3}
+  FullHP: {fileID: 21300000, guid: 010d31fc2833d304b9282e018ec27dfe, type: 3}
+  NearlyFullHP: {fileID: 21300000, guid: ddc375906f7a475438ffff28f10275ad, type: 3}
+  AboveHalfHP: {fileID: 21300000, guid: 1d207063410c05d4fa4292f83c05e9d8, type: 3}
+  HalfHP: {fileID: 21300000, guid: 859869cea63a94b4a80a022338901053, type: 3}
+  BelowHalfHP: {fileID: 21300000, guid: 5fdf38be405abb94e8dafc6d30065830, type: 3}
+  LowHP: {fileID: 21300000, guid: fa3946795f920944db1692ca41efaa76, type: 3}
+  VeryLowHP: {fileID: 21300000, guid: cb52dac316fffae4d8fb12df815ef18d, type: 3}
+  NoHP: {fileID: 21300000, guid: 57d0d4cc0d808ef439ee21ad1f4e0ba4, type: 3}
 --- !u!1 &3654643967866852251
 GameObject:
   m_ObjectHideFlags: 0

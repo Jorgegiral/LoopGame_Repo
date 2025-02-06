@@ -12,7 +12,7 @@ public class OrbBar : MonoBehaviour
     private float halfHPCalculator;
 
     [Header("Image Variables")]
-    [SerializeField] private Sprite FullHP, AboveHalfHP, HalfHP, BelowHalfHP, NoHP;
+    [SerializeField] private Sprite FullHP, NearlyFullHP, AboveHalfHP, HalfHP, BelowHalfHP, LowHP, VeryLowHP, NoHP;
 
     #endregion
 
@@ -34,7 +34,6 @@ public class OrbBar : MonoBehaviour
     #region Functions
     private void ChangeImage()
     {
-
         if (playerHealth.currentHealth >= playerHealth.startingHealth)
         {
             currenthealth.sprite = FullHP;
@@ -43,17 +42,29 @@ public class OrbBar : MonoBehaviour
         {
             currenthealth.sprite = NoHP;
         }
-        else if (playerHealth.currentHealth <= halfHPCalculator+0.5f && playerHealth.currentHealth >= halfHPCalculator - 0.5f)
+        else if (playerHealth.currentHealth >= halfHPCalculator + 1f)
         {
-            currenthealth.sprite = HalfHP;
+            currenthealth.sprite = NearlyFullHP;
         }
-        else if (playerHealth.currentHealth > halfHPCalculator)
+        else if (playerHealth.currentHealth >= halfHPCalculator + 0.5f)
         {
             currenthealth.sprite = AboveHalfHP;
         }
-        else
+        else if (playerHealth.currentHealth >= halfHPCalculator)
+        {
+            currenthealth.sprite = HalfHP;
+        }
+        else if (playerHealth.currentHealth >= halfHPCalculator - 0.5f)
         {
             currenthealth.sprite = BelowHalfHP;
+        }
+        else if (playerHealth.currentHealth >= halfHPCalculator - 1f)
+        {
+            currenthealth.sprite = LowHP;
+        }
+        else
+        {
+            currenthealth.sprite = VeryLowHP;
         }
     }
 #endregion
