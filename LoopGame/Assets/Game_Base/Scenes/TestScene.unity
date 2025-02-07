@@ -604,7 +604,7 @@ Transform:
   m_GameObject: {fileID: 799863029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.547, y: 0.031, z: -10}
+  m_LocalPosition: {x: 0.547, y: 1.557, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -896,9 +896,9 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &979498961 stripped
+--- !u!4 &1058381401 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5981014398164379375, guid: cb328ff4ef93a3a439b9e64b6ee587e7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8719171774124856740, guid: cb328ff4ef93a3a439b9e64b6ee587e7, type: 3}
   m_PrefabInstance: {fileID: 1134564468}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1134564468
@@ -993,8 +993,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 979498961}
-  m_Follow: {fileID: 979498961}
+  m_LookAt: {fileID: 1058381401}
+  m_Follow: {fileID: 1058381401}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -1023,7 +1023,7 @@ Transform:
   m_GameObject: {fileID: 1285351340}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.547, y: 0.031, z: -10}
+  m_LocalPosition: {x: 0.547, y: 1.557, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

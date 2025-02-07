@@ -37,6 +37,15 @@ public class PlayerController2D : MonoBehaviour
     //public SceneChanger sceneManagerScript;
     public string gameOverScene;
 
+    [Header("Dash Parameters")]
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 8f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 3f;
+    [SerializeField] TrailRenderer trail;
+
+
 
     void Start()
     {
@@ -47,11 +56,12 @@ public class PlayerController2D : MonoBehaviour
         isFacingRight = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleAnimations();
         GroundCheck();
+
+        if (isDashing) { return; }
 
         //Flip
         if (moveInput.x > 0)
@@ -73,6 +83,8 @@ public class PlayerController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDashing) { return; }
+
         Movement();
     }
     void Movement()
@@ -141,6 +153,22 @@ public class PlayerController2D : MonoBehaviour
         isGod = false;
     }
 
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = playerRb.gravityScale;
+        playerRb.gravityScale = 0f;
+        float dashDirection = isFacingRight ? -1f : 1f;
+        playerRb.velocity = new Vector2(dashDirection * dashingPower, 0f);
+        trail.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        trail.emitting = false;
+        playerRb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
     #region Input Events
 
     public void HandleMove(InputAction.CallbackContext context)
@@ -162,7 +190,15 @@ public class PlayerController2D : MonoBehaviour
     {
        
     }
-        
+
+    public void HandleDash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
     #endregion
 
 

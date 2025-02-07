@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] TMP_Text scoretext;
     [SerializeField] TMP_Text coinstext;
+    private OrbHealth playerHealth;
+    private float currentHealth;
+    private float playerMaxHealth;
 
     private int score = 0;
     private int coins = 0;

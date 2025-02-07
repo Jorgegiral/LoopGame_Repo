@@ -20,7 +20,7 @@ public class newEnemy : MonoBehaviour
     private bool playerInCollider = false;
     [SerializeField] HitboxTrigger hitbox;
     [SerializeField] OrbHealth playerHealth;
-
+    public float hitForce;
 
     private void Awake()
     {
@@ -113,7 +113,8 @@ public class newEnemy : MonoBehaviour
                 canAttack = false;
                 attackCD = 3.0f;
                 enemyAnim.SetBool("isWalking", false);
-
+            //    Vector2 hit = (transform.position - player.transform.position).normalized;
+            //    enemyRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
                 enemyAnim.SetBool("Attack", true);
                 playerHealth.TakeDamage(0.2f);
                 
