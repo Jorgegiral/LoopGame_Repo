@@ -11,6 +11,7 @@ public class SceneSystem : MonoBehaviour
 {
     #region Variables
     private int SceneRandomizer;
+    private int numRandom;
     #endregion
     #region Functions
     public void MainMenu()
@@ -23,7 +24,14 @@ public class SceneSystem : MonoBehaviour
     }
     public void SceneLevel()
     {
-        SceneRandomizer = Random.Range(2, 4);
+        numRandom = Random.Range(0, 6);
+        if (numRandom == 2)
+        {
+            SceneRandomizer = Random.Range(2, 5);
+        }
+        else 
+        { SceneRandomizer = Random.Range(2, 4); }
+
         SceneManager.LoadScene(SceneRandomizer);
     }
     public void Shop()

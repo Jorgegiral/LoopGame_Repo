@@ -112,7 +112,9 @@ public class newEnemy : MonoBehaviour
             {
                 canAttack = false;
                 attackCD = 3.0f;
-                enemyAnim.SetTrigger("Attack");
+                enemyAnim.SetBool("isWalking", false);
+
+                enemyAnim.SetBool("Attack", true);
                 playerHealth.TakeDamage(0.2f);
                 
 
@@ -124,6 +126,8 @@ public class newEnemy : MonoBehaviour
     {
         if (!canAttack)
         {
+            enemyAnim.SetBool("Attack", false);
+
             attackCD -= Time.deltaTime;
             if (attackCD <= 0)
             {

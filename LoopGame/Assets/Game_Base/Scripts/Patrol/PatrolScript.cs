@@ -10,11 +10,15 @@ public class PatrolScript : MonoBehaviour
     [SerializeField] private Transform rightLimit;
     [SerializeField] private GameObject player;
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private Animator anim;
 
-    private bool isFacingRight = true;
-    private bool playerInCollider = false; 
+    private bool isFacingRight = false;
+    private bool playerInCollider = false;
 
-
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
         if (!playerInCollider) 
