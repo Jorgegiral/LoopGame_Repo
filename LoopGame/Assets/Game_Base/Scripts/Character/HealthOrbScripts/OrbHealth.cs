@@ -9,7 +9,7 @@ public class OrbHealth : MonoBehaviour
     public static OrbHealth instance;
     public float startingHealth = 3;
     public float maxHealth;
-    public float currentHealth;
+    public float currentHealth {  get; private set; }
     public  int healingUses;
     private bool PotionReady = true;
 
@@ -21,13 +21,6 @@ public class OrbHealth : MonoBehaviour
         healingUses = 3;
         maxHealth = startingHealth;
         currentHealth = startingHealth;
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(0.05f);
-        }
     }
     #endregion
 
