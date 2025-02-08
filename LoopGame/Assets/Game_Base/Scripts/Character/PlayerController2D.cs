@@ -181,7 +181,7 @@ public class PlayerController2D : MonoBehaviour
 
     public void HandleDash(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && canDash)
         {
             StartCoroutine(Dash());
         }

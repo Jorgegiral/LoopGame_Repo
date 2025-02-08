@@ -22,21 +22,13 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void SceneLevel()
-    {
-        numRandom = Random.Range(0, 6);
-        if (numRandom == 2)
-        {
-            SceneRandomizer = Random.Range(2, 5);
-        }
-        else 
-        { SceneRandomizer = Random.Range(2, 4); }
-
-        SceneManager.LoadScene(SceneRandomizer);
-    }
     public void Shop()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(6);
+    }
+    public void TestLevel()
+    {
+        SceneManager.LoadScene(6);
     }
     #endregion
 }
