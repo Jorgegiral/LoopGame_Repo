@@ -335,15 +335,12 @@ MonoBehaviour:
   leftLimit: {fileID: 0}
   rightLimit: {fileID: 0}
   enemyRb: {fileID: 0}
-  CapsuleRb: {fileID: 1411456917105087255}
   player: {fileID: 0}
-  moveSpeed: 2
+  playerRb: {fileID: 0}
   enemyAnim: {fileID: 0}
-  attackCD: 3
-  attackrange: 3
   hitbox: {fileID: 4466604594299153545}
   playerHealth: {fileID: 0}
-  hitForce: 0
+  attackCD: 3
 --- !u!95 &3009850395426801016
 Animator:
   serializedVersion: 5
@@ -397,7 +394,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.7609689, y: 1.0405723}
+  m_Offset: {x: 1.6610656, y: 1.1804372}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -408,7 +405,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.178188, y: 3.1167204}
+  m_Size: {x: 5.257146, y: 3.3964503}
   m_EdgeRadius: 0
 --- !u!114 &1881987015204228151
 MonoBehaviour:

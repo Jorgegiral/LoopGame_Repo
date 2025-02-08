@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text coinsText;
     public int score = 0;
     public int coins = 0;
-    public float enemydamage = 3f;
-    public float enemyhealth = 10f;
-    public float enemyspeed = 2f;
+
     public enum GameState
     {
         GameRunning,
@@ -55,7 +53,7 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Coins: " + score;
         }
     }
-    void NewGame()
+    public void NewGame()
     {
         score = 0;
         coins = 0;
@@ -69,9 +67,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
-        PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.Save();
+
         UpdateScoreCoinsUI();
     }
+
+
     #endregion
 }

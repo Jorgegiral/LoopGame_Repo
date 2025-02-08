@@ -8,16 +8,15 @@ using UnityEngine.UI;
 public class FloatingHP : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    float maxHealth;
-    float currentHealth;
+    private newEnemy enemyHealth;
+    float maxHealth;   
     float playerDamage;
 
     private void Start()
     {
         playerDamage = PlayerManager.instance.playerDamage;
-        maxHealth = GameManager.instance.enemyhealth;
-        currentHealth = maxHealth;
-        HealthBarUpdater(currentHealth, maxHealth);
+        maxHealth = enemyHealth.enemymaxhealth;
+        HealthBarUpdater(enemyHealth.enemycurrenthealth, maxHealth);
 
     }
     void Update()
@@ -31,10 +30,10 @@ public class FloatingHP : MonoBehaviour
     public void TakeDamage()
     {
         
-        currentHealth -= playerDamage;
-        HealthBarUpdater(currentHealth, maxHealth);
+        enemyHealth.enemycurrenthealth -= playerDamage;
+        HealthBarUpdater(enemyHealth.enemycurrenthealth, maxHealth);
 
-        if (currentHealth < 0)
+        if (enemyHealth.enemycurrenthealth < 0)
         {
             Destroy(gameObject);
         }

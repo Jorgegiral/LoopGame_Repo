@@ -10,52 +10,63 @@ public class newEnemy : MonoBehaviour
     [SerializeField] private Transform rightLimit;
     [SerializeField] private Rigidbody2D enemyRb;
     [SerializeField] private GameObject player;
+    [SerializeField] private Rigidbody2D playerRb;
+    private float hitForce;
+
     [SerializeField] Animator enemyAnim;
 
     private bool isFacingRight = true;
     private bool playerInCollider = false;
     [SerializeField] HitboxTrigger hitbox;
+    [SerializeField] HitboxTriggerPlayer playerhitbox;
     [SerializeField] OrbHealth playerHealth;
     private float distanceToPlayer;
-    private float enemydamage;
-    private float moveSpeed;
-    private bool chasing = false;
-    [Header("Attack Parameters")]
-    private bool canAttack =  true;
-    private bool isAttacking = true;
-    [SerializeField] public float attackCD = 3.0f;
-    public float attackrange;
 
+    [Header("Stats Parameters")]
+    public float enemydamage = 3f;
+    public float enemymaxhealth = 10f;
+    public float enemycurrenthealth;
+    public float enemyspeed = 2f;
+
+    [SerializeField] public float attackCD = 3.0f;
+
+    private float cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
+        ScaleSystem();
+        enemycurrenthealth = enemymaxhealth;    
         enemyAnim = GetComponent<Animator>();
         enemyRb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player"); 
+        playerhitbox = player.GetComponent<HitboxTriggerPlayer>();
         playerHealth = player.GetComponent<OrbHealth>();
-        enemydamage = GameManager.instance.enemydamage;
-        moveSpeed = GameManager.instance.enemyspeed;
+        playerRb = player.GetComponent<Rigidbody2D>();
+
     }
 
     void FixedUpdate()
     {
-
-        if (playerInCollider && distanceToPlayer > attackrange)
+        cooldownTimer += Time.deltaTime;
+        if (hitbox.isPlayerinCollision)
+        {
+            if (cooldownTimer >= attackCD)
+            {
+                cooldownTimer = 0;
+                enemyAnim.SetTrigger("Attack");
+            }
+        }
+        if (playerInCollider )
         {
             ChasePlayer();
         }
-        else if (distanceToPlayer < attackrange && playerInCollider)
-        {
-            StartCoroutine(Attack());
-        }
-        else if(!chasing)
+        else
         {
             Move();
         }
     }
     private void Update()
     {
-        DistanceToPlayer();
         HandleAnimations();
     }
 
@@ -80,7 +91,7 @@ public class newEnemy : MonoBehaviour
 
     void HandleAnimations()
     {
-        enemyAnim.SetBool("Attack", isAttacking);
+       
         enemyAnim.SetBool("isWalking", Mathf.Abs(transform.position.x) > 0.1f);
     }
 
@@ -89,7 +100,6 @@ public class newEnemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInCollider = true;
-            chasing = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -97,14 +107,13 @@ public class newEnemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInCollider = false;
-            chasing = false;
         }
     }
     private void Move()
     {
         Debug.Log("Im moving");
         Vector2 targetPosition = isFacingRight ? rightLimit.position : leftLimit.position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, enemyspeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, targetPosition) < 0.3f)
         {
@@ -119,28 +128,51 @@ public class newEnemy : MonoBehaviour
         {
             FacePlayer();
             float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
-            enemyRb.velocity = new Vector2(direction * moveSpeed, enemyRb.velocity.y);
+            enemyRb.velocity = new Vector2(direction * enemyspeed, enemyRb.velocity.y);
         }
     }
-    private void DistanceToPlayer()
+    public void DamagePlayer()
     {
-        distanceToPlayer = player.transform.position.x - transform.position.x;
-
-    }
-    private IEnumerator Attack()
-    {
-        Debug.Log("Im attacking");
-
-        canAttack = false;
-        isAttacking = true;
         if (hitbox.isPlayerinCollision)
-        {
             playerHealth.TakeDamage(enemydamage);
+            Vector2 hit = (transform.position - player.transform.position).normalized;
+            playerRb.velocity = Vector2.zero;
+            playerRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
+
         }
-        yield return new WaitForSeconds(enemyAnim.GetCurrentAnimatorStateInfo(0).length);
-        isAttacking = false;
-        yield return new WaitForSeconds(attackCD);
-        isAttacking = true;
+    public void TakeDamage()
+    {
+        if (playerhitbox.isEnemyinCollision)
+        {
+            enemycurrenthealth -= PlayerManager.instance.playerDamage;
+        }
     }
 
+    void ScaleSystem()
+    {
+        EnemyDamageScaling();
+        EnemyHealScaling();
+        EnemyAttackCDScaling();
+        EnemySpeedScaling();
+    }
+    public void EnemyDamageScaling()
+    {
+        
+    }
+    public void EnemyHealScaling()
+    {
+
+    }
+    public void EnemyAttackCDScaling()
+    {
+
+    }
+    public void EnemySpeedScaling()
+    {
+
+    }
 }
+
+
+
+

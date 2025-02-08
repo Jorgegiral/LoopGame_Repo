@@ -14,34 +14,31 @@ public class PlayerController2D : MonoBehaviour
     Animator playerAnim; //Ref al animator para gestionar las transiciones de animaci?n
 
     private Vector2 moveInput;
-    public float hitForce;
+    public float hitForce = 2;
     private bool damaged;
     public float damageCooldown = 2f;
     bool isGod = false;
-
-    [Header("Movement Parameters")]
-    public float speed;
+    [SerializeField] HitboxTriggerPlayer hitbox;
 
     [SerializeField] bool isFacingRight;
 
     [Header("Jump Parameters")]
-    public float jumpForce;
+    private float jumpForce;
 
     [SerializeField] bool isGrounded;
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.1f;
     [SerializeField] LayerMask groundLayer;
+    
 
     [Header("Respawn Parameters")]
     public Transform respawnPoint;
-    //public SceneChanger sceneManagerScript;
     public string gameOverScene;
 
     [Header("Dash Parameters")]
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 8f;
-    private float dashingTime = 0.2f;
+
     private float dashingCooldown = 3f;
     [SerializeField] TrailRenderer trail;
 
@@ -50,6 +47,7 @@ public class PlayerController2D : MonoBehaviour
     void Start()
     {
         //Autoreferenciarcomponentes: nombre de variable = GetComponent
+        hitbox = GetComponent<HitboxTriggerPlayer>();
         playerRb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerAnim = GetComponent<Animator>();
@@ -90,7 +88,7 @@ public class PlayerController2D : MonoBehaviour
     {
         if (!damaged)
         {
-            playerRb.velocity = new Vector2(moveInput.x * speed, playerRb.velocity.y);
+            playerRb.velocity = new Vector2(moveInput.x * PlayerManager.instance.speed, playerRb.velocity.y);
         }
     }
 
@@ -100,21 +98,21 @@ public class PlayerController2D : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
-        isFacingRight = !isFacingRight; //nombre de bool = !nombre de bool (cambio al estado contrario)
+        isFacingRight = !isFacingRight; 
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         {
-            if (collision.gameObject.CompareTag("Enemy") && !isGod)
+            if (collision.gameObject.CompareTag("Enemy"))
             {
                 Vector2 hit = (transform.position - collision.transform.position).normalized;
                 playerRb.velocity = Vector2.zero;
                 playerRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
-                StartCoroutine(InvulnerabilityCoroutine());
+                
             }
         }
-    }*/
+    }
 
     void GroundCheck()
     {
@@ -129,17 +127,7 @@ public class PlayerController2D : MonoBehaviour
 
     }
 
-    IEnumerator InvulnerabilityCoroutine()
-    {
-        isGod = true;
-        damaged = true;
 
-        yield return new WaitForSeconds(0.5f); 
-        damaged = false;
-        yield return new WaitForSeconds(damageCooldown - 0.5f);
-
-        isGod = false;
-    }
 
     private IEnumerator Dash()
     {
@@ -148,9 +136,9 @@ public class PlayerController2D : MonoBehaviour
         float originalGravity = playerRb.gravityScale;
         playerRb.gravityScale = 0f;
         float dashDirection = isFacingRight ? -1f : 1f;
-        playerRb.velocity = new Vector2(dashDirection * dashingPower, 0f);
+        playerRb.velocity = new Vector2(dashDirection * PlayerManager.instance.dashingpower, 0f);
         trail.emitting = true;
-        yield return new WaitForSeconds(dashingTime);
+        yield return new WaitForSeconds(PlayerManager.instance.dashingrange);
         trail.emitting = false;
         playerRb.gravityScale = originalGravity;
         isDashing = false;
@@ -170,13 +158,14 @@ public class PlayerController2D : MonoBehaviour
             if (isGrounded)
             {
                 //AudioManager.Instance.PlaySFX(0);
-                playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                playerRb.AddForce(Vector2.up * PlayerManager.instance.jumpForce, ForceMode2D.Impulse);
             }
         }
     }
     public void HandleAttack(InputAction.CallbackContext context)
     {
-       
+        playerAnim.SetTrigger("Player_Attack");
+
     }
 
     public void HandleDash(InputAction.CallbackContext context)

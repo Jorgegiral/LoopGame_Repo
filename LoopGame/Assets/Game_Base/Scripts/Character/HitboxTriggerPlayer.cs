@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitboxTrigger : MonoBehaviour
+public class HitboxTriggerPlayer : MonoBehaviour
 {
-    public bool isPlayerinCollision = false;
+
+    public bool isEnemyinCollision = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Enemy"))
         {
-            isPlayerinCollision = true;
+            isEnemyinCollision = true;
         }
-
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            isPlayerinCollision = false;
-        }
 
+        if (collision.CompareTag("Enemy"))
+        {
+            isEnemyinCollision = true;
+        }
     }
 }
