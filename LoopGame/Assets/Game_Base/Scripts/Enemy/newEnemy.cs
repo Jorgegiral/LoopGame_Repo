@@ -82,7 +82,6 @@ public class newEnemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInCollider = false;
-            Flip();
         }
     }
     private IEnumerator FlipAfterDelay(float delay)
@@ -93,6 +92,7 @@ public class newEnemy : MonoBehaviour
     }
     private void Move()
     {
+        
         Vector2 targetPosition = isFacingRight ? rightLimit.position : leftLimit.position;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
@@ -109,13 +109,14 @@ public class newEnemy : MonoBehaviour
             float distanceToPlayer = player.transform.position.x - transform.position.x;
             float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
             enemyRb.velocity = new Vector2(direction * moveSpeed, enemyRb.velocity.y);
+
             if (hitbox.isPlayerinCollision && canAttack)
             {
                 canAttack = false;
                 attackCD = 3.0f;
-            //    Vector2 hit = (transform.position - player.transform.position).normalized;
-            //    enemyRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
                 playerHealth.TakeDamage(0.2f);
+                //    Vector2 hit = (transform.position - player.transform.position).normalized;
+                //    enemyRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
             }
         }
     }
@@ -127,7 +128,6 @@ public class newEnemy : MonoBehaviour
             if (attackCD <= 0)
             {
                 canAttack = true;
-
             }
         }
     }

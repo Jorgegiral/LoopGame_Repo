@@ -78,7 +78,6 @@ public class PlayerController2D : MonoBehaviour
                 Flip();
             }
         }
-
     }
 
     private void FixedUpdate()
@@ -104,7 +103,7 @@ public class PlayerController2D : MonoBehaviour
         isFacingRight = !isFacingRight; //nombre de bool = !nombre de bool (cambio al estado contrario)
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         {
             if (collision.gameObject.CompareTag("Enemy") && !isGod)
@@ -115,7 +114,7 @@ public class PlayerController2D : MonoBehaviour
                 StartCoroutine(InvulnerabilityCoroutine());
             }
         }
-    }
+    }*/
 
     void GroundCheck()
     {
