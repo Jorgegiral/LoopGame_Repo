@@ -104,29 +104,18 @@ public class PlayerController2D : MonoBehaviour
         isFacingRight = !isFacingRight; //nombre de bool = !nombre de bool (cambio al estado contrario)
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         {
             if (collision.gameObject.CompareTag("Enemy") && !isGod)
             {
-                GameManager.instance.currentLife--;
-
                 Vector2 hit = (transform.position - collision.transform.position).normalized;
                 playerRb.velocity = Vector2.zero;
                 playerRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
-                transform.position = respawnPoint.position;
                 StartCoroutine(InvulnerabilityCoroutine());
-
-                if (GameManager.instance.currentLife <= 0)
-                {
-                    if (!string.IsNullOrEmpty(gameOverScene))
-                    {
-                        SceneManager.LoadScene(gameOverScene);
-                    }
-                }
             }
         }
-    }*/
+    }
 
     void GroundCheck()
     {

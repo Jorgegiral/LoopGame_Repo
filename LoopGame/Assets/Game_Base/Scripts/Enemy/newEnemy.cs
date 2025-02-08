@@ -27,10 +27,7 @@ public class newEnemy : MonoBehaviour
         enemyAnim = GetComponent<Animator>();
         enemyRb = GetComponent<Rigidbody2D>();
     }
-    private void Start()
-    {
-        enemyAnim.Play("EnemyIdle");
-    }
+
     void FixedUpdate()
     {
         if (playerInCollider)
@@ -45,7 +42,7 @@ public class newEnemy : MonoBehaviour
     private void Update()
     {
         AttackCD();
-
+        HandleAnimations();
     }
 
     void Flip()
@@ -67,6 +64,12 @@ public class newEnemy : MonoBehaviour
         }
     }
 
+    void HandleAnimations()
+    {
+        enemyAnim.SetBool("Attack", !canAttack);
+        enemyAnim.SetBool("isWalking", Mathf.Abs(transform.position.x) > 0.1f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -85,7 +88,6 @@ public class newEnemy : MonoBehaviour
     private IEnumerator FlipAfterDelay(float delay)
     {
         Flip();
-        enemyAnim.SetBool("isWalking", false); 
         yield return new WaitForSeconds(delay); 
         
     }
@@ -104,7 +106,6 @@ public class newEnemy : MonoBehaviour
         if (playerInCollider)
         {
             FacePlayer();
-            enemyAnim.SetBool("isWalking", true);
             float distanceToPlayer = player.transform.position.x - transform.position.x;
             float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
             enemyRb.velocity = new Vector2(direction * moveSpeed, enemyRb.velocity.y);
@@ -112,23 +113,16 @@ public class newEnemy : MonoBehaviour
             {
                 canAttack = false;
                 attackCD = 3.0f;
-                enemyAnim.SetBool("isWalking", false);
             //    Vector2 hit = (transform.position - player.transform.position).normalized;
             //    enemyRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
-                enemyAnim.SetBool("Attack", true);
                 playerHealth.TakeDamage(0.2f);
-                
-
             }
-
         }
     }
     public void AttackCD()
     {
         if (!canAttack)
         {
-            enemyAnim.SetBool("Attack", false);
-
             attackCD -= Time.deltaTime;
             if (attackCD <= 0)
             {
