@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text coinsText;
-    public float currentHealth;
-    public float playerMaxHealth = 3;
-    public int potions = 3;
     public int score = 0;
     public int coins = 0;
+    public float enemydamage = 3f;
+    public float enemyhealth = 10f;
+    public float enemyspeed = 2f;
     public enum GameState
     {
         GameRunning,
@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        currentHealth = playerMaxHealth;
 
 }
     void Start()
@@ -58,7 +57,6 @@ public class GameManager : MonoBehaviour
     }
     void NewGame()
     {
-        potions = 3;
         score = 0;
         coins = 0;
     }

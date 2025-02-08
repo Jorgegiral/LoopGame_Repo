@@ -24,7 +24,7 @@ public class Fountain : MonoBehaviour
             if (Input.GetKeyDown("F") && GameManager.instance.coins >= potionCost)
             {
                 GameManager.instance.coins -= potionCost;
-                GameManager.instance.potions += 1;
+                PlayerManager.instance.potions += 1;
             }   
         }
     }

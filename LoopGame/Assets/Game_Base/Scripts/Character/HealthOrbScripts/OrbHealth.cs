@@ -18,24 +18,19 @@ public class OrbHealth : MonoBehaviour
     #region UnityFunctions
     private void Awake()
     {
-        startingHealth = GameManager.instance.playerMaxHealth;
-        currentHealth = GameManager.instance.currentHealth;
+        startingHealth = PlayerManager.instance.playerMaxHealth;
+        currentHealth = PlayerManager.instance.currentHealth;
     }
     #endregion
 
     #region Functions
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(0.2f);
-        }
     }
     public void TakeDamage(float damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
         currentHealth -= damage;
-        GameManager.instance.currentHealth = currentHealth;
+        PlayerManager.instance.currentHealth = currentHealth;
 
         if (currentHealth < 0)
         {
@@ -44,14 +39,12 @@ public class OrbHealth : MonoBehaviour
     }
     public void HealDamage(float damage)
     {
-        
-        currentHealth = Mathf.Clamp(currentHealth + damage, 0, startingHealth);
-        currentHealth += damage;
-        GameManager.instance.currentHealth = currentHealth;
+                currentHealth += damage;
+        PlayerManager.instance.currentHealth = currentHealth;
         if (currentHealth > startingHealth)
         {
             currentHealth = startingHealth;
-            GameManager.instance.currentHealth = currentHealth;
+            PlayerManager.instance.currentHealth = currentHealth;
 
         }
 
@@ -66,7 +59,7 @@ public class OrbHealth : MonoBehaviour
 
             if (PotionReady) 
             {
-                if (GameManager.instance.potions <= 0) 
+                if (PlayerManager.instance.potions <= 0) 
                 {
                     Debug.Log("No potions left");
                 }
@@ -74,7 +67,7 @@ public class OrbHealth : MonoBehaviour
                 {
                     
                     HealDamage(0.5f);
-                    GameManager.instance.potions -= 1; 
+                    PlayerManager.instance.potions -= 1; 
                     PotionReady = false; 
 
                     
