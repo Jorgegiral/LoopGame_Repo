@@ -62,7 +62,6 @@ public class newEnemy : MonoBehaviour
         {
             if (playerInCollider)
             {
-                FacePlayer();
                 ChasePlayer();
             }
             else
@@ -126,7 +125,6 @@ public class newEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FacePlayer();
             playerInCollider = false;
         }
     }
