@@ -28,7 +28,6 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     [SerializeField] private Slider cooldownAttackSlider;
-    [SerializeField] private float attackCooldown = 3f;  
     private float cooldownTimer = 0f;                      
     private bool canAttack = true;
     [Header("Respawn Parameters")]
@@ -51,20 +50,24 @@ public class PlayerController2D : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         cooldownAttackSlider = GameObject.Find("AttackCD").GetComponent<Slider>();
         isFacingRight = true;
+        UpdateCooldownUI();
+
     }
 
     void Update()
     {
         HandleAnimations();
         GroundCheck();
+        
 
         if (isDashing) { return; }
         if (!canAttack)
         {
-            cooldownTimer += Time.deltaTime;  
-            UpdateCooldownUI();               
+            cooldownTimer += Time.deltaTime;
+            UpdateCooldownUI();
 
-            if (cooldownTimer >= attackCooldown)
+
+            if (cooldownTimer >= PlayerManager.instance.attackColdown)
             {
                 canAttack = true;
                 cooldownTimer = 0f;  
@@ -149,7 +152,7 @@ public class PlayerController2D : MonoBehaviour
     }
     private void UpdateCooldownUI()
     {
-        cooldownAttackSlider.value = cooldownTimer / attackCooldown; ; // Actualiza el valor del slider (proporción entre el tiempo pasado y el cooldown total)
+        cooldownAttackSlider.value = cooldownTimer / PlayerManager.instance.attackColdown; ; 
     }
     #region Input Events
 
