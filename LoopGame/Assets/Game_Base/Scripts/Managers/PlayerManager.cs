@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public float currentHealth;
     public float playerMaxHealth = 10f;
     public int potions = 3;
+    public  TMP_Text potionText;
     public float playerDamage = 5f;
     public float attackColdown = 1f;
     public float jumpForce = 7f;
@@ -33,12 +35,22 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
         }
         currentHealth = playerMaxHealth;
+        
 
     }
-    // Update is called once per frame
-    void Update()
+    public void UpdatePotionUI()
     {
-        
+        if (potionText != null)
+        {
+            
+            potionText.text += potions;
+        }
+    }
+    public void AddPotions(int points)
+    {
+        potionText.text = "" + potions;
+
+        UpdatePotionUI();
     }
     public void NewGame()
     {

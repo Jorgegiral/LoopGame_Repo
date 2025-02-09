@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Coins
   - Score
+  - Potion
+  - GameManager
   layers:
   - Default
   - TransparentFX

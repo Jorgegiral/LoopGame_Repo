@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.7812803, y: 0.07793525}
+  m_Offset: {x: 0.78660256, y: 0.19768617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75841475, y: 1.1880875}
+  m_Size: {x: 0.6839031, y: 0.8102065}
   m_EdgeRadius: 0
 --- !u!114 &4466604594299153545
 MonoBehaviour:
@@ -339,7 +339,7 @@ MonoBehaviour:
   playerhealth: {fileID: 0}
   enemyAnim: {fileID: 0}
   hitbox: {fileID: 4466604594299153545}
-  enemyHp: {fileID: 0}
+  enemyHp: {fileID: 1881987015204228151}
   idleDuration: 0
   enemydamage: 3
   enemyspeed: 2
@@ -397,7 +397,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.3192668, y: 1.9516587}
+  m_Offset: {x: 2.8721364, y: 1.9516587}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -408,7 +408,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.0384636, y: 4.0733347}
+  m_Size: {x: 5.2406507, y: 4.0733347}
   m_EdgeRadius: 0
 --- !u!114 &1881987015204228151
 MonoBehaviour:
@@ -425,6 +425,8 @@ MonoBehaviour:
   slider: {fileID: 1630095743824252263}
   currentHealth: 0
   maxHealth: 10
+  coinPrefab: {fileID: 7941525286188136332, guid: 3df22840d1ee62342907d3893c2b1e09, type: 3}
+  enemytransform: {fileID: 4637269621007884549}
 --- !u!1 &5192138752198974599
 GameObject:
   m_ObjectHideFlags: 0

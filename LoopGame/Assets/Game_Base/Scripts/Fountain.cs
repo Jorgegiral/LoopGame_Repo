@@ -6,17 +6,12 @@ using UnityEngine.UIElements;
 
 public class Fountain : MonoBehaviour
 {
-    private int score;
     [SerializeField] GameObject tutorial;
     [SerializeField] GameObject potionShop;
     private bool isPlayerinCollider;
     private int potionCost  = 15;
 
-    private void Awake()
-    {
 
-        
-    }
     private void Update()
     {
         if (isPlayerinCollider)
@@ -24,17 +19,18 @@ public class Fountain : MonoBehaviour
             if (Input.GetKeyDown("F") && GameManager.instance.coins >= potionCost)
             {
                 GameManager.instance.AddCoins(-15);
-                PlayerManager.instance.potions += 1;
-            }   
+                PlayerManager.instance.AddPotions(1);
+
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && score == 0)
+        if (collision.CompareTag("Player") && GameManager.instance.score == 0)
         {
             tutorial.SetActive(true);
         }
-        else if (collision.CompareTag("Player") && score > 0) 
+        else if (collision.CompareTag("Player") && GameManager.instance.score > 0) 
         {
             potionShop.SetActive(true);
             isPlayerinCollider = true;
@@ -42,11 +38,11 @@ public class Fountain : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && score == 0)
+        if (collision.CompareTag("Player") && GameManager.instance.score == 0)
         {
             tutorial.SetActive(false);
         }
-        else if (collision.CompareTag("Player") && score > 0)
+        else if (collision.CompareTag("Player") && GameManager.instance.score > 0)
         {
             potionShop.SetActive(false);
             isPlayerinCollider = false;

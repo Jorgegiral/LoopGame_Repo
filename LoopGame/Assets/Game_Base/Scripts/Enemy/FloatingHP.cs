@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,10 +9,13 @@ public class FloatingHP : MonoBehaviour
 {
     [SerializeField] Slider slider;
     public float  currentHealth;
-    public float  maxHealth = 10;   
-
+    public float  maxHealth = 10f ;
+    private newEnemy enemyhp;
+    public GameObject coinPrefab;
+    public Transform enemytransform;
     private void Start()
     {
+        EnemyHealScaling();
         currentHealth = maxHealth;
         HealthBarUpdater(currentHealth, maxHealth);
 
@@ -31,9 +34,19 @@ public class FloatingHP : MonoBehaviour
         currentHealth -= damage;
         HealthBarUpdater(currentHealth, maxHealth);
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
+            DropCoin(); 
             Destroy(gameObject);
         }
+    }
+    public void EnemyHealScaling()
+    {
+        maxHealth = maxHealth + (GameManager.instance.score / 9);
+    }
+    private void DropCoin()
+    {
+        Vector3 spawnPosition = enemytransform.position + new Vector3(0, 1f, 0);
+        Instantiate(coinPrefab, spawnPosition, Quaternion.identity);   
     }
 }

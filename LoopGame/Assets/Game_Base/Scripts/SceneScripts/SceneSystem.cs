@@ -30,5 +30,9 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(6);
     }
+    public void BossLevel()
+    {
+        SceneManager.LoadScene(4);
+    }
     #endregion
 }

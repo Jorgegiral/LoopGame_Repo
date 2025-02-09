@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -8,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
-    [SerializeField] TMP_Text scoreText;
-    [SerializeField] TMP_Text coinsText;
+    public TMP_Text scoreText;
+    public TMP_Text coinsText;
     public int score = 0;
     public int coins = 0;
 
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
         else
         {
             Destroy(gameObject);
         }
 
-}
+    }
     void Start()
     {
         UpdateScoreCoinsUI();
@@ -46,11 +48,15 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score;
+            Debug.Log("UpdateScore");
+
+            scoreText.text = "SCORE: " + score;
         }
         if (coinsText != null)
         {
-            scoreText.text = "Coins: " + score;
+            Debug.Log("UpdateGold");
+
+            coinsText.text = "GOLD: " + coins;
         }
     }
     public void NewGame()
@@ -60,7 +66,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddCoins(int points)
     {
-        score += points;
+        coins += points;
 
         UpdateScoreCoinsUI();
     }

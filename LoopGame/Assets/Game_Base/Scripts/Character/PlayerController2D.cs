@@ -28,6 +28,8 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     [SerializeField] private Slider cooldownAttackSlider;
+    [SerializeField] private Slider cooldownDashSlider;
+    private float cooldowndashTimer = 0f;
     private float cooldownTimer = 0f;                      
     private bool canAttack = true;
     [Header("Respawn Parameters")]
@@ -49,8 +51,10 @@ public class PlayerController2D : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerAnim = GetComponent<Animator>();
         cooldownAttackSlider = GameObject.Find("AttackCD").GetComponent<Slider>();
+        cooldownDashSlider = GameObject.Find("DashCD").GetComponent<Slider>();
+
         isFacingRight = true;
-        UpdateCooldownUI();
+
 
     }
 
@@ -61,10 +65,11 @@ public class PlayerController2D : MonoBehaviour
         
 
         if (isDashing) { return; }
+       
         if (!canAttack)
         {
             cooldownTimer += Time.deltaTime;
-            UpdateCooldownUI();
+            UpdateAttackCooldownUI();
 
 
             if (cooldownTimer >= PlayerManager.instance.attackColdown)
@@ -133,11 +138,17 @@ public class PlayerController2D : MonoBehaviour
         float dashDirection = isFacingRight ? -1f : 1f;
         playerRb.velocity = new Vector2(dashDirection * PlayerManager.instance.dashingpower, 0f);
         trail.emitting = true;
+        cooldowndashTimer = 0f;
         yield return new WaitForSeconds(PlayerManager.instance.dashingrange);
         trail.emitting = false;
         playerRb.gravityScale = originalGravity;
         isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
+        while (cooldowndashTimer < dashingCooldown)
+        {
+            cooldowndashTimer += Time.deltaTime;
+            UpdateDashCooldownUI(); 
+            yield return null;  
+        }
         canDash = true;
     }
     private void Attack()
@@ -150,9 +161,16 @@ public class PlayerController2D : MonoBehaviour
     {
         hitbox.GetComponent<DealDamage>().ActivateHitbox();
     }
-    private void UpdateCooldownUI()
+    private void UpdateAttackCooldownUI()
     {
-        cooldownAttackSlider.value = cooldownTimer / PlayerManager.instance.attackColdown; ; 
+        cooldownAttackSlider.value = cooldownTimer / PlayerManager.instance.attackColdown;
+
+    }
+    private void UpdateDashCooldownUI()
+    {
+
+        cooldownDashSlider.value = cooldowndashTimer / dashingCooldown;
+
     }
     #region Input Events
 

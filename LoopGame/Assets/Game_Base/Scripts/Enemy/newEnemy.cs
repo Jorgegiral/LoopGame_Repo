@@ -29,7 +29,6 @@ public class newEnemy : MonoBehaviour
     public float enemydamage = 3f;
     public float enemyspeed = 2f;
     private bool isAttacking = false;
-
     [SerializeField] public float attackCD = 3.0f;
 
     private float cooldownTimer = Mathf.Infinity;
@@ -166,31 +165,29 @@ public class newEnemy : MonoBehaviour
         gameObject.transform.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,
             initScale.y, initScale.z);
 
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x + Time.deltaTime * _direction * enemyspeed,
-            gameObject.transform.position.y, gameObject.transform.position.z);
+        gameObject.transform.position = new Vector3(
+            gameObject.transform.position.x + Time.deltaTime * _direction * enemyspeed,
+            gameObject.transform.position.y,
+            gameObject.transform.position.z
+        );
     }
     void ScaleSystem()
     {
         EnemyDamageScaling();
-        EnemyHealScaling();
         EnemyAttackCDScaling();
         EnemySpeedScaling();
     }
     public void EnemyDamageScaling()
     {
-        
-    }
-    public void EnemyHealScaling()
-    {
-
+        enemydamage = enemydamage + (GameManager.instance.score/10);
     }
     public void EnemyAttackCDScaling()
     {
-
+        attackCD = attackCD - (GameManager.instance.score/100);
     }
     public void EnemySpeedScaling()
     {
-
+        enemyspeed = enemyspeed + (GameManager.instance.score / 50);
     }
 }
 

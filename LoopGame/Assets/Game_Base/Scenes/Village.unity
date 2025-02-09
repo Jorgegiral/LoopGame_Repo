@@ -2144,6 +2144,14 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1550203146}
+    - target: {fileID: 3468346282473286943, guid: 28f32abbdb4c6224cbe0fea1ad40973f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468346282473286943, guid: 28f32abbdb4c6224cbe0fea1ad40973f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3642815227924098394, guid: 28f32abbdb4c6224cbe0fea1ad40973f, type: 3}
       propertyPath: m_Pivot.x
       value: 0

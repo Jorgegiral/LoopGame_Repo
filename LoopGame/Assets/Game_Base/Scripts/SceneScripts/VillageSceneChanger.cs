@@ -19,13 +19,25 @@ public class SceneObject : MonoBehaviour
     }
     public void SceneLevel()
     {
-        numRandom = Random.Range(0, 6);
-        if (numRandom == 2)
+        if ( PlayerManager.instance.potions == 3)
         {
-            SceneRandomizer = Random.Range(2, 5);
+            numRandom = Random.Range(0, 7);
+            if (numRandom == 2)
+            {
+                SceneRandomizer = Random.Range(3, 5);
+            }
+            else { SceneRandomizer = 3; }
         }
         else
-        { SceneRandomizer = Random.Range(2, 4); }
+        {
+            numRandom = Random.Range(0, 6);
+            if (numRandom == 2)
+            {
+                SceneRandomizer = Random.Range(2, 5);
+            }
+
+            { SceneRandomizer = Random.Range(2, 4); }
+        }
 
         SceneManager.LoadScene(SceneRandomizer);
     }
