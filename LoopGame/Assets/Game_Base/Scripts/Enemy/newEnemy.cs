@@ -10,23 +10,25 @@ public class newEnemy : MonoBehaviour
     [SerializeField] private Transform rightLimit;
     [SerializeField] private Rigidbody2D enemyRb;
     [SerializeField] private GameObject player;
-    [SerializeField] private Rigidbody2D playerRb;
-    private float hitForce;
-
+    [SerializeField] private OrbHealth playerhealth;
     [SerializeField] Animator enemyAnim;
-
+    private float hitForce;
     private bool isFacingRight = true;
     private bool playerInCollider = false;
     [SerializeField] HitboxTrigger hitbox;
-    [SerializeField] HitboxTriggerPlayer playerhitbox;
-    [SerializeField] OrbHealth playerHealth;
+    [SerializeField] FloatingHP enemyHp;
     private float distanceToPlayer;
+    private Vector3 initScale;
+
+    [Header("Idle Behaviour")]
+    [SerializeField] private float idleDuration;
+    private float idleTimer;
+    private bool movingLeft;
 
     [Header("Stats Parameters")]
     public float enemydamage = 3f;
-    public float enemymaxhealth = 10f;
-    public float enemycurrenthealth;
     public float enemyspeed = 2f;
+    private bool isAttacking = false;
 
     [SerializeField] public float attackCD = 3.0f;
 
@@ -35,13 +37,11 @@ public class newEnemy : MonoBehaviour
     private void Awake()
     {
         ScaleSystem();
-        enemycurrenthealth = enemymaxhealth;    
+        initScale = gameObject.transform.localScale;
         enemyAnim = GetComponent<Animator>();
         enemyRb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player"); 
-        playerhitbox = player.GetComponent<HitboxTriggerPlayer>();
-        playerHealth = player.GetComponent<OrbHealth>();
-        playerRb = player.GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerhealth = player.GetComponent<OrbHealth>();
 
     }
 
@@ -53,20 +53,40 @@ public class newEnemy : MonoBehaviour
             if (cooldownTimer >= attackCD)
             {
                 cooldownTimer = 0;
+                isAttacking = true;  
                 enemyAnim.SetTrigger("Attack");
+                StartCoroutine(ResetAttack());
             }
         }
-        if (playerInCollider )
+        if (!isAttacking) 
         {
-            ChasePlayer();
-        }
-        else
-        {
-            Move();
+            if (playerInCollider)
+            {
+                FacePlayer();
+                ChasePlayer();
+            }
+            else
+            {
+                if (movingLeft)
+                {
+                    if (gameObject.transform.position.x >= leftLimit.position.x)
+                        MoveInDirection(-1);
+                    else
+                        DirectionChange();
+                }
+                else
+                {
+                    if (gameObject.transform.position.x <= rightLimit.position.x)
+                        MoveInDirection(1);
+                    else
+                        DirectionChange();
+                }
+            }
         }
     }
     private void Update()
     {
+        
         HandleAnimations();
     }
 
@@ -83,7 +103,7 @@ public class newEnemy : MonoBehaviour
         float directionToPlayer = player.transform.position.x - transform.position.x;
         bool playerIsRight = directionToPlayer > 0;
 
-        if (playerIsRight != isFacingRight)
+        if ((playerIsRight && !isFacingRight) || (!playerIsRight && isFacingRight))
         {
             Flip();
         }
@@ -106,48 +126,51 @@ public class newEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            FacePlayer();
             playerInCollider = false;
         }
     }
-    private void Move()
-    {
-        Debug.Log("Im moving");
-        Vector2 targetPosition = isFacingRight ? rightLimit.position : leftLimit.position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, enemyspeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, targetPosition) < 0.3f)
-        {
-            Flip();
-        }
-    }
     private void ChasePlayer()
     {
-        Debug.Log("Im chasing");
-
-        if (playerInCollider)
-        {
-            FacePlayer();
-            float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
-            enemyRb.velocity = new Vector2(direction * enemyspeed, enemyRb.velocity.y);
-        }
+        FacePlayer();
+        float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
+        enemyRb.velocity = new Vector2(direction * enemyspeed, enemyRb.velocity.y);
+    }
+    private IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(enemyAnim.GetCurrentAnimatorStateInfo(0).length);
+        isAttacking = false; 
     }
     public void DamagePlayer()
     {
         if (hitbox.isPlayerinCollision)
-            playerHealth.TakeDamage(enemydamage);
-            Vector2 hit = (transform.position - player.transform.position).normalized;
-            playerRb.velocity = Vector2.zero;
-            playerRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
-
-        }
-    public void TakeDamage()
-    {
-        if (playerhitbox.isEnemyinCollision)
         {
-            enemycurrenthealth -= PlayerManager.instance.playerDamage;
+            playerhealth.TakeDamage(enemydamage);
+
         }
     }
 
+
+
+    private void DirectionChange()
+    {
+        idleTimer += Time.deltaTime;
+
+        if (idleTimer > idleDuration)
+            movingLeft = !movingLeft;
+    }
+
+    private void MoveInDirection(int _direction)
+    {
+        idleTimer = 0;
+
+        gameObject.transform.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,
+            initScale.y, initScale.z);
+
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x + Time.deltaTime * _direction * enemyspeed,
+            gameObject.transform.position.y, gameObject.transform.position.z);
+    }
     void ScaleSystem()
     {
         EnemyDamageScaling();

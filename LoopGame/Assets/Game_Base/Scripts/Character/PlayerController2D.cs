@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.UI;
-using UnityEngine.SceneManagement; //Librería para que funcione el New Input System
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; //Librería para que funcione el New Input System
 
 public class PlayerController2D : MonoBehaviour
 {
@@ -15,13 +16,9 @@ public class PlayerController2D : MonoBehaviour
 
     private Vector2 moveInput;
     public float hitForce = 2;
-    private bool damaged;
-    public float damageCooldown = 2f;
-    bool isGod = false;
-    [SerializeField] HitboxTriggerPlayer hitbox;
 
     [SerializeField] bool isFacingRight;
-
+    [SerializeField] GameObject hitbox;
     [Header("Jump Parameters")]
     private float jumpForce;
 
@@ -29,8 +26,11 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.1f;
     [SerializeField] LayerMask groundLayer;
-    
 
+    [SerializeField] private Slider cooldownAttackSlider;
+    [SerializeField] private float attackCooldown = 3f;  
+    private float cooldownTimer = 0f;                      
+    private bool canAttack = true;
     [Header("Respawn Parameters")]
     public Transform respawnPoint;
     public string gameOverScene;
@@ -46,11 +46,10 @@ public class PlayerController2D : MonoBehaviour
 
     void Start()
     {
-        //Autoreferenciarcomponentes: nombre de variable = GetComponent
-        hitbox = GetComponent<HitboxTriggerPlayer>();
         playerRb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerAnim = GetComponent<Animator>();
+        cooldownAttackSlider = GameObject.Find("AttackCD").GetComponent<Slider>();
         isFacingRight = true;
     }
 
@@ -60,8 +59,17 @@ public class PlayerController2D : MonoBehaviour
         GroundCheck();
 
         if (isDashing) { return; }
+        if (!canAttack)
+        {
+            cooldownTimer += Time.deltaTime;  
+            UpdateCooldownUI();               
 
-        //Flip
+            if (cooldownTimer >= attackCooldown)
+            {
+                canAttack = true;
+                cooldownTimer = 0f;  
+            }
+        }
         if (moveInput.x > 0)
         {
             if (isFacingRight)
@@ -86,10 +94,9 @@ public class PlayerController2D : MonoBehaviour
     }
     void Movement()
     {
-        if (!damaged)
-        {
+
             playerRb.velocity = new Vector2(moveInput.x * PlayerManager.instance.speed, playerRb.velocity.y);
-        }
+        
     }
 
 
@@ -99,19 +106,6 @@ public class PlayerController2D : MonoBehaviour
         currentScale.x *= -1;
         transform.localScale = currentScale;
         isFacingRight = !isFacingRight; 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                Vector2 hit = (transform.position - collision.transform.position).normalized;
-                playerRb.velocity = Vector2.zero;
-                playerRb.AddForce(new Vector2(hit.x * hitForce, Mathf.Abs(hitForce * 0.5f)), ForceMode2D.Impulse);
-                
-            }
-        }
     }
 
     void GroundCheck()
@@ -126,8 +120,6 @@ public class PlayerController2D : MonoBehaviour
         playerAnim.SetBool("isRunning", Mathf.Abs(moveInput.x) > 0.1f);
 
     }
-
-
 
     private IEnumerator Dash()
     {
@@ -144,6 +136,20 @@ public class PlayerController2D : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+    private void Attack()
+    {
+        canAttack = false;
+        playerAnim.SetTrigger("Attack");
+        cooldownTimer = 0f;
+    }
+    public void DealDamage()
+    {
+        hitbox.GetComponent<DealDamage>().ActivateHitbox();
+    }
+    private void UpdateCooldownUI()
+    {
+        cooldownAttackSlider.value = cooldownTimer / attackCooldown; ; // Actualiza el valor del slider (proporción entre el tiempo pasado y el cooldown total)
     }
     #region Input Events
 
@@ -164,8 +170,10 @@ public class PlayerController2D : MonoBehaviour
     }
     public void HandleAttack(InputAction.CallbackContext context)
     {
-        playerAnim.SetTrigger("Player_Attack");
-
+        if (context.started && canAttack)
+        {
+           Attack();
+        }
     }
 
     public void HandleDash(InputAction.CallbackContext context)
@@ -177,7 +185,7 @@ public class PlayerController2D : MonoBehaviour
     }
 
     #endregion
-
+    
 
 
 }

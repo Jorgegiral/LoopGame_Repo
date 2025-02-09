@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public float playerMaxHealth = 10f;
     public int potions = 3;
     public float playerDamage = 5f;
+    public float attackColdown = 1f;
     public float jumpForce = 7f;
     public float speed = 4f;
     public float dashingpower = 8f;
