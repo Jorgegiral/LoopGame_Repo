@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D enemyRb;
+    [SerializeField] private Rigidbody2D bossRb;
     [SerializeField] private GameObject player;
     [SerializeField] private OrbHealth playerhealth;
     [SerializeField] Animator bossAnim;
     private bool isFacingRight = true;
     [SerializeField] BossHP bossHp;
     private bool playerInCollider = false;
+    [SerializeField] GameObject spikeAbility;
+    [SerializeField] GameObject meteorAbility;
+    [SerializeField] GameObject fireballAbility;
 
     [Header("Stats Parameters")]
     public float bossdamage = 2f;
@@ -24,10 +27,12 @@ public class BossBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+        bossAnim = GetComponent<Animator>();
+        bossRb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerhealth = player.GetComponent<OrbHealth>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         FacePlayer();

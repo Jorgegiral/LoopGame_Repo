@@ -8,11 +8,11 @@ public class BossHP : MonoBehaviour
     [SerializeField] Slider slider;
     public float currentHealth;
     public float maxHealth = 50f;
-    private newEnemy enemyhp;
     public GameObject coinPrefab;
     public Transform bosstransform;
     private void Start()
     {
+        slider = GetComponent<Slider>();
         BossHealScaling();
         currentHealth = maxHealth;
         HealthBarUpdater(currentHealth, maxHealth); 

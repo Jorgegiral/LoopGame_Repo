@@ -10,11 +10,11 @@ public class FloatingHP : MonoBehaviour
     [SerializeField] Slider slider;
     public float  currentHealth;
     public float  maxHealth = 10f ;
-    private newEnemy enemyhp;
     public GameObject coinPrefab;
     public Transform enemytransform;
     private void Start()
     {
+
         EnemyHealScaling();
         currentHealth = maxHealth;
         HealthBarUpdater(currentHealth, maxHealth);

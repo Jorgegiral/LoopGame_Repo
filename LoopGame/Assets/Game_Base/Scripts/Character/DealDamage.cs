@@ -14,6 +14,10 @@ public class DealDamage : MonoBehaviour
         {
             collision.gameObject.GetComponent<FloatingHP>().TakeDamage(PlayerManager.instance.playerDamage);
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
+        }
         gameObject.SetActive(false);
     }
     public void ActivateHitbox()

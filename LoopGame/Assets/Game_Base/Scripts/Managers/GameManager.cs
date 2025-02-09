@@ -48,13 +48,11 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            Debug.Log("UpdateScore");
 
             scoreText.text = "SCORE: " + score;
         }
         if (coinsText != null)
         {
-            Debug.Log("UpdateGold");
 
             coinsText.text = "GOLD: " + coins;
         }

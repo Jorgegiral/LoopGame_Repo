@@ -9,6 +9,7 @@ TagManager:
   - Score
   - Potion
   - GameManager
+  - Boss
   layers:
   - Default
   - TransparentFX

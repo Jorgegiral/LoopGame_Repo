@@ -16,7 +16,7 @@ public class Fountain : MonoBehaviour
     {
         if (isPlayerinCollider)
         {
-            if (Input.GetKeyDown("F") && GameManager.instance.coins >= potionCost)
+            if (Input.GetKeyDown(KeyCode.F) && GameManager.instance.coins >= potionCost)
             {
                 GameManager.instance.AddCoins(-15);
                 PlayerManager.instance.AddPotions(1);
