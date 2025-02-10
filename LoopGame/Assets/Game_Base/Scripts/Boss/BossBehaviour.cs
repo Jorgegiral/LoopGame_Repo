@@ -20,7 +20,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] GameObject fireballParent;
     [SerializeField] GameObject meteorParent;
     [SerializeField] GameObject spikeParent;
-    public float shootingRange;
+    public float shootingRange = 20f;
     private float nextFireball;
     private float nextMeteor;
     private float nextSpike;
@@ -52,7 +52,7 @@ public class BossBehaviour : MonoBehaviour
     void Update()
     {
         FacePlayer();
-        float distanceFromPlayer = Vector2.Distance(player.transform.position, player.transform.position);
+        float distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
         if (distanceFromPlayer <= shootingRange && nextFireball < Time.time)
         {
             bossAnim.SetTrigger("Attack_Ranged");
@@ -103,6 +103,11 @@ public class BossBehaviour : MonoBehaviour
         {
             playerhealth.TakeDamage(bossdamage / 2f);
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
     #region ScalingStats
     void ScaleSystem()

@@ -36,6 +36,7 @@ public class FloatingHP : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GameManager.instance.enemycount -= 1;
             DropCoin(); 
             Destroy(gameObject);
         }

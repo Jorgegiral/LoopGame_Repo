@@ -5,15 +5,16 @@ using UnityEngine;
 public class EnemyFollowPlayer : MonoBehaviour
 {
     public Transform player;
-    public float shootingRange;
+    public float shootingRange = 7f;
     public GameObject bullet;
     public GameObject bulletParent;
-    public float attackCD = 3f;
     private float nextAttack;
     [SerializeField] Animator rangedanim;
     private bool isFacingRight = true;
+    [SerializeField]  float attackCD = 3.0f;
     void Start()
     {
+        GameManager.instance.enemycount += 1;
         rangedanim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
@@ -21,7 +22,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     void Update()
     {
         FacePlayer();
-        float distanceFromPlayer = Vector2.Distance(player.position, player.transform.position);
+        float distanceFromPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceFromPlayer <= shootingRange && nextAttack  <Time.time)
         {
             rangedanim.SetTrigger("Attack_Ranged");

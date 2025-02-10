@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int coins = 0;
     public bool spawnRight;
     public bool levelCompleted = false;
+    public int enemycount;
     public enum GameState
     {
         GameRunning,

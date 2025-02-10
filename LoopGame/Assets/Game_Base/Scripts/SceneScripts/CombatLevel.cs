@@ -5,19 +5,29 @@ using UnityEngine;
 public class CombatLevel : MonoBehaviour
 {
     private Transform player;
-    public Transform rightSpawn;
-    public Transform leftSpawn;
+    public GameObject rightSpawn;
+    public GameObject leftSpawn;
+
 
     private void Awake()
     {
+        GameManager.instance.levelCompleted = false;
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)
         {
-            player.transform.position = rightSpawn.position;
+            player.transform.position = rightSpawn.transform.position;
         }
         else
         {
-            player.transform.position = leftSpawn.position;
+            player.transform.position = leftSpawn.transform.position;
         }
+    }
+    private void Update()
+    {
+        if (GameManager.instance.enemycount <= 0)
+        {
+            GameManager.instance.levelCompleted = true;
+        }
+
     }
 }
