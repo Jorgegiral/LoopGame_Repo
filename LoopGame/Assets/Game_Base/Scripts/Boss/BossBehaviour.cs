@@ -62,6 +62,14 @@ public class BossBehaviour : MonoBehaviour
             playerInCollider = true;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
+            playerhealth.TakeDamage(bossdamage / 2f, pushDirection);
+        }
+    }
     #region ScalingStats
     void ScaleSystem()
     {

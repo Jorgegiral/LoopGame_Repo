@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +12,9 @@ public class BossHP : MonoBehaviour
     public float maxHealth = 50f;
     public GameObject coinPrefab;
     public Transform bosstransform;
+    public TMP_Text bossHpText;
     private void Start()
     {
-        slider = GetComponent<Slider>();
         BossHealScaling();
         currentHealth = maxHealth;
         HealthBarUpdater(currentHealth, maxHealth); 
@@ -22,12 +24,16 @@ public class BossHP : MonoBehaviour
     {
         slider.value = current / max;
     }
+    public void TextUpdater()
+    {
+        bossHpText.text = currentHealth +" / "+maxHealth;
+    }
     public void TakeDamage(float damage)
     {
 
         currentHealth -= damage;
         HealthBarUpdater(currentHealth, maxHealth);
-
+        TextUpdater();
         if (currentHealth <= 0)
         {
             DropCoin();

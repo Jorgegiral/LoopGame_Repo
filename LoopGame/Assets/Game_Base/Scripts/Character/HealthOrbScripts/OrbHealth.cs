@@ -27,16 +27,21 @@ public class OrbHealth : MonoBehaviour
     private void Update()
     {
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 pushDirection)
     {
         currentHealth -= damage;
         PlayerManager.instance.currentHealth = currentHealth;
 
-        if (currentHealth < 0)
+        Rigidbody2D playerRb = GetComponent<Rigidbody2D>();
+        float pushForce = 5f;
+        playerRb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+
+        if (currentHealth <= 0)
         {
-            // Lose
+            //lose
         }
     }
+
     public void HealDamage(float damage)
     {
                 currentHealth += damage;

@@ -143,7 +143,8 @@ public class newEnemy : MonoBehaviour
     {
         if (hitbox.isPlayerinCollision)
         {
-            playerhealth.TakeDamage(enemydamage);
+            Vector2 pushDirection = (player.transform.position - transform.position).normalized;
+            playerhealth.TakeDamage(enemydamage, pushDirection);
 
         }
     }

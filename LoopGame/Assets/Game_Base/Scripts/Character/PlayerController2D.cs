@@ -18,7 +18,6 @@ public class PlayerController2D : MonoBehaviour
     public float hitForce = 2;
 
     [SerializeField] bool isFacingRight;
-    [SerializeField] GameObject hitbox;
     [Header("Jump Parameters")]
     private float jumpForce;
 
@@ -157,10 +156,7 @@ public class PlayerController2D : MonoBehaviour
         playerAnim.SetTrigger("Attack");
         cooldownTimer = 0f;
     }
-    public void DealDamage()
-    {
-        hitbox.GetComponent<DealDamage>().ActivateHitbox();
-    }
+
     private void UpdateAttackCooldownUI()
     {
         cooldownAttackSlider.value = cooldownTimer / PlayerManager.instance.attackColdown;

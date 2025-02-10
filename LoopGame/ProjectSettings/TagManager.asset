@@ -10,6 +10,7 @@ TagManager:
   - Potion
   - GameManager
   - Boss
+  - Attack
   layers:
   - Default
   - TransparentFX
