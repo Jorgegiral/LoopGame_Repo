@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBehaviour : MonoBehaviour
 {
@@ -19,12 +21,12 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] GameObject fireballAbility;
     [SerializeField] GameObject fireballParent;
     [SerializeField] GameObject meteorParent;
-    [SerializeField] GameObject spikeParent;
-    public float shootingRange = 20f;
+    public float shootingRange = 12f;
     private float nextFireball;
     private float nextMeteor;
     private float nextSpike;
-
+    [SerializeField] private Slider cooldownAttackSlider;
+    private float cooldownTimer = 0f;
 
 
 
@@ -32,11 +34,12 @@ public class BossBehaviour : MonoBehaviour
     [Header("Stats Parameters")]
     public float bossdamage = 2f;
     public float fireballAbilityCooldown = 5f;
-    public float meteorAbilityCooldown = 10f;
-    public float spikeAbilityCooldown = 15f;
+    public float meteorAbilityCooldown = 8f;
+    public float spikeAbilityCooldown = 12f;
     private bool isAttacking = false;
     public float timeBetweenAttacks = 4f;
-
+    private bool attackReady = true;
+    private float globalCooldown;
     private void Awake()
     {
         ScaleSystem();
@@ -47,30 +50,53 @@ public class BossBehaviour : MonoBehaviour
         bossRb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerhealth = player.GetComponent<OrbHealth>();
+        cooldownAttackSlider = GameObject.Find("BossAttackCD").GetComponent<Slider>();
+
     }
 
     void Update()
     {
+        UpdateAttackCooldownUI();
+        cooldownTimer += Time.deltaTime;
+        globalCooldown += Time.deltaTime;
         FacePlayer();
         float distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
-        if (distanceFromPlayer <= shootingRange && nextFireball < Time.time)
+        if (attackReady)
         {
-            bossAnim.SetTrigger("Attack_Ranged");
-            Instantiate(fireballAbility, fireballParent.transform.position, Quaternion.identity);
-            nextFireball = Time.time + fireballAbilityCooldown;
+            if (distanceFromPlayer <= shootingRange && nextFireball < Time.time)
+            {
+
+                bossAnim.SetTrigger("Attack_Ranged");
+                Instantiate(fireballAbility, fireballParent.transform.position, Quaternion.identity);
+                nextFireball = Time.time + fireballAbilityCooldown;
+                attackReady = false;
+                cooldownTimer = 0;
+            }
+            else if (distanceFromPlayer <= shootingRange && nextMeteor < Time.time)
+            {
+                bossAnim.SetTrigger("Boss_Spell");
+                Instantiate(meteorAbility, meteorParent.transform.position, Quaternion.identity);
+                nextMeteor = Time.time + meteorAbilityCooldown;
+                attackReady = false;
+            }
+            else if (playerInCollider && nextSpike < Time.time)
+            {
+                Vector3 spikelocation = new Vector3(player.transform.position.x, gameObject.transform.position.y, player.transform.position.z);
+                bossAnim.SetTrigger("Boss_Spell2");
+                Instantiate(spikeAbility, spikelocation, Quaternion.identity);
+                nextSpike = Time.time + spikeAbilityCooldown;
+                attackReady = false;
+            }
         }
- /*       if (distanceFromPlayer <= shootingRange && nextMeteor < Time.time)
+        else
         {
-            bossAnim.SetTrigger("Attack_Ranged");
-            Instantiate(meteorAbility, meteorParent.transform.position, Quaternion.identity);
-            nextMeteor = Time.time + meteorAbilityCooldown;
+            TimeBetweenAttacks();
         }
-        if (distanceFromPlayer <= shootingRange && nextSpike < Time.time)
-        {
-            bossAnim.SetTrigger("Attack_Ranged");
-            Instantiate(spikeAbility, spikeParent.transform.position, Quaternion.identity);
-            nextSpike = Time.time + spikeAbilityCooldown;
-        }*/
+    }
+    private void UpdateAttackCooldownUI()
+    {
+        cooldownAttackSlider.value = cooldownTimer / fireballAbilityCooldown;
+
     }
     void Flip()
     {
@@ -97,47 +123,44 @@ public class BossBehaviour : MonoBehaviour
             playerInCollider = true;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerhealth.TakeDamage(bossdamage / 2f);
-        }
-    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
+    private void TimeBetweenAttacks()
+    {
+        if (globalCooldown >= timeBetweenAttacks) 
+        {
+            attackReady = true;
+            globalCooldown = 0f;
+        }
+    }
     #region ScalingStats
     void ScaleSystem()
     {
         TimeBetweenAttacksScaling();
-        EnemyDamageScaling();
         EnemyFirstAbilityCDScaling();
         EnemySecondAbilityCDScaling();
         EnemyThirdAbilityCDScaling();
     }
 
-    public void EnemyDamageScaling()
-    {
-        bossdamage = bossdamage + (GameManager.instance.score / 10);
-    }
     public void EnemyFirstAbilityCDScaling()
     {
-        fireballAbilityCooldown = fireballAbilityCooldown - (GameManager.instance.score / 50);
+        fireballAbilityCooldown = fireballAbilityCooldown - (GameManager.instance.score / 20);
     }
     public void EnemySecondAbilityCDScaling()
     {
-        meteorAbilityCooldown = meteorAbilityCooldown - (GameManager.instance.score / 50);
+        meteorAbilityCooldown = meteorAbilityCooldown - (GameManager.instance.score / 20);
     }
     public void EnemyThirdAbilityCDScaling()
     {
-        spikeAbilityCooldown = spikeAbilityCooldown - (GameManager.instance.score / 50);
+        spikeAbilityCooldown = spikeAbilityCooldown - (GameManager.instance.score / 20);
     }
     public void TimeBetweenAttacksScaling()
     {
-        timeBetweenAttacks = timeBetweenAttacks- (GameManager.instance.score / 50);
+        timeBetweenAttacks = timeBetweenAttacks- (GameManager.instance.score / 30);
     }
     #endregion
 }

@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class BossHP : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class BossHP : MonoBehaviour
     public Transform bosstransform;
     public TMP_Text bossHpText;
     [SerializeField] GameObject arenalimit;
-
+    
     private void Start()
     {
         BossHealScaling();

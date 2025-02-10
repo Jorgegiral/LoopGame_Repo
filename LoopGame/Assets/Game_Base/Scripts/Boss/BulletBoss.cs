@@ -1,34 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletBoss : MonoBehaviour
 {
     GameObject target;
-    public float speed;
+    public float speed= 3;
     Rigidbody2D bulletRB;
-    OrbHealth playerHealth;
-    BossBehaviour boss;
+    OrbHealth targetHealth;
+    float bulletdmg = 2;
     void Start()
     {
         bulletRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
-        playerHealth = target.gameObject.GetComponent<OrbHealth>();
+        targetHealth = target.gameObject.GetComponent<OrbHealth>();
         Destroy(this.gameObject, 2.5f);
     }
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position,target.transform.position,speed*Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(boss.bossdamage);
+            targetHealth.TakeDamage(bulletdmg);
             Destroy(gameObject);
         }
+
+            Destroy(gameObject);
+        
     }
+
+
 
 
 }

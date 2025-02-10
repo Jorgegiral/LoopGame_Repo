@@ -1,38 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class MeteorBoss : MonoBehaviour
 {
     GameObject target;
-    public float speed;
+    public float speed =4;
     Rigidbody2D bulletRB;
-    OrbHealth playerHealth;
-    public float bulletDMG = 2f;
+    public OrbHealth playerHealth;
+    float bulletdmg = 5;
+
     void Start()
     {
-        ScaleBulletDamage();
         bulletRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
         playerHealth = target.gameObject.GetComponent<OrbHealth>();
-        Vector2 movedir = (target.transform.position-transform.position).normalized * speed;
+        Vector2 movedir = (target.transform.position - transform.position).normalized * speed;
         bulletRB.velocity = new Vector2(movedir.x, movedir.y);
-        Destroy(this.gameObject, 4);
+        Destroy(this.gameObject, 6f);
     }
 
+    private void Update()
+    {
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(bulletDMG);
+            playerHealth.TakeDamage(bulletdmg);
             Destroy(gameObject);
         }
-    }
-    void ScaleBulletDamage()
-    {
-        bulletDMG = bulletDMG + (GameManager.instance.score / 10);
+
+
     }
 
 }
