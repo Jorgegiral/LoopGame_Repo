@@ -92,6 +92,17 @@ public class PlayerController2D : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && isDashing)
+        {
+            collision.gameObject.GetComponent<FloatingHP>().TakeDamage(PlayerManager.instance.playerDamage);
+        }
+        if (collision.gameObject.CompareTag("Boss") && isDashing)
+        {
+            collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
+        }
+    }
 
     private void FixedUpdate()
     {

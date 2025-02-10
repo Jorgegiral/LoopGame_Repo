@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fc7b2b60ce0e844a55e3f2fed0ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerinCollision: 0
+  enemydamage: 3
 --- !u!1 &1760501643488848508
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +317,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18364325, y: 0.5298749}
-  m_Size: {x: 0.9320709, y: 1.0293493}
+  m_Offset: {x: -0.09678584, y: 0.69393885}
+  m_Size: {x: 1.1057857, y: 1.3888764}
   m_Direction: 0
 --- !u!114 &7058418369102381460
 MonoBehaviour:
@@ -338,10 +338,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerhealth: {fileID: 0}
   enemyAnim: {fileID: 0}
-  hitbox: {fileID: 4466604594299153545}
   enemyHp: {fileID: 1881987015204228151}
   idleDuration: 0
-  enemydamage: 3
   enemyspeed: 2
   attackCD: 3
 --- !u!95 &3009850395426801016

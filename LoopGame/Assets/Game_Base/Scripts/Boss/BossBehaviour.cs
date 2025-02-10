@@ -66,8 +66,7 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
-            playerhealth.TakeDamage(bossdamage / 2f, pushDirection);
+            playerhealth.TakeDamage(bossdamage / 2f);
         }
     }
     #region ScalingStats

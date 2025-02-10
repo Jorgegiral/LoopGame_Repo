@@ -15,7 +15,6 @@ public class newEnemy : MonoBehaviour
     private float hitForce;
     private bool isFacingRight = true;
     private bool playerInCollider = false;
-    [SerializeField] HitboxTrigger hitbox;
     [SerializeField] FloatingHP enemyHp;
     private float distanceToPlayer;
     private Vector3 initScale;
@@ -26,7 +25,6 @@ public class newEnemy : MonoBehaviour
     private bool movingLeft;
 
     [Header("Stats Parameters")]
-    public float enemydamage = 3f;
     public float enemyspeed = 2f;
     private bool isAttacking = false;
     [SerializeField] public float attackCD = 3.0f;
@@ -46,8 +44,10 @@ public class newEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
         cooldownTimer += Time.deltaTime;
-        if (hitbox.isPlayerinCollision)
+        if (distanceToPlayer<=1)
         {
             if (cooldownTimer >= attackCD)
             {
@@ -57,14 +57,8 @@ public class newEnemy : MonoBehaviour
                 StartCoroutine(ResetAttack());
             }
         }
-        if (!isAttacking) 
-        {
-            if (playerInCollider)
-            {
-                ChasePlayer();
-            }
-            else
-            {
+        if (!isAttacking ) 
+        {       
                 if (movingLeft)
                 {
                     if (gameObject.transform.position.x >= leftLimit.position.x)
@@ -79,7 +73,7 @@ public class newEnemy : MonoBehaviour
                     else
                         DirectionChange();
                 }
-            }
+            
         }
     }
     private void Update()
@@ -139,15 +133,7 @@ public class newEnemy : MonoBehaviour
         yield return new WaitForSeconds(enemyAnim.GetCurrentAnimatorStateInfo(0).length);
         isAttacking = false; 
     }
-    public void DamagePlayer()
-    {
-        if (hitbox.isPlayerinCollision)
-        {
-            Vector2 pushDirection = (player.transform.position - transform.position).normalized;
-            playerhealth.TakeDamage(enemydamage, pushDirection);
 
-        }
-    }
 
 
 
@@ -174,14 +160,10 @@ public class newEnemy : MonoBehaviour
     }
     void ScaleSystem()
     {
-        EnemyDamageScaling();
         EnemyAttackCDScaling();
         EnemySpeedScaling();
     }
-    public void EnemyDamageScaling()
-    {
-        enemydamage = enemydamage + (GameManager.instance.score/10);
-    }
+
     public void EnemyAttackCDScaling()
     {
         attackCD = attackCD - (GameManager.instance.score/100);
