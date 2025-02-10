@@ -10,10 +10,21 @@ public class SceneObject : MonoBehaviour
     private int numRandom;
     #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            string tag = gameObject.tag;
+            if (tag == "Right")
+            {
+                GameManager.instance.spawnRight = true;
+
+            }
+            if (tag == "Left")
+            {
+                GameManager.instance.spawnRight = false;
+            }
             SceneLevel();
         }
     }

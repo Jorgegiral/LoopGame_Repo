@@ -13,6 +13,8 @@ public class BossHP : MonoBehaviour
     public GameObject coinPrefab;
     public Transform bosstransform;
     public TMP_Text bossHpText;
+    [SerializeField] GameObject arenalimit;
+
     private void Start()
     {
         BossHealScaling();
@@ -36,8 +38,10 @@ public class BossHP : MonoBehaviour
         TextUpdater();
         if (currentHealth <= 0)
         {
+
             DropCoin();
-            GameManager.instance.AddCoins(20);
+            arenalimit.SetActive(false);
+            GameManager.instance.AddCoins(25);
             Destroy(gameObject);
         }
     }

@@ -43,12 +43,12 @@ public class PlayerManager : MonoBehaviour
         if (potionText != null)
         {
             
-            potionText.text += potions;
+            potionText.text = potions.ToString();
         }
     }
     public void AddPotions(int points)
     {
-        potionText.text = "" + potions;
+        potions += points;
 
         UpdatePotionUI();
     }

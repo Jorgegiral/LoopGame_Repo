@@ -11,6 +11,8 @@ TagManager:
   - GameManager
   - Boss
   - Attack
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX

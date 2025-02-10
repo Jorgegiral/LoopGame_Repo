@@ -22,13 +22,16 @@ public class DealDamage : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponent<FloatingHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+
             }
             if (collision.gameObject.CompareTag("Boss"))
             {
                 collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+
             }
         }
-        StartCoroutine(InvincibilityCooldown());
         
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -38,13 +41,34 @@ public class DealDamage : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponent<FloatingHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+
             }
             if (collision.gameObject.CompareTag("Boss"))
             {
                 collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+
             }
         }
-        StartCoroutine(InvincibilityCooldown());
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (IsPlayerAttacking() && !isInvincible)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.gameObject.GetComponent<FloatingHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+            }
+            if (collision.gameObject.CompareTag("Boss"))
+            {
+                collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
+                StartCoroutine(InvincibilityCooldown());
+
+            }
+        }
 
     }
 

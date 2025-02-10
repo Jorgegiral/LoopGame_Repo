@@ -34,5 +34,9 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    public void Descansito()
+    {
+        SceneManager.LoadScene(8);
+    }
     #endregion
 }

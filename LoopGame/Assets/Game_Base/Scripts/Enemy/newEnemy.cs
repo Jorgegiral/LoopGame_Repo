@@ -44,10 +44,8 @@ public class newEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-
         cooldownTimer += Time.deltaTime;
-        if (distanceToPlayer<=1)
+        if (playerInCollider)
         {
             if (cooldownTimer >= attackCD)
             {
@@ -122,12 +120,7 @@ public class newEnemy : MonoBehaviour
         }
     }
 
-    private void ChasePlayer()
-    {
-        FacePlayer();
-        float direction = (player.transform.position.x > transform.position.x) ? 1 : -1;
-        enemyRb.velocity = new Vector2(direction * enemyspeed, enemyRb.velocity.y);
-    }
+
     private IEnumerator ResetAttack()
     {
         yield return new WaitForSeconds(enemyAnim.GetCurrentAnimatorStateInfo(0).length);
@@ -166,11 +159,11 @@ public class newEnemy : MonoBehaviour
 
     public void EnemyAttackCDScaling()
     {
-        attackCD = attackCD - (GameManager.instance.score/100);
+        attackCD = attackCD - (GameManager.instance.score/200);
     }
     public void EnemySpeedScaling()
     {
-        enemyspeed = enemyspeed + (GameManager.instance.score / 50);
+        enemyspeed = enemyspeed + (GameManager.instance.score / 100);
     }
 }
 

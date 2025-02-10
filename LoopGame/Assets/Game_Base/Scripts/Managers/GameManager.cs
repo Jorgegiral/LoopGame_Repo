@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text coinsText;
     public int score = 0;
     public int coins = 0;
-
+    public bool spawnRight;
+    public bool levelCompleted = false;
     public enum GameState
     {
         GameRunning,

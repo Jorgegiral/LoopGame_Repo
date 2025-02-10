@@ -12,10 +12,18 @@ public class LevelsSceneChanger : MonoBehaviour
          sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && GameManager.instance.levelCompleted )
         {
+            if (gameObject.CompareTag("Right"))
+            {
+                GameManager.instance.spawnRight = true;
+            }
+            else
+            {
+                GameManager.instance.spawnRight = false;
+            }
             if (sceneIndex == 2)
             {
                 GameManager.instance.AddScore(1);
@@ -28,10 +36,10 @@ public class LevelsSceneChanger : MonoBehaviour
             {
                 GameManager.instance.AddScore(15);
             }
+            GameManager.instance.levelCompleted = false;
+            SceneVillage();
         }
-        SceneVillage();
     }
-
     public void SceneVillage()
     {
         SceneManager.LoadScene(1);
