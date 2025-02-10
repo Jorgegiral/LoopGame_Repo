@@ -26,8 +26,8 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0.1f;
     [SerializeField] LayerMask groundLayer;
 
-    [SerializeField] private Slider cooldownAttackSlider;
-    [SerializeField] private Slider cooldownDashSlider;
+    [SerializeField] private Image cooldownAttackSlider;
+    [SerializeField] private Image cooldownDashSlider;
     private float cooldowndashTimer = 0f;
     private float cooldownTimer = 0f;                      
     private bool canAttack = true;
@@ -49,8 +49,8 @@ public class PlayerController2D : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerAnim = GetComponent<Animator>();
-        cooldownAttackSlider = GameObject.Find("AttackCD").GetComponent<Slider>();
-        cooldownDashSlider = GameObject.Find("DashCD").GetComponent<Slider>();
+        cooldownAttackSlider = GameObject.Find("Attack").GetComponent<Image>();
+        cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
 
         isFacingRight = true;
 
@@ -170,13 +170,13 @@ public class PlayerController2D : MonoBehaviour
 
     private void UpdateAttackCooldownUI()
     {
-        cooldownAttackSlider.value = cooldownTimer / PlayerManager.instance.attackColdown;
+        cooldownAttackSlider.fillAmount = cooldownTimer / PlayerManager.instance.attackColdown;
 
     }
     private void UpdateDashCooldownUI()
     {
 
-        cooldownDashSlider.value = cooldowndashTimer / dashingCooldown;
+        cooldownDashSlider.fillAmount = cooldowndashTimer / dashingCooldown;
 
     }
     #region Input Events

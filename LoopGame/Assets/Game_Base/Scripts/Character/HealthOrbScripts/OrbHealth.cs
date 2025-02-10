@@ -12,7 +12,6 @@ public class OrbHealth : MonoBehaviour
     public float currentHealth;
   
     private bool PotionReady = true;
-
     #endregion
 
     #region UnityFunctions
@@ -24,9 +23,7 @@ public class OrbHealth : MonoBehaviour
     #endregion
 
     #region Functions
-    private void Update()
-    {
-    }
+    
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
