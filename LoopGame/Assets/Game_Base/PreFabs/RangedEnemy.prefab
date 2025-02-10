@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 7643681631015612326}
   - component: {fileID: 4724849932261679176}
   - component: {fileID: 1253213777443545823}
+  - component: {fileID: 2498564255970382481}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -510,12 +511,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392a211a38652bb48a547cdcc9673594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 0
   player: {fileID: 9139314169469989630}
-  shootingRange: 5
+  shootingRange: 3
   bullet: {fileID: 7822343694393855228, guid: dba29b769a1163242a3995a53fe8e864, type: 3}
-  bulletParent: {fileID: 0}
-  attackCD: 3
+  bulletParent: {fileID: 2389697231953437365}
+  attackCD: 5
+  rangedanim: {fileID: 2498564255970382481}
 --- !u!50 &7643681631015612326
 Rigidbody2D:
   serializedVersion: 4
@@ -555,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8135ac4f0673f04e80be8848295a83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 6436112592921859066}
   currentHealth: 0
   maxHealth: 10
   coinPrefab: {fileID: 7941525286188136332, guid: 3df22840d1ee62342907d3893c2b1e09, type: 3}
@@ -595,3 +597,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.10447605, y: 1.1770419}
   m_Size: {x: 1.4351643, y: 2.4806125}
   m_Direction: 0
+--- !u!95 &2498564255970382481
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035807566849082590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c03dffcd8924b244bff9994e166b557, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

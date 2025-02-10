@@ -11,20 +11,36 @@ public class BossBehaviour : MonoBehaviour
     private bool isFacingRight = true;
     [SerializeField] BossHP bossHp;
     private bool playerInCollider = false;
+
+    [Header("Ability Parameters")]
+
     [SerializeField] GameObject spikeAbility;
     [SerializeField] GameObject meteorAbility;
     [SerializeField] GameObject fireballAbility;
+    [SerializeField] GameObject fireballParent;
+    [SerializeField] GameObject meteorParent;
+    [SerializeField] GameObject spikeParent;
+    public float shootingRange;
+    private float nextFireball;
+    private float nextMeteor;
+    private float nextSpike;
+
+
+
+
 
     [Header("Stats Parameters")]
     public float bossdamage = 2f;
-    public float firstAbilityCooldown = 3f;
-    public float secondAbilityCooldown = 7f;
-    public float thirdAbilityCooldown = 10f;
-    public float timeBetweenAbilities = 3f;
+    public float fireballAbilityCooldown = 5f;
+    public float meteorAbilityCooldown = 10f;
+    public float spikeAbilityCooldown = 15f;
     private bool isAttacking = false;
-   
+    public float timeBetweenAttacks = 4f;
 
-
+    private void Awake()
+    {
+        ScaleSystem();
+    }
     void Start()
     {
         bossAnim = GetComponent<Animator>();
@@ -36,6 +52,25 @@ public class BossBehaviour : MonoBehaviour
     void Update()
     {
         FacePlayer();
+        float distanceFromPlayer = Vector2.Distance(player.transform.position, player.transform.position);
+        if (distanceFromPlayer <= shootingRange && nextFireball < Time.time)
+        {
+            bossAnim.SetTrigger("Attack_Ranged");
+            Instantiate(fireballAbility, fireballParent.transform.position, Quaternion.identity);
+            nextFireball = Time.time + fireballAbilityCooldown;
+        }
+ /*       if (distanceFromPlayer <= shootingRange && nextMeteor < Time.time)
+        {
+            bossAnim.SetTrigger("Attack_Ranged");
+            Instantiate(meteorAbility, meteorParent.transform.position, Quaternion.identity);
+            nextMeteor = Time.time + meteorAbilityCooldown;
+        }
+        if (distanceFromPlayer <= shootingRange && nextSpike < Time.time)
+        {
+            bossAnim.SetTrigger("Attack_Ranged");
+            Instantiate(spikeAbility, spikeParent.transform.position, Quaternion.identity);
+            nextSpike = Time.time + spikeAbilityCooldown;
+        }*/
     }
     void Flip()
     {
@@ -72,11 +107,11 @@ public class BossBehaviour : MonoBehaviour
     #region ScalingStats
     void ScaleSystem()
     {
+        TimeBetweenAttacksScaling();
         EnemyDamageScaling();
         EnemyFirstAbilityCDScaling();
         EnemySecondAbilityCDScaling();
         EnemyThirdAbilityCDScaling();
-        timeBetweenAbilitiesCDScaling();
     }
 
     public void EnemyDamageScaling()
@@ -85,19 +120,19 @@ public class BossBehaviour : MonoBehaviour
     }
     public void EnemyFirstAbilityCDScaling()
     {
-        firstAbilityCooldown = firstAbilityCooldown - (GameManager.instance.score / 50);
+        fireballAbilityCooldown = fireballAbilityCooldown - (GameManager.instance.score / 50);
     }
     public void EnemySecondAbilityCDScaling()
     {
-        secondAbilityCooldown = firstAbilityCooldown - (GameManager.instance.score / 50);
+        meteorAbilityCooldown = meteorAbilityCooldown - (GameManager.instance.score / 50);
     }
     public void EnemyThirdAbilityCDScaling()
     {
-        thirdAbilityCooldown = firstAbilityCooldown - (GameManager.instance.score / 50);
+        spikeAbilityCooldown = spikeAbilityCooldown - (GameManager.instance.score / 50);
     }
-    public void timeBetweenAbilitiesCDScaling()
+    public void TimeBetweenAttacksScaling()
     {
-        thirdAbilityCooldown = firstAbilityCooldown - (GameManager.instance.score / 50);
+        timeBetweenAttacks = timeBetweenAttacks- (GameManager.instance.score / 50);
     }
     #endregion
 }
