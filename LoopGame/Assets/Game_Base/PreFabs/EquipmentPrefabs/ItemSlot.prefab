@@ -94,7 +94,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 80b2136b1dc3de8408c24555c27b2b7c, type: 3}
   isFull: 0
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: 80b2136b1dc3de8408c24555c27b2b7c, type: 3}
   itemImage: {fileID: 4072488688432443426}
   selectedShader: {fileID: 7355403782792016333}
   thisItemSelected: 0
