@@ -193,7 +193,7 @@ public class PlayerController2D : MonoBehaviour
             if (isGrounded)
             {
                 //AudioManager.Instance.PlaySFX(0);
-                playerRb.AddForce(Vector2.up * PlayerManager.instance.jumpForce, ForceMode2D.Impulse);
+                playerRb.AddForce(Vector2.up * PlayerManager.instance.jumpForcePlayer, ForceMode2D.Impulse);
             }
         }
     }
