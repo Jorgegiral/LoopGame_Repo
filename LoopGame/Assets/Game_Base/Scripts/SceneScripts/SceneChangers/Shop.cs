@@ -5,11 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
+    bool playerinCollider;
+    private void Update()
+    {
+        if (playerinCollider)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneShop();
+
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            SceneShop();
+            playerinCollider = true;
+           
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerinCollider = false;
         }
     }
     public void SceneShop()
