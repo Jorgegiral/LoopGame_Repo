@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Highscore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform entrycontainer;
+    private Transform entrytemplate;
+    private void Awake()
     {
-        
-    }
+        entrycontainer = transform.Find("HighscoreEntryContainer");
+        entrytemplate = entrycontainer.Find("HighscoreTemplate");
+        entrytemplate.gameObject.SetActive(false);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        float templateHeight = 20f;
+        for (int i = 0; i < 10; i++)
+        {
+            Transform entryTransform = Instantiate(entrytemplate, entrycontainer);
+            RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
+            entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * i);
+        }
     }
 }
