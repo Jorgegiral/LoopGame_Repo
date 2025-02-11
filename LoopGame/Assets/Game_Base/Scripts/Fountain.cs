@@ -10,7 +10,7 @@ public class Fountain : MonoBehaviour
     [SerializeField] GameObject potionShop;
     private bool isPlayerinCollider;
     private int potionCost  = 15;
-
+    private Animator fuenteanim;
 
     private void Update()
     {
@@ -26,6 +26,7 @@ public class Fountain : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        fuenteanim = GetComponent<Animator>();
         if (collision.CompareTag("Player") && GameManager.instance.score == 0)
         {
             tutorial.SetActive(true);

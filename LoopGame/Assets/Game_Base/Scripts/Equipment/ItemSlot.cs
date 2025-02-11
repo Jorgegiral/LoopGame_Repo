@@ -90,10 +90,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         itemDescriptionNameText.text = "";
         itemDescriptionText.text = "";
         itemDescriptionImage.sprite = emptySprite;
+        isFull = false;
     }
 
     public void OnRightClick()
     {
-        
+        if (GameManager.instance.inShop)
+        {
+            int numRandom;
+            numRandom = UnityEngine.Random.Range(5, 12) + GameManager.instance.score/2;
+            GameManager.instance.AddCoins(numRandom);
+            EmptySlot();
+        }
     }
 }

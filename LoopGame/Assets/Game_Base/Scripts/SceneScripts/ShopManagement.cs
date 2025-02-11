@@ -12,6 +12,7 @@ public class ShopManagement : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.inShop = true;
         spotRandomizer = Random.Range(1, 101);
         itemslotRandomizer = Random.Range(1, 5);
         spotSelector = Random.Range(1, 5);
