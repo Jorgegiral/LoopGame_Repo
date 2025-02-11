@@ -20,7 +20,7 @@ public class LevelsSceneChanger : MonoBehaviour
             {
                 GameManager.instance.spawnRight = true;
             }
-            else
+            else if (gameObject.CompareTag("Left"))
             {
                 GameManager.instance.spawnRight = false;
             }

@@ -15,7 +15,8 @@ public class BossHP : MonoBehaviour
     public Transform bosstransform;
     public TMP_Text bossHpText;
     [SerializeField] GameObject arenalimit;
-    
+    [SerializeField] CinemachineVirtualCamera playercam;
+    [SerializeField] CinemachineVirtualCamera bosscam;
     private void Start()
     {
         BossHealScaling();
@@ -39,8 +40,10 @@ public class BossHP : MonoBehaviour
         TextUpdater();
         if (currentHealth <= 0)
         {
-
+            GameManager.instance.bosskilled = true;
             DropCoin();
+            playercam.gameObject.SetActive(true);
+            bosscam.gameObject.SetActive(false);
             arenalimit.SetActive(false);
             GameManager.instance.AddCoins(25);
             Destroy(gameObject);

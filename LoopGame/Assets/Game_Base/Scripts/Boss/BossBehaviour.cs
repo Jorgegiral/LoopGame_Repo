@@ -46,6 +46,7 @@ public class BossBehaviour : MonoBehaviour
     }
     void Start()
     {
+        GameManager.instance.enemycount += 2;
         bossAnim = GetComponent<Animator>();
         bossRb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");

@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fc7b2b60ce0e844a55e3f2fed0ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 3009850395426801016}
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
   enemydamage: 3
 --- !u!1 &1760501643488848508
 GameObject:
@@ -337,7 +340,7 @@ MonoBehaviour:
   enemyRb: {fileID: 0}
   player: {fileID: 0}
   playerhealth: {fileID: 0}
-  enemyAnim: {fileID: 0}
+  enemyAnim: {fileID: 3009850395426801016}
   enemyHp: {fileID: 1881987015204228151}
   idleDuration: 0
   enemyspeed: 2

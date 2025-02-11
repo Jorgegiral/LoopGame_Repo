@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool spawnRight;
     public bool levelCompleted = false;
     public int enemycount;
+    public bool bosskilled;
     public enum GameState
     {
         GameRunning,

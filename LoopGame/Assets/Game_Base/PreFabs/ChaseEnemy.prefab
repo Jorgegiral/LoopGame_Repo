@@ -193,7 +193,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!70 &9156077344469237969
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,8 +226,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09678584, y: 0.69393885}
-  m_Size: {x: 1.1057857, y: 1.3888764}
+  m_Offset: {x: -0.09678584, y: 0.29200244}
+  m_Size: {x: 1.1057857, y: 2.192749}
   m_Direction: 0
 --- !u!95 &7053518341880557883
 Animator:
@@ -326,8 +326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   attackCD: 3
+  enemyRb: {fileID: 0}
   enemyAnim: {fileID: 0}
-  lineOfSite: 2
+  lineOfSite: 5
   enemyspeed: 2
 --- !u!1 &1566618811141940217
 GameObject:
@@ -721,4 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fc7b2b60ce0e844a55e3f2fed0ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnimator: {fileID: 7053518341880557883}
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
   enemydamage: 3

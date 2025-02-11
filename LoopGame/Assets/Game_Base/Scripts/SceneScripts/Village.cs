@@ -10,6 +10,10 @@ public class Village : MonoBehaviour
 
     private void Awake()
     {
+        GameManager.instance.levelCompleted = false;
+        GameManager.instance.enemycount = 0;
+        GameManager.instance.bosskilled = false;
+
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)
         {

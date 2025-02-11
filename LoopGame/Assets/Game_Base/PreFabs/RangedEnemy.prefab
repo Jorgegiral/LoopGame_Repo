@@ -437,11 +437,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9139314169469989630}
-  shootingRange: 3
+  shootingRange: 6
   bullet: {fileID: 7822343694393855228, guid: dba29b769a1163242a3995a53fe8e864, type: 3}
   bulletParent: {fileID: 2389697231953437365}
-  attackCD: 5
   rangedanim: {fileID: 2498564255970382481}
+  attackCD: 5
 --- !u!50 &7643681631015612326
 Rigidbody2D:
   serializedVersion: 4
@@ -468,7 +468,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &4724849932261679176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,8 +518,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10447605, y: 1.1770419}
-  m_Size: {x: 1.4351643, y: 2.4806125}
+  m_Offset: {x: -0.10447605, y: 1.1215168}
+  m_Size: {x: 1.4351643, y: 2.5916693}
   m_Direction: 0
 --- !u!95 &2498564255970382481
 Animator:

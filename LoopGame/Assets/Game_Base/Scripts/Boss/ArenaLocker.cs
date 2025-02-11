@@ -18,13 +18,5 @@ public class ArenaLocker : MonoBehaviour
             arenalimit.SetActive(true);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playercam.gameObject.SetActive(true);
-            bosscam.gameObject.SetActive(false);
 
-        }
-    }
 }

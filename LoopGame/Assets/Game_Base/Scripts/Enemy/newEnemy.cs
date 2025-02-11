@@ -34,7 +34,7 @@ public class newEnemy : MonoBehaviour
     private void Awake()
     {
         ScaleSystem();
-        GameManager.instance.enemycount += 1;
+        GameManager.instance.enemycount += 2;
         initScale = gameObject.transform.localScale;
         enemyAnim = GetComponent<Animator>();
         enemyRb = GetComponent<Rigidbody2D>();

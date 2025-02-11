@@ -20,4 +20,11 @@ public class BossScene : MonoBehaviour
             player.transform.position = leftSpawn.position;
         }
     }
+    private void Update()
+    {
+        if (GameManager.instance.bosskilled)
+        {
+            GameManager.instance.levelCompleted = true;
+        }
+    }
 }

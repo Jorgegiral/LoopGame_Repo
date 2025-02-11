@@ -9,6 +9,7 @@ public class ChaseEnemy : MonoBehaviour
     public Transform player;
     public float attackCD = 3f;
     private float nextAttack;
+    [SerializeField] Rigidbody2D enemyRb;
     [SerializeField] Animator enemyAnim;
     private bool isFacingRight;
     public float lineOfSite = 5f;
@@ -23,12 +24,14 @@ public class ChaseEnemy : MonoBehaviour
     {
         ScaleSystem();
         GameManager.instance.enemycount += 1;
+        enemyRb = GetComponent<Rigidbody2D>();
         enemyAnim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
     void FixedUpdate()
     {
+        cooldownTimer += Time.deltaTime;
         FacePlayer();
         if (playerInCollider)
         {
@@ -44,7 +47,11 @@ public class ChaseEnemy : MonoBehaviour
         if (distanceFromPlayer < lineOfSite)
         {
             followingEnemy = true;
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position, enemyspeed * Time.deltaTime);
+            Vector2 targetCorrected = new Vector2(player.position.x, transform.position.y);
+
+            Vector2 direction = (targetCorrected - (Vector2)transform.position).normalized;
+
+            enemyRb.velocity = new Vector2(direction.x * enemyspeed, enemyRb.velocity.y);
         }
         else
         {
@@ -100,7 +107,7 @@ public class ChaseEnemy : MonoBehaviour
 
     public void EnemyAttackCDScaling()
     {
-        attackCD = attackCD - (GameManager.instance.score / 200);
+        attackCD = attackCD - (GameManager.instance.score / 100);
     }
     public void EnemySpeedScaling()
     {

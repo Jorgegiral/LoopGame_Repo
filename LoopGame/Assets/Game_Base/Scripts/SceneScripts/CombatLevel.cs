@@ -22,9 +22,21 @@ public class CombatLevel : MonoBehaviour
             player.transform.position = leftSpawn.transform.position;
         }
     }
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+        if (GameManager.instance.spawnRight)
+        {
+            player.transform.position = rightSpawn.transform.position;
+        }
+        else
+        {
+            player.transform.position = leftSpawn.transform.position;
+        }
+    }
     private void Update()
     {
-        if (GameManager.instance.enemycount <= 0)
+        if (GameManager.instance.enemycount <= 6)
         {
             GameManager.instance.levelCompleted = true;
         }

@@ -102,6 +102,7 @@ public class PlayerController2D : MonoBehaviour
         {
             collision.gameObject.GetComponent<BossHP>().TakeDamage(PlayerManager.instance.playerDamage);
         }
+
     }
 
     private void FixedUpdate()

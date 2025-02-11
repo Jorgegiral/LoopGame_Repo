@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletBoss : MonoBehaviour
 {
     GameObject target;
-    public float speed= 3;
+    public float speed= 3.5f;
     Rigidbody2D bulletRB;
     OrbHealth targetHealth;
     float bulletdmg = 2;
@@ -20,7 +20,7 @@ public class BulletBoss : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(gameObject.transform.position, target.transform.position, speed * Time.deltaTime);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,8 +30,6 @@ public class BulletBoss : MonoBehaviour
             targetHealth.TakeDamage(bulletdmg);
             Destroy(gameObject);
         }
-
-            Destroy(gameObject);
         
     }
 
