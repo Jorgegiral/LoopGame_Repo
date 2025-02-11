@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private string itemName;
+    [SerializeField] private Sprite sprite;
+    private InventoryManager inventoryManager;
     void Start()
     {
-        
+        inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -15,4 +17,10 @@ public class Item : MonoBehaviour
     {
         
     }
+    private void OnMouseDown()
+    {
+        inventoryManager.AddItem(itemName, sprite);
+        Destroy(gameObject);
+    }
+
 }
