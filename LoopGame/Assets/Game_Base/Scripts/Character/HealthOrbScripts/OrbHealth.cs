@@ -50,6 +50,7 @@ public class OrbHealth : MonoBehaviour
     {
                 currentHealth += damage;
         PlayerManager.instance.currentHealth = currentHealth;
+        PlayerManager.instance.playerMaxHealth = startingHealth;
         if (currentHealth > startingHealth)
         {
             currentHealth = startingHealth;

@@ -91,11 +91,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 80b2136b1dc3de8408c24555c27b2b7c, type: 3}
   isFull: 0
+  itemDescription: 
+  emptySprite: {fileID: 0}
   itemImage: {fileID: 4072488688432443426}
   selectedShader: {fileID: 7355403782792016333}
   thisItemSelected: 0
+  itemDescriptionImage: {fileID: 0}
+  itemDescriptionNameText: {fileID: 0}
+  itemDescriptionText: {fileID: 0}
 --- !u!1 &5041222738538434546
 GameObject:
   m_ObjectHideFlags: 0

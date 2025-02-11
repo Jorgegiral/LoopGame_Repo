@@ -7,6 +7,8 @@ public class Item : MonoBehaviour
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
     private InventoryManager inventoryManager;
+    [TextArea]
+    [SerializeField] private string itemDescription;
     void Start()
     {
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
@@ -19,7 +21,7 @@ public class Item : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        inventoryManager.AddItem(itemName, sprite);
+        inventoryManager.AddItem(itemName, sprite,itemDescription);
         Destroy(gameObject);
     }
 
