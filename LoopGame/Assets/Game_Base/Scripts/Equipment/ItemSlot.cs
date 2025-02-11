@@ -14,6 +14,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool isFull;
     public string itemDescription;
     public Sprite emptySprite;
+    public ItemType itemType;
     //Item slot
     [SerializeField] private Image itemImage;
 
@@ -22,11 +23,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private InventoryManager inventoryManager;
 
-    //Item Description
-
-    public Image itemDescriptionImage;
-    public TMP_Text itemDescriptionNameText;
-    public TMP_Text itemDescriptionText;
 
     void Start()
     {
@@ -38,13 +34,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
 
     }
-    public void AddItem(string itemname, Sprite itemSprite, string itemDescription)
+    public void AddItem(string itemname, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
+        this.itemType = itemType;
         this.itemName = itemname;
         this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
-        isFull = true;
         itemImage.sprite = itemSprite;
+        isFull = true;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -73,13 +70,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             inventoryManager.DeseleectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
-            itemDescriptionNameText.text = itemName;
-            itemDescriptionText.text = itemDescription;
-            itemDescriptionImage.sprite = itemSprite;
-            if (itemDescriptionImage.sprite == null)
-            {
-                itemDescriptionImage.sprite = emptySprite;
-            }
+           
         }
     
 }
@@ -87,9 +78,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     private void EmptySlot()
     {
         itemImage.sprite = emptySprite;
-        itemDescriptionNameText.text = "";
-        itemDescriptionText.text = "";
-        itemDescriptionImage.sprite = emptySprite;
+
         isFull = false;
     }
 

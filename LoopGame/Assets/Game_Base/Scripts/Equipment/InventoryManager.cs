@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
+    public GameObject EquipmentMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
-
+    
     public ItemSO[] itemSOs;
     
     // Start is called before the first frame update
@@ -50,14 +51,13 @@ public class InventoryManager : MonoBehaviour
         return false;
 
     }
-    public void AddItem(string itemName, Sprite itemSprite, string itemDescription)
+    public void AddItem(string itemName, Sprite itemSprite, string itemDescription,  ItemType itemType)
     {
-        Debug.Log("itemname = " + itemName + "itemsprite: " + itemSprite);
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (itemSlot[i].isFull == false)
             {
-                itemSlot[i].AddItem(itemName, itemSprite,itemDescription);
+                itemSlot[i].AddItem(itemName, itemSprite,itemDescription,itemType);
                 return;
             }
         }
@@ -71,3 +71,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 }
+
+public enum ItemType
+{
+    armor,
+    jewelry,
+    mainHand
+};
