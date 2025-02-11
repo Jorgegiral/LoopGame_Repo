@@ -140,7 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 0
   isFacingRight: 0
-  hitbox: {fileID: 8536400425856313722}
   isGrounded: 0
   groundCheck: {fileID: 5348812570474353752}
   groundCheckRadius: 0.1
@@ -257,6 +256,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7d93660c-137f-4770-b453-4813a9d32ea6
     m_ActionName: Gameplay/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8dddf64-2158-4d1b-a5d9-0591ae18241f
+    m_ActionName: Gameplay/Inventory[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -311,6 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   currentHealth: 0
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!95 &7175623214827174903
 Animator:
   serializedVersion: 5
@@ -670,3 +675,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b2a73cb4c41734aa7698261cf9e94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
