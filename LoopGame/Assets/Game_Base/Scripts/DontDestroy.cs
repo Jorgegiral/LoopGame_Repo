@@ -1,24 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.CullingGroup;
 
 public class DontDestroy : MonoBehaviour
 {
-    [SerializeField]  GameObject persistentObject;
-
+    private static GameObject[] persistentObjects = new GameObject[2]; 
+    public int objectIndex; 
     void Awake()
     {
-        gameObject.SetActive(true);
-        if (persistentObject != null)
+        if (persistentObjects[objectIndex] == null)
         {
+            persistentObjects[objectIndex] = gameObject;
             DontDestroyOnLoad(gameObject);
         }
-        else if (persistentObject == null)
+        else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
     }
 
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(persistentObjects[objectIndex]);
+            persistentObjects[objectIndex] = null; 
+        }
+    }
 }

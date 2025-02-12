@@ -11,6 +11,7 @@ public class Village : MonoBehaviour
 
     private void Awake()
     {
+
         GameManager.instance.AddCoins(0);
         GameManager.instance.levelCompleted = false;
         GameManager.instance.enemycount = 0;

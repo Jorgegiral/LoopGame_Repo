@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -15,6 +16,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public string itemDescription;
     public Sprite emptySprite;
     public ItemType itemType;
+    int sceneIndex;
+
     //Item slot
     [SerializeField] private Image itemImage;
     //Equipped slot
@@ -29,6 +32,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
         equipmentSOlibrary = GameObject.Find("GearUI").GetComponent<EquipmentSOlibrary>();
     }
@@ -121,7 +126,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnRightClick()
     {
-          if (GameManager.instance.inShop)
+          if (sceneIndex == 5)
          {
         if (isFull) { 
             int numRandom;

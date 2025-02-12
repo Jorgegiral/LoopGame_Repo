@@ -17,8 +17,8 @@ MonoBehaviour:
   attack: 1
   speed: 0
   jump: 0
-  dashSpeed: 0.5
+  dashSpeed: 1
   dashRange: 0.1
   DashCD: -0.1
-  attackCD: 0.5
+  attackCD: 0
   itemSprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}

@@ -11,6 +11,7 @@ public class CombatLevel : MonoBehaviour
 
     private void Awake()
     {
+
         GameManager.instance.levelCompleted = false;
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)

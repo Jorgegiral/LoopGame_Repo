@@ -20,5 +20,5 @@ MonoBehaviour:
   dashSpeed: 0
   dashRange: 0
   DashCD: 0
-  attackCD: 0
+  attackCD: -0.25
   itemSprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}

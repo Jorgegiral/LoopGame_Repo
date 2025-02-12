@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+
                 SceneShop();
 
             }

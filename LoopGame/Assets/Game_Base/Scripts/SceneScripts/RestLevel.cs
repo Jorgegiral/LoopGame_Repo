@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class RestLevel : MonoBehaviour
 {
+
     private Transform player;
     public Transform rightSpawn;
     public Transform leftSpawn;
 
     private void Awake()
     {
+
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)
         {
