@@ -12,21 +12,25 @@ public class Fountain : MonoBehaviour
     private int potionCost  = 15;
     private Animator fuenteanim;
 
+    private void Start()
+    {
+        fuenteanim = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (isPlayerinCollider)
         {
             if (Input.GetKeyDown(KeyCode.F) && GameManager.instance.coins >= potionCost)
             {
+                fuenteanim.SetTrigger("Interact");
                 GameManager.instance.AddCoins(-15);
                 PlayerManager.instance.AddPotions(1);
-
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        fuenteanim = GetComponent<Animator>();
         if (collision.CompareTag("Player") && GameManager.instance.score == 0)
         {
             tutorial.SetActive(true);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1941556141170673391}
   - component: {fileID: 4093138022226697056}
   - component: {fileID: 2392882319272569196}
+  - component: {fileID: 3233158974710874071}
   m_Layer: 0
   m_Name: FountainStart
   m_TagString: Untagged
@@ -147,6 +148,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial: {fileID: 1175255355417512765}
   potionShop: {fileID: 6001822155172914763}
+--- !u!95 &3233158974710874071
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070353573827797167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1175255355417512765
 GameObject:
   m_ObjectHideFlags: 0
