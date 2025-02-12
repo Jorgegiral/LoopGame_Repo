@@ -12,7 +12,6 @@ public class ShopManagement : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.inShop = true;
         spotRandomizer = Random.Range(1, 101);
         spotSelector = Random.Range(1, 5);
         if (spotRandomizer <= 35)

@@ -37,6 +37,7 @@ public class LevelsSceneChanger : MonoBehaviour
                 GameManager.instance.AddScore(20);
             }
             GameManager.instance.levelCompleted = false;
+
             SceneVillage();
         }
     }

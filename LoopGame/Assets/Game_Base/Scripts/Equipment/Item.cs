@@ -14,10 +14,14 @@ public class Item : MonoBehaviour, IPointerClickHandler
     public ItemType itemType;
     public int precioItem;
     [SerializeField] TMP_Text preciotext;
-    
+
+    private void Awake()
+    {
+        precioItem = Random.Range(20, 40) + GameManager.instance.score;
+
+    }
     void Start()
     {
-        precioItem = Random.Range(20,40)+GameManager.instance.score;
         preciotext.text = precioItem.ToString();
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
     }
@@ -35,7 +39,9 @@ public class Item : MonoBehaviour, IPointerClickHandler
    //     {
             GameManager.instance.AddCoins(-precioItem);
             inventoryManager.AddItem(itemName, sprite, itemDescription, itemType);
-            Destroy(gameObject);
+        preciotext.text = "";
+
+        Destroy(gameObject);
    //     }
     }
 
