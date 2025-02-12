@@ -13,10 +13,22 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public string leftcontent;
     #endregion
     #region Functions
+    private void Update()
+    {
+        if(GameManager.instance.itemBought == true || GameManager.instance.itemsRemain == 0)
+        {
+            TooltipManager.Hide();
+            GameManager.instance.itemBought = false;
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipManager.Show(leftcontent,header);
+        
+            TooltipManager.Show(leftcontent, header);
+     
     }
     public void OnPointerExit(PointerEventData eventData) { TooltipManager.Hide(); }
+    
     #endregion
 }

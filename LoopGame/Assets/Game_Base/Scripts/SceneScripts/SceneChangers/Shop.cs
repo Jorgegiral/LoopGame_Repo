@@ -8,7 +8,7 @@ public class Shop : MonoBehaviour
     bool playerinCollider;
     private void Update()
     {
-        if (playerinCollider && GameManager.instance.inShop == false)
+        if (playerinCollider && GameManager.instance.dailyVisit == true)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {

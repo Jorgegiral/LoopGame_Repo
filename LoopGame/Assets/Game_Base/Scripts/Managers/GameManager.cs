@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public int enemycount;
     public bool bosskilled;
     public bool inShop;
+    public bool itemBought;
+    public int itemsRemain;
+    public bool dailyVisit = true;
     public GameState currentGameState = GameState.GameRunning;
     public enum GameState
     {

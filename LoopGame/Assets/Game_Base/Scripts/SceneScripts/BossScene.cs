@@ -10,7 +10,8 @@ public class BossScene : MonoBehaviour
 
     private void Awake()
     {
-
+        GameManager.instance.AddCoins(0);
+        GameManager.instance.AddScore(0);
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)
         {

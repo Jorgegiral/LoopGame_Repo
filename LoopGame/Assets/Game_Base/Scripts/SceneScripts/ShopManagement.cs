@@ -9,29 +9,40 @@ public class ShopManagement : MonoBehaviour
     [SerializeField] int spotRandomizer;
     [SerializeField] int spotSelector;
     
+    
 
     void Start()
     {
+        GameManager.instance.dailyVisit = false;
+        GameManager.instance.AddCoins(0);
+        GameManager.instance.AddScore(0);
         spotRandomizer = Random.Range(1, 101);
         spotSelector = Random.Range(1, 5);
         if (spotRandomizer <= 35)
         {
+            GameManager.instance.itemsRemain += 1;
             ActivateRandomSpots(1);
 
         }
         else if (spotRandomizer <= 60)
         {
+            GameManager.instance.itemsRemain += 2;
+
             ActivateRandomSpots(2);
 
 
         }
         else if (spotRandomizer <= 90)
         {
+            GameManager.instance.itemsRemain += 3;
+
             ActivateRandomSpots(3);
 
         }
         else
         {
+            GameManager.instance.itemsRemain += 4;
+
             ActivateRandomSpots(4);
 
 

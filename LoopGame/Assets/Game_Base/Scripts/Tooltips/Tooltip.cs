@@ -43,8 +43,13 @@ public class Tooltip : MonoBehaviour
         var pivot = CalculatePivot(normalizedPosition);
         rectTransform.pivot = pivot;
         transform.position = position;
+        if (GameManager.instance.itemsRemain == 0)
+        {
+            gameObject.SetActive(false);    
+        }
+
     }
-    
+
     #endregion
     #region Functions
     private Vector2 CalculatePivot(Vector2 normalizedPosition)
