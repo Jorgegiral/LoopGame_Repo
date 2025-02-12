@@ -22,6 +22,11 @@ public class BulletBoss : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(gameObject.transform.position, target.transform.position, speed * Time.deltaTime);
 
+        //codigo extra Jorge para rotar el proyectil
+        Vector2 direction = (target.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        //
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

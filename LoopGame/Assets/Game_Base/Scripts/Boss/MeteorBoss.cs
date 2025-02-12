@@ -16,7 +16,14 @@ public class MeteorBoss : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         playerHealth = target.gameObject.GetComponent<OrbHealth>();
         Vector2 movedir = (target.transform.position - transform.position).normalized * speed;
-        bulletRB.velocity = new Vector2(movedir.x, movedir.y);
+
+        //bulletRB.velocity = new Vector2(movedir.x, movedir.y); codigo Adrian
+
+        //codigo Jorge:
+        bulletRB.velocity = movedir;
+        float angle = Mathf.Atan2(movedir.y, movedir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        //
         Destroy(this.gameObject, 6f);
     }
 
