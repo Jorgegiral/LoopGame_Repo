@@ -1,28 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
-    public GameObject EquipmentMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
-    
+    public EquippedSlot[] equippedSlot;
     public ItemSO[] itemSOs;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void HandleInventory()
     {
@@ -37,20 +26,7 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
         }
     }
-    public bool UseItem(string itemName)
-    {
-        for (int i = 0; i < itemSOs.Length; i++)
-        {
-            if (itemSOs[i].itemName == itemName) 
-            {
-               bool usable = itemSOs[i].UseItem();
-                return usable;
-            }
-            
-        }
-        return false;
 
-    }
     public void AddItem(string itemName, Sprite itemSprite, string itemDescription,  ItemType itemType)
     {
         for (int i = 0; i < itemSlot.Length; i++)
@@ -62,12 +38,17 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    public void DeseleectAllSlots()
+    public void DeselectAllSlots()
     {
         for (int i = 0;i < itemSlot.Length; i++)
         {
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
+        }
+        for (int i = 0; i < equippedSlot.Length; i++)
+        {
+            equippedSlot[i].selectedShader.SetActive(false);
+            equippedSlot[i].thisItemSelected = false;
         }
     }
 }

@@ -20,12 +20,12 @@ public class PlayerManager : MonoBehaviour
     public float speed = 4f;
     public float dashingpower = 8f;
     public float dashingrange = 0.2f;
-
-
+    public float dashCD = 3f;
+    public bool statsChanged;
     void Awake()
     {
         gameObject.SetActive(true);
-
+        statsChanged = false;
         if (instance == null)
         {
             instance = this;
@@ -37,6 +37,10 @@ public class PlayerManager : MonoBehaviour
         }
         currentHealth = playerMaxHealth;
         
+
+    }
+    private void Start()
+    {
 
     }
     public void UpdatePotionUI()
@@ -63,34 +67,8 @@ public class PlayerManager : MonoBehaviour
     speed = 4f;
     dashingpower = 8f;
     dashingrange = 0.2f;
+        dashCD = 3f;
     }
-    public void ChangeHealth(float health)
-    {
-        playerMaxHealth += health;
-        playerupdater.HealDamage(health);
-    }
-    public void ChangeAttackCD(float cd)
-    {
-       attackColdown = cd;
-    }
-    public void ChangePlayerAttack(float attack)
-    {
-        playerDamage += attack;
-    }
-    public void ChangeJumpForce(float jumpforce)
-    {
-        jumpForcePlayer += jumpforce;
-    }
-    public void ChangeSpeed(float speedtochange)
-    {
-        speed += speedtochange;
-    }
-    public void ChangeDashSpeed(float dashspeed)
-    {
-        dashingpower += dashspeed;
-    }
-    public void ChangeDashRange(float dashrange)
-    {
-        dashingrange += dashrange;
-    }
+   
+
 }

@@ -1,55 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class ItemSO : ScriptableObject
 {
     public string itemName;
-    public AttributeToChange attributeToChange = new AttributeToChange();
-    public float amountToChangeAttribute;
+    public float health, attack, speed, jump, dashSpeed, dashRange, DashCD, attackCD;
+    private StatHolder statTextUpdater;
+    public Sprite itemSprite;
 
-    public bool UseItem()
+
+    public void PreviewEquipment()
     {
-          if (attributeToChange == AttributeToChange.playerMaxHealth)
-          {
-              PlayerManager.instance.ChangeHealth(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.attackColdown)
-          {
-              PlayerManager.instance.ChangeAttackCD(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.playerDamage)
-          {
-              PlayerManager.instance.ChangePlayerAttack(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.jumpForce)
-          {
-              PlayerManager.instance.ChangeJumpForce(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.speed)
-          {
-              PlayerManager.instance.ChangeSpeed(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.dashspeed)
-          {
-              PlayerManager.instance.ChangeDashSpeed(amountToChangeAttribute);
-          }
-          if (attributeToChange == AttributeToChange.dashrange)
-          {
-              PlayerManager.instance.ChangeDashRange(amountToChangeAttribute);
-          }
-            return true;
-       
+        GameObject.Find("StatHolder").GetComponent<StatHolder>().PreviewEquipmentStats(attack, health,speed,jump,dashSpeed,dashRange,DashCD,attackCD);
     }
-    public enum AttributeToChange
+
+
+    
+    public void EquipItem()
     {
-        playerDamage,
-        playerMaxHealth,
-        attackColdown,
-        jumpForce,
-        speed,
-        dashspeed,
-        dashrange
-    };
+
+        if (statTextUpdater == null)
+        {
+            statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
+        }
+        else {
+            PlayerManager.instance.playerDamage += attack;
+            PlayerManager.instance.playerMaxHealth += health;
+            PlayerManager.instance.currentHealth += health;
+            PlayerManager.instance.speed += speed;
+            PlayerManager.instance.jumpForcePlayer += jump;
+            PlayerManager.instance.dashingpower += dashSpeed;
+            PlayerManager.instance.dashingrange += dashRange;
+            PlayerManager.instance.dashCD -= DashCD;
+            PlayerManager.instance.attackColdown -= attackCD;
+            statTextUpdater.UpdateEquipmentStats();
+            Debug.Log("Stats Changed");
+            PlayerManager.instance.statsChanged = true;
+        }
+        
+
+
+    }
+    public void UnEquipItem()
+    {
+        if (statTextUpdater == null)
+        {
+            statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
+        }
+        else { 
+        PlayerManager.instance.playerDamage -= attack;
+        PlayerManager.instance.playerMaxHealth -= health;
+        PlayerManager.instance.currentHealth -= health;
+        PlayerManager.instance.speed -= speed;
+        PlayerManager.instance.jumpForcePlayer -= jump;
+        PlayerManager.instance.dashingpower -= dashSpeed;
+        PlayerManager.instance.dashingrange -= dashRange;
+        PlayerManager.instance.dashCD += DashCD;
+        PlayerManager.instance.attackColdown += attackCD;
+        statTextUpdater.UpdateEquipmentStats();
+    }
+}
+   
 }

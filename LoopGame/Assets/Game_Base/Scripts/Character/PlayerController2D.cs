@@ -39,7 +39,7 @@ public class PlayerController2D : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
 
-    private float dashingCooldown = 3f;
+    
     [SerializeField] TrailRenderer trail;
 
 
@@ -51,7 +51,6 @@ public class PlayerController2D : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         cooldownAttackSlider = GameObject.Find("Attack").GetComponent<Image>();
         cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
-
         isFacingRight = true;
 
 
@@ -154,7 +153,7 @@ public class PlayerController2D : MonoBehaviour
         trail.emitting = false;
         playerRb.gravityScale = originalGravity;
         isDashing = false;
-        while (cooldowndashTimer < dashingCooldown)
+        while (cooldowndashTimer < PlayerManager.instance.dashCD)
         {
             cooldowndashTimer += Time.deltaTime;
             UpdateDashCooldownUI(); 
@@ -177,7 +176,7 @@ public class PlayerController2D : MonoBehaviour
     private void UpdateDashCooldownUI()
     {
 
-        cooldownDashSlider.fillAmount = cooldowndashTimer / dashingCooldown;
+        cooldownDashSlider.fillAmount = cooldowndashTimer / PlayerManager.instance.dashCD;
 
     }
     #region Input Events

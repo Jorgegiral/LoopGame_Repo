@@ -15,11 +15,6 @@ public class Item : MonoBehaviour
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnMouseDown()
     {
         inventoryManager.AddItem(itemName, sprite,itemDescription,itemType);

@@ -17,16 +17,20 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public ItemType itemType;
     //Item slot
     [SerializeField] private Image itemImage;
-
+    //Equipped slot
+    [SerializeField] private EquippedSlot armorSlot, mainHandSlot, jewelrySlot;
     public GameObject selectedShader;
     public bool thisItemSelected;
 
+
     private InventoryManager inventoryManager;
+    private EquipmentSOlibrary equipmentSOlibrary;
 
 
     void Start()
     {
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
+        equipmentSOlibrary = GameObject.Find("GearUI").GetComponent<EquipmentSOlibrary>();
     }
 
     // Update is called once per frame
@@ -57,39 +61,75 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnLeftClick()
     {
-        if (thisItemSelected)
-        {           
-          bool usable = inventoryManager.UseItem(itemName);
-            if (usable)
+        if (isFull)
+        {
+
+            if (thisItemSelected)
             {
+                EquipGear();
                 EmptySlot();
             }
+            else
+            {
+                inventoryManager.DeselectAllSlots();
+                selectedShader.SetActive(true);
+                thisItemSelected = true;
+
+                for (int i = 0; i < equipmentSOlibrary.itemSOs.Length; i++)
+                {
+                    if (equipmentSOlibrary.itemSOs[i].itemName == this.itemName)
+                    {
+                        equipmentSOlibrary.itemSOs[i].PreviewEquipment();
+                    }
+                }
+            }
         }
-        else
+        else 
         {
-            inventoryManager.DeseleectAllSlots();
+            GameObject.Find("StatHolder").GetComponent<StatHolder>().TurnOffPreviewStats();
+            inventoryManager.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
-           
         }
-    
-}
 
+    }
+    private void EquipGear()
+    {
+        if(itemType == ItemType.armor)
+        {
+            armorSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        if (itemType == ItemType.mainHand)
+        {
+            mainHandSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        if (itemType == ItemType.jewelry)
+        {
+           jewelrySlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        EmptySlot();
+
+    }
     private void EmptySlot()
     {
-        itemImage.sprite = emptySprite;
+        itemImage.sprite = null;
+        itemName = string.Empty;
+        itemDescription = string.Empty;
 
         isFull = false;
     }
 
     public void OnRightClick()
     {
-        if (GameManager.instance.inShop)
-        {
+        //  if (GameManager.instance.inShop)
+        // {
+        if (isFull) { 
             int numRandom;
             numRandom = UnityEngine.Random.Range(5, 12) + GameManager.instance.score/2;
             GameManager.instance.AddCoins(numRandom);
             EmptySlot();
-        }
+        Debug.Log(numRandom);
     }
+    //   }
+}
 }
