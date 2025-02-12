@@ -15,7 +15,6 @@ public class Tooltip : MonoBehaviour
     [Header("Content Variables")]
     public TextMeshProUGUI headerField;
     public TextMeshProUGUI leftContentField;
-    public TextMeshProUGUI rarityContentField;
     [Header("Resize Variables")]
     public LayoutElement layoutElement;
     public int characterWrapLimit;
@@ -81,28 +80,14 @@ public class Tooltip : MonoBehaviour
         }
         else
         {
-            if(rarityContentField.text == "Special")
-            {
-                headerField.colorGradient = new VertexGradient(colorSpecial);
-
-            }
-            else if (rarityContentField.text == "Rare")
-            {
-                headerField.colorGradient = new VertexGradient(colorRare);
-
-            }
-            else
-            {
-                headerField.colorGradient = new VertexGradient(colorEpic);
-
-            }
+            
+           
 
 
             headerField.gameObject.SetActive(true);
             headerField.text = header;
         }
         leftContentField.text = leftContent;
-        rarityContentField.text = rarityContent;
     }
     
     #endregion

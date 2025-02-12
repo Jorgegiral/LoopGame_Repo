@@ -11,12 +11,11 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public string header;
     [MultilineAttribute()]
     public string leftcontent;
-    public string raritycontent;
     #endregion
     #region Functions
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipManager.Show(leftcontent,raritycontent,header);
+        TooltipManager.Show(leftcontent,header);
     }
     public void OnPointerExit(PointerEventData eventData) { TooltipManager.Hide(); }
     #endregion

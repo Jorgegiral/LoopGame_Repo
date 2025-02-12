@@ -26,15 +26,15 @@ public class LevelsSceneChanger : MonoBehaviour
             }
             if (sceneIndex == 2)
             {
-                GameManager.instance.AddScore(1);
+                GameManager.instance.AddScore(5);
             }
             else if (sceneIndex == 3)
             {
-                GameManager.instance.AddScore(5);
+                GameManager.instance.AddScore(10);
             }
             else if (sceneIndex == 4)
             {
-                GameManager.instance.AddScore(15);
+                GameManager.instance.AddScore(20);
             }
             GameManager.instance.levelCompleted = false;
             SceneVillage();

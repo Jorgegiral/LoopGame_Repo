@@ -10,15 +10,21 @@ public class Item : MonoBehaviour
     [TextArea]
     [SerializeField] private string itemDescription;
     public ItemType itemType;
+    public int precioItem;
     void Start()
     {
+        precioItem = Random.Range(20,40)+GameManager.instance.score;
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
     }
 
     private void OnMouseDown()
     {
-        inventoryManager.AddItem(itemName, sprite,itemDescription,itemType);
-        Destroy(gameObject);
+        if (precioItem < GameManager.instance.coins)
+        {
+            GameManager.instance.AddCoins(-precioItem);
+            inventoryManager.AddItem(itemName, sprite, itemDescription, itemType);
+            Destroy(gameObject);
+        }
     }
 
 }

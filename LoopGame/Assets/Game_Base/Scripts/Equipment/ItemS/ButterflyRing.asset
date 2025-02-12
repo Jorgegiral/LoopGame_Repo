@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4509a6e624c614ea10e9ff933b76f1, type: 3}
-  m_Name: Perfect
+  m_Name: ButterflyRing
   m_EditorClassIdentifier: 
-  itemName: Perfect
-  health: 1
-  attack: 1
-  speed: 1
+  itemName: Butterfly Ring
+  health: 0
+  attack: 0
+  speed: 0
   jump: 1
-  dashSpeed: 1
-  dashRange: 1
-  DashCD: 0.2
-  attackCD: 0.1
-  itemSprite: {fileID: -409452483095543229, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
+  dashSpeed: 0
+  dashRange: 0
+  DashCD: 0
+  attackCD: 0
+  itemSprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}

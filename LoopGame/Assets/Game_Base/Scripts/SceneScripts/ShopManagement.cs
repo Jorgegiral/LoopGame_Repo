@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopManagement : MonoBehaviour
 {
     [SerializeField] GameObject[] spots;
-    [SerializeField] GameObject[] items;
     [SerializeField] int spotRandomizer;
     [SerializeField] int itemslotRandomizer;
     [SerializeField] int spotSelector;
+    
 
     void Start()
     {
@@ -20,30 +21,23 @@ public class ShopManagement : MonoBehaviour
         {
             ActivateRandomSpots(1);
 
-            //  spots[spotSelector].SetActive(true);
         }
         else if (spotRandomizer <= 60)
         {
             ActivateRandomSpots(2);
 
-            // spots[spotSelector].SetActive(true);
 
         }
         else if (spotRandomizer <= 90)
         {
             ActivateRandomSpots(3);
 
-            //  items[spotSelector].SetActive(true);
         }
         else
         {
             ActivateRandomSpots(4);
 
-            /*  for (int i = 0; i < spots.Length; i++)
-              {
-                  spots[i].SetActive(true);
-              }
-            */
+
         }
     }
     void ActivateRandomSpots(int amount)
@@ -62,6 +56,11 @@ public class ShopManagement : MonoBehaviour
             spots[availableIndexes[randomIndex]].SetActive(true);
             availableIndexes.RemoveAt(randomIndex);
         }
+    }
+    public void GoToVillage()
+    {
+        SceneManager.LoadScene(1);
+
     }
 
 }

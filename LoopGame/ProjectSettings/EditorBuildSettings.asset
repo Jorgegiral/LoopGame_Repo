@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Game_Base/Scenes/MainMenu.unity
     guid: 7fe6584e260e76e44baec2864c18d694
   - enabled: 1
-    path: Assets/Game_Base/Scenes/Village.unity
-    guid: cded45ab65875f549afab1d5554a675d
+    path: Assets/Game_Base/Scenes/VillageDefnitive.unity
+    guid: 694922dc6d4b7c048baa73ee990013ab
   - enabled: 1
     path: Assets/Game_Base/Scenes/Descansito.unity
     guid: 7324d9918c59ee94790bb99b550d1846
@@ -30,8 +30,8 @@ EditorBuildSettings:
     path: Assets/Game_Base/Scenes/TestScene.unity
     guid: 2344597d19da59b41bf2a1048e74db4a
   - enabled: 1
-    path: Assets/Game_Base/Scenes/VillageDefnitive.unity
-    guid: 694922dc6d4b7c048baa73ee990013ab
+    path: Assets/Game_Base/Scenes/Village.unity
+    guid: cded45ab65875f549afab1d5554a675d
   - enabled: 0
     path: Assets/Game_Base/Scenes/RestLevel.unity
     guid: caf80139adf226943917f072482c0220

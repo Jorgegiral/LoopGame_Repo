@@ -15,9 +15,9 @@ public class TooltipManager : MonoBehaviour
     }
     #endregion
     #region Functions
-    public static void Show(string leftContent, string rarityContent, string header = "")
+    public static void Show(string leftContent, string header = "")
     {
-        instance.tooltip.SetText(leftContent, rarityContent, header);
+        instance.tooltip.SetText(leftContent, header);
         instance.tooltip.gameObject.SetActive(true);
     }
     public static void Hide() 
