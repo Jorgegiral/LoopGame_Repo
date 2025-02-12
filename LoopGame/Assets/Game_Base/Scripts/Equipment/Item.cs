@@ -35,8 +35,8 @@ public class Item : MonoBehaviour, IPointerClickHandler
     }
     private void OnLeftClick()
     {
-        //     if (precioItem < GameManager.instance.coins)
-        //     {
+             if (precioItem < GameManager.instance.coins)
+           {
         GameManager.instance.itemBought = true;
 
         GameManager.instance.AddCoins(-precioItem);
@@ -45,7 +45,7 @@ public class Item : MonoBehaviour, IPointerClickHandler
         inventoryManager.AddItem(itemName, sprite, itemDescription, itemType);
         preciotext.text = "";
         Destroy(gameObject);
-   //     }
+     }
     }
 
 }

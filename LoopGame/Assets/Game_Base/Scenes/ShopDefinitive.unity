@@ -2563,7 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Florida Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -3621,7 +3621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Elf Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -5561,7 +5561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Orc Hammer
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: '+2 Health
 
     +2 Attack
@@ -6369,7 +6369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -6963,7 +6963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -8494,7 +8494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -9073,7 +9073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -9773,7 +9773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Elf Hood
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: '+1 Damage
 
     +1 Speed
@@ -10048,7 +10048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Lava Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -10753,7 +10753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Helmet
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -11017,7 +11017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: The Great Toy Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -11621,7 +11621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Florida Helmet
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -12400,7 +12400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -13159,7 +13159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -13541,7 +13541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Mage Staff
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -13658,7 +13658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Florida Helmet
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -15011,7 +15011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Orc Leggins
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -15745,7 +15745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -16934,7 +16934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -17497,7 +17497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Ring
-  sprite: {fileID: 293191181, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 
   itemType: 0
   precioItem: 0
@@ -18713,7 +18713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Mage Robe
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -18980,7 +18980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Ellie Sword
-  sprite: {fileID: 1621212786, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Ataca como una mariposa
 
 '
@@ -19664,7 +19664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Butterfly Helmet
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: 'Defiendete como una mariposa
 
 '
@@ -20426,7 +20426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Lava Chestplate
-  sprite: {fileID: -602276606, guid: 77744140d7e43414dbccc0196bc13b32, type: 3}
+  sprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemDescription: '+3 Health
 
     +1 Damage
