@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public int enemycount;
     public bool bosskilled;
     public bool inShop;
+    public GameState currentGameState = GameState.GameRunning;
     public enum GameState
     {
         GameRunning,
