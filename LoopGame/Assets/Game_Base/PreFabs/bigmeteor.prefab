@@ -12,21 +12,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: bigmeteor
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1b5e60403975e32409d5bb2ed3436575, type: 2}
+    - target: {fileID: 3626916397498700004, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -450679376, guid: 8da89107bef1fcd459bb0e645ebe7bcb, type: 3}
     - target: {fileID: 3626916397498700004, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.2627
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.2627
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.2627
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b477e6d085782cd45994d240be6c13ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -149,8 +157,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.421875}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: -0.040000003}
-    oldSize: {x: 0.5625, y: 0.78125}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 5}
     newSize: {x: 0.5625, y: 0.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
