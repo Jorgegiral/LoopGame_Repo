@@ -6,13 +6,43 @@ using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
+    private InventoryManager instance;
     public GameObject InventoryMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     public EquippedSlot[] equippedSlot;
     public ItemSO[] itemSOs;
-    
 
+    private void Awake()
+    {
+            gameObject.SetActive(true);
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        
+    }
+    private void Update()
+    {
+        if (GameManager.instance.inShop)
+        {
+            if (Input.GetKeyDown(KeyCode.E) && menuActivated)
+            {
+                InventoryMenu.SetActive(false);
+                menuActivated = false;
+            }
+            else if (!menuActivated)
+            {
+                InventoryMenu.SetActive(true);
+                menuActivated = true;
+            }
+        }
+    }
     public void HandleInventory()
     {
         if (menuActivated)

@@ -121,8 +121,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnRightClick()
     {
-        //  if (GameManager.instance.inShop)
-        // {
+          if (GameManager.instance.inShop)
+         {
         if (isFull) { 
             int numRandom;
             numRandom = UnityEngine.Random.Range(5, 12) + GameManager.instance.score/2;
@@ -130,6 +130,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             EmptySlot();
         Debug.Log(numRandom);
     }
-    //   }
+       }
 }
 }

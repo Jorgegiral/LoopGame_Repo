@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ChoseItem : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject[] itemsInSpot;
+    int numSelector;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        numSelector = Random.Range(0, itemsInSpot.Length);
+        itemsInSpot[numSelector].SetActive(true);
     }
 }

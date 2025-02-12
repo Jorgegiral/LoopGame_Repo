@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4509a6e624c614ea10e9ff933b76f1, type: 3}
-  m_Name: ButterflySword
+  m_Name: LavaChestPlate
   m_EditorClassIdentifier: 
-  itemName: Butterfly Sword
-  health: 1
+  itemName: Lava Chestplate
+  health: 3
   attack: 1
   speed: 0
   jump: 0
   dashSpeed: 0
   dashRange: 0
   DashCD: 0
-  attackCD: -0.2
-  itemSprite: {fileID: 280775183, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
+  attackCD: 0
+  itemSprite: {fileID: -932322412, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}

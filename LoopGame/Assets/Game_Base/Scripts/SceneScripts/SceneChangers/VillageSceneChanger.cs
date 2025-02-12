@@ -23,6 +23,7 @@ public class SceneObject : MonoBehaviour
             }
             if (tag == "Left")
             {
+                
                 GameManager.instance.spawnRight = false;
             }
             SceneLevel();

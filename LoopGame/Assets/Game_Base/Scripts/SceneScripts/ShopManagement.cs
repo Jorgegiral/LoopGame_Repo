@@ -7,7 +7,6 @@ public class ShopManagement : MonoBehaviour
 {
     [SerializeField] GameObject[] spots;
     [SerializeField] int spotRandomizer;
-    [SerializeField] int itemslotRandomizer;
     [SerializeField] int spotSelector;
     
 
@@ -15,7 +14,6 @@ public class ShopManagement : MonoBehaviour
     {
         GameManager.instance.inShop = true;
         spotRandomizer = Random.Range(1, 101);
-        itemslotRandomizer = Random.Range(1, 5);
         spotSelector = Random.Range(1, 5);
         if (spotRandomizer <= 35)
         {
@@ -42,7 +40,7 @@ public class ShopManagement : MonoBehaviour
     }
     void ActivateRandomSpots(int amount)
     {
-        if (spots.Length < amount) amount = spots.Length; // Evita errores si hay pocos spots
+        if (spots.Length < amount) amount = spots.Length; 
 
         List<int> availableIndexes = new List<int>();
         for (int i = 0; i < spots.Length; i++)

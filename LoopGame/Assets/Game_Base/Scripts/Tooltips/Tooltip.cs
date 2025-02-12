@@ -71,23 +71,13 @@ public class Tooltip : MonoBehaviour
             return pivotBottomRight;
         }
     }
-    public void SetText(string leftContent, string rarityContent, string header = "")
+    public void SetText(string leftContent, string header )
     {
-        if (string.IsNullOrEmpty(header))
-        {
-            
-            headerField.gameObject.SetActive(false);
-        }
-        else
-        {
-            
-           
 
-
+            
             headerField.gameObject.SetActive(true);
             headerField.text = header;
-        }
-        leftContentField.text = leftContent;
+           leftContentField.text = leftContent;
     }
     
     #endregion

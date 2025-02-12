@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SearchGearUI : MonoBehaviour
 {
-    GameObject gearUI;
+    InventoryManager inventoryManager;
     private void Awake()
     {
+        inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        inventoryManager.HandleInventory();
     }
 }

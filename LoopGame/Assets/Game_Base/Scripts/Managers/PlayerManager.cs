@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     public int potions = 3;
     public  TMP_Text potionText;
     public float playerDamage = 5f;
-    public float attackColdown = 2f;
+    public float attackColdown = 3f;
     public float jumpForcePlayer = 7f;
     public float speed = 4f;
     public float dashingpower = 8f;
