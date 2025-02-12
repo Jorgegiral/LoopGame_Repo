@@ -38,5 +38,9 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void Aldeadefinitiva()
+    {
+        SceneManager.LoadScene(7);
+    }
     #endregion
 }

@@ -30,9 +30,12 @@ EditorBuildSettings:
     path: Assets/Game_Base/Scenes/TestScene.unity
     guid: 2344597d19da59b41bf2a1048e74db4a
   - enabled: 1
+    path: Assets/Game_Base/Scenes/VillageDefnitive.unity
+    guid: 694922dc6d4b7c048baa73ee990013ab
+  - enabled: 0
     path: Assets/Game_Base/Scenes/RestLevel.unity
     guid: caf80139adf226943917f072482c0220
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game_Base/Scenes/CombatLevel.unity
     guid: 5fbe64441607c794aade37c40b0c22e3
   m_configObjects:
