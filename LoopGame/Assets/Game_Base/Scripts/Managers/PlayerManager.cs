@@ -22,6 +22,10 @@ public class PlayerManager : MonoBehaviour
     public float dashingrange = 0.2f;
     public float dashCD = 3f;
     public bool statsChanged;
+    [SerializeField] TMP_Text attackText, healthText, attackCDText, speedText, jumpText, dashSpeedText, dashRangeText, dashCDText;
+
+    [SerializeField] TMP_Text attackpreText, healthpreText, attackCDpreText, speedpreText, jumppreText, dashSpeedpreText, dashRangepreText, dashCDpreText;
+    [SerializeField] GameObject selectedItemStats;
     void Awake()
     {
         gameObject.SetActive(true);
@@ -41,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void Start()
     {
+        UpdateEquipmentStats();
 
     }
     public void UpdatePotionUI()
@@ -69,6 +74,32 @@ public class PlayerManager : MonoBehaviour
     dashingrange = 0.2f;
         dashCD = 3f;
     }
-   
 
+    public void UpdateEquipmentStats()
+    {
+        attackText.text = PlayerManager.instance.playerDamage.ToString();
+        healthText.text = PlayerManager.instance.playerMaxHealth.ToString();
+        attackCDText.text = PlayerManager.instance.attackColdown.ToString();
+        speedText.text = PlayerManager.instance.speed.ToString();
+        jumpText.text = PlayerManager.instance.jumpForcePlayer.ToString(); ;
+        dashRangeText.text = PlayerManager.instance.dashingrange.ToString();
+        dashSpeedText.text = PlayerManager.instance.dashingpower.ToString();
+        dashCDText.text = PlayerManager.instance.dashCD.ToString();
+    }
+    public void PreviewEquipmentStats(float attack, float health, float speed, float jump, float dashSpeed, float dashRange, float dashCD, float attackCD)
+    {
+        attackpreText.text = attack.ToString();
+        healthpreText.text = health.ToString();
+        attackCDpreText.text = attackCD.ToString();
+        speedpreText.text = speed.ToString();
+        jumppreText.text = jump.ToString(); ;
+        dashRangepreText.text = dashRange.ToString();
+        dashSpeedpreText.text = dashSpeed.ToString();
+        dashCDpreText.text = dashCD.ToString();
+        selectedItemStats.SetActive(true);
+    }
+    public void TurnOffPreviewStats()
+    {
+        selectedItemStats.SetActive(false);
+    }
 }

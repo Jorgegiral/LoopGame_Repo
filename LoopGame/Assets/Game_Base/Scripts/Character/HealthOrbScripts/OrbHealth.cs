@@ -12,38 +12,22 @@ public class OrbHealth : MonoBehaviour
     public float currentHealth;
   
     private bool PotionReady = true;
-    [Header("Knockback Settings")]
-    public float knockbackForce = 5f; 
-    public float knockbackDuration = 0.2f;
-    private Rigidbody2D rb;
-    private bool isKnockedBack = false;
-    private SpriteRenderer spriteRenderer;
     #endregion
 
     #region UnityFunctions
-    private void Awake()
+    private void Start()
     {
         startingHealth = PlayerManager.instance.playerMaxHealth;
         currentHealth = PlayerManager.instance.currentHealth;
-        rb = GetComponent<Rigidbody2D>(); 
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     #endregion
 
     #region Functions
-    
+
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         PlayerManager.instance.currentHealth = currentHealth;
-        if (!isKnockedBack)
-        {
-            StartCoroutine(Knockback());
-        }
-        if (currentHealth <= 0)
-        {
-            
-        }
     }
 
     public void HealDamage(float damage)
@@ -59,21 +43,7 @@ public class OrbHealth : MonoBehaviour
         }
 
     }
-    private IEnumerator Knockback()
-    {
-        isKnockedBack = true;
-        float direction = spriteRenderer.flipX ? 1f : -1f; 
-
-    
-        Vector2 knockbackDirection = new Vector2(direction, 0f).normalized;
-
-       
-        rb.velocity = Vector2.zero;
-        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-
-        yield return new WaitForSeconds(knockbackDuration);
-        isKnockedBack = false;
-    }
+   
     #endregion
 
     #region Input Events

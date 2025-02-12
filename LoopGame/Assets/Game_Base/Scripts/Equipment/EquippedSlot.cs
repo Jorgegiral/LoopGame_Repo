@@ -109,7 +109,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
                 equipmentSOlibrary.itemSOs[i].UnEquipItem();
             }
         }
-        GameObject.Find("StatHolder").GetComponent<StatHolder>().TurnOffPreviewStats();
+        PlayerManager.instance.TurnOffPreviewStats();
     }
     public void CheckGearSlot()
     {
@@ -127,7 +127,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
                 }
             }
 
-            GameObject.Find("StatHolder").GetComponent<StatHolder>().UpdateEquipmentStats();
+            PlayerManager.instance.UpdateEquipmentStats();
             PlayerManager.instance.statsChanged = false;
         }
     }

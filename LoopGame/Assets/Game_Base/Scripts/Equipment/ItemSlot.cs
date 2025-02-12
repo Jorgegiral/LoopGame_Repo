@@ -86,7 +86,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         }
         else 
         {
-            GameObject.Find("StatHolder").GetComponent<StatHolder>().TurnOffPreviewStats();
+            PlayerManager.instance.TurnOffPreviewStats();
             inventoryManager.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;

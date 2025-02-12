@@ -14,7 +14,7 @@ public class ItemSO : ScriptableObject
 
     public void PreviewEquipment()
     {
-        GameObject.Find("StatHolder").GetComponent<StatHolder>().PreviewEquipmentStats(attack, health,speed,jump,dashSpeed,dashRange,DashCD,attackCD);
+        PlayerManager.instance.PreviewEquipmentStats(attack, health,speed,jump,dashSpeed,dashRange,DashCD,attackCD);
     }
 
 
@@ -22,11 +22,11 @@ public class ItemSO : ScriptableObject
     public void EquipItem()
     {
 
-        if (statTextUpdater == null)
+  /*      if (statTextUpdater == null)
         {
             statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
         }
-        else {
+        else {*/
             PlayerManager.instance.playerDamage += attack;
             PlayerManager.instance.playerMaxHealth += health;
             PlayerManager.instance.currentHealth += health;
@@ -36,21 +36,21 @@ public class ItemSO : ScriptableObject
             PlayerManager.instance.dashingrange += dashRange;
             PlayerManager.instance.dashCD -= DashCD;
             PlayerManager.instance.attackColdown -= attackCD;
-            statTextUpdater.UpdateEquipmentStats();
+            PlayerManager.instance.UpdateEquipmentStats();
             Debug.Log("Stats Changed");
             PlayerManager.instance.statsChanged = true;
-        }
+     //   }
         
 
 
     }
     public void UnEquipItem()
     {
-        if (statTextUpdater == null)
+  /*      if (statTextUpdater == null)
         {
             statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
         }
-        else { 
+        else { */
         PlayerManager.instance.playerDamage -= attack;
         PlayerManager.instance.playerMaxHealth -= health;
         PlayerManager.instance.currentHealth -= health;
@@ -60,8 +60,8 @@ public class ItemSO : ScriptableObject
         PlayerManager.instance.dashingrange -= dashRange;
         PlayerManager.instance.dashCD += DashCD;
         PlayerManager.instance.attackColdown += attackCD;
-        statTextUpdater.UpdateEquipmentStats();
-    }
+        PlayerManager.instance.UpdateEquipmentStats();
+ //   }
 }
    
 }
