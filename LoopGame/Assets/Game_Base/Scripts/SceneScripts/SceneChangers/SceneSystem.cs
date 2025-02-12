@@ -16,6 +16,7 @@ public class SceneSystem : MonoBehaviour
     #region Functions
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
     public void SceneVillage()
@@ -42,5 +43,10 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(7);
     }
+    public void ExitGame()
+    {
+        Application.Quit(); 
+    }
+
     #endregion
 }

@@ -1138,6 +1138,7 @@ MonoBehaviour:
   enemycount: 0
   bosskilled: 0
   inShop: 0
+  currentGameState: 0
 --- !u!1 &1374370900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554752528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1705762175}
+        m_TargetAssemblyTypeName: SceneSystem, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1554752528
 MonoBehaviour:
   m_ObjectHideFlags: 0

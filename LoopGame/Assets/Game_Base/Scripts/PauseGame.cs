@@ -6,26 +6,34 @@ public class PauseGame : MonoBehaviour
 {
     public GameObject menuPause;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseMenu();
+            if (GameManager.instance.currentGameState == GameManager.GameState.GameRunning)
+            {
+                PauseMenu();
+            }
+            else if (GameManager.instance.currentGameState == GameManager.GameState.GamePaused)
+            {
+                ResumeGame();
+            }
         }
     }
-    void PauseMenu()
+    public void ResumeGame()
     {
-        if (GameManager.instance.currentGameState == GameManager.GameState.GameRunning)
-        {
-            GameManager.instance.currentGameState = GameManager.GameState.GamePaused;
-            Time.timeScale = 0;
-            menuPause.SetActive(true);
-        }
-        else if (GameManager.instance.currentGameState == GameManager.GameState.GamePaused)
-        {
-            GameManager.instance.currentGameState = GameManager.GameState.GameRunning;
-            Time.timeScale = 1;
-            menuPause.SetActive(false);
-        }
+        GameManager.instance.currentGameState = GameManager.GameState.GameRunning;
+        Time.timeScale = 1f;
+        menuPause.SetActive(false);
+    }
+    public void PauseMenu()
+    {
+        GameManager.instance.currentGameState = GameManager.GameState.GamePaused;
+        Time.timeScale = 0f;
+        menuPause.SetActive(true);
     }
 }
