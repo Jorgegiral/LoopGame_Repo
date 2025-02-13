@@ -140,11 +140,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 90
+        y: 100
         width: 54
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,11 +161,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 59
+        y: 69
         width: 83
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,10 +183,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 83
-        height: 58
+        width: 90
+        height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
