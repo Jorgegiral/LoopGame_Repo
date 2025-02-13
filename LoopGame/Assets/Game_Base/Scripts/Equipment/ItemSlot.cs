@@ -68,6 +68,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             if (thisItemSelected)
             {
                 EquipGear();
+                GameManager.instance.slots += 1;
                 EmptySlot();
             }
             else
@@ -128,7 +129,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             numRandom = UnityEngine.Random.Range(5, 12) + CoinAndScore.instance.score/2;
             CoinAndScore.instance.AddCoins(numRandom);
             EmptySlot();
-        Debug.Log(numRandom);
+                GameManager.instance.slots += 1;
     }
        }
 }
