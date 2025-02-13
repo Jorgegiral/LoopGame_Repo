@@ -22,6 +22,7 @@ public class FountainRest : MonoBehaviour
                 fountanim.SetTrigger("Interact");
                 GameManager.instance.levelCompleted = true;
                 PlayerManager.instance.AddPotions(1);
+                CoinAndScore.instance.AddCoins(15);
                 
             }
         }
