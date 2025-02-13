@@ -29,6 +29,7 @@ public class PatrolScript : MonoBehaviour
         {
             FacePlayer(); 
         }
+        anim.SetBool("isWalking", Mathf.Abs(transform.position.x) > 0.1f);
     }
 
     void Flip()
