@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Shop : MonoBehaviour
 {
     bool playerinCollider;
+    public GameObject shop;
     private void Update()
     {
         if (playerinCollider && GameManager.instance.dailyVisit == true)
@@ -23,6 +24,7 @@ public class Shop : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerinCollider = true;
+            shop.SetActive(true);
            
         }
     }
@@ -31,6 +33,7 @@ public class Shop : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerinCollider = false;
+            shop.SetActive(false);
         }
     }
     public void SceneShop()
