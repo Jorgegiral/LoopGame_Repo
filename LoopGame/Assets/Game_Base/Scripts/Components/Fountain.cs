@@ -23,7 +23,7 @@ public class Fountain : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && CoinAndScore.instance.coins >= potionCost)
             {
-                AudioManager.Instance.PlaySFX(7);
+                AudioManager.Instance.PlaySFX(6);
                 fuenteanim.SetTrigger("Interact");
                 CoinAndScore.instance.AddCoins(-15);
                 PlayerManager.instance.AddPotions(1);
