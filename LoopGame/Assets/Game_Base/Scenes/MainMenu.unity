@@ -202,6 +202,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3712155511286546971, guid: 9dfa8b9c5ddc6074281f098b539b1167, type: 3}
+      propertyPath: m_Volume
+      value: 0.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712155511286546971, guid: 9dfa8b9c5ddc6074281f098b539b1167, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 03882308d77b9f340baba4dad2b64658, type: 3}
+    - target: {fileID: 3712155511286546971, guid: 9dfa8b9c5ddc6074281f098b539b1167, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6610550531072092969, guid: 9dfa8b9c5ddc6074281f098b539b1167, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1195,6 +1207,9 @@ MonoBehaviour:
   enemycount: 0
   bosskilled: 0
   inShop: 0
+  itemBought: 0
+  itemsRemain: 0
+  dailyVisit: 1
   currentGameState: 0
 --- !u!1 &1374370900
 GameObject:

@@ -15,11 +15,11 @@ public class BossScene : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         if (GameManager.instance.spawnRight)
         {
-            player.transform.position = rightSpawn.position;
+            player.transform.position = leftSpawn.position;
         }
         else
         {
-            player.transform.position = leftSpawn.position;
+            player.transform.position = rightSpawn.position;
         }
     }
     private void Update()

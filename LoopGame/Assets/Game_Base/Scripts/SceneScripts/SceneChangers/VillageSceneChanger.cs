@@ -51,6 +51,6 @@ public class SceneObject : MonoBehaviour
             { SceneRandomizer = Random.Range(2, 4); }
         }
         GameManager.instance.dailyVisit = true;
-        SceneManager.LoadScene(SceneRandomizer);
+        SceneManager.LoadScene(4);
     }
 }
