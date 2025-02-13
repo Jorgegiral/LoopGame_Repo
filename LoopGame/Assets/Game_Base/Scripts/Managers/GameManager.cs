@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int itemsRemain;
     public bool dailyVisit = true;
     public GameState currentGameState = GameState.GameRunning;
+    public int slots = 6;
+
     public enum GameState
     {
         GameRunning,

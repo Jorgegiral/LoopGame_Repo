@@ -47,6 +47,8 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         if (thisItemSelected && slotInUse)
         {
             UnEquipGear();
+            GameManager.instance.slots -= 1;
+
         }
         else
         {

@@ -23,14 +23,8 @@ public class SceneSystem : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void Shop()
-    {
-        SceneManager.LoadScene(6);
-    }
-    public void TestLevel()
-    {
-        SceneManager.LoadScene(6);
-    }
+
+
     public void BossLevel()
     {
         SceneManager.LoadScene(4);
@@ -53,6 +47,8 @@ public class SceneSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(4);
+            GameManager.instance.slots += 1;
+
         }
     }
     #endregion
