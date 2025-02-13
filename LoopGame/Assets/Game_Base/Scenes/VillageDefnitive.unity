@@ -3770,8 +3770,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 237743847}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 1693710814}
   thisItemSelected: 0
 --- !u!1 &238253975
@@ -8154,7 +8154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &610605316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9279,8 +9279,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 657129232}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 679612291}
   thisItemSelected: 0
 --- !u!1 &659956227
@@ -15068,8 +15068,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 915277523}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 632098315}
   thisItemSelected: 0
 --- !u!1 &919654975
@@ -17600,8 +17600,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 1087778544}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 1038746902}
   thisItemSelected: 0
 --- !u!1 &1088818719
@@ -19286,8 +19286,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 1193154419}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 956322795}
   thisItemSelected: 0
 --- !u!1 &1194335835
@@ -21769,8 +21769,8 @@ MonoBehaviour:
   itemType: 0
   itemImage: {fileID: 668521755}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1705697923}
-  jewelrySlot: {fileID: 1742875510}
+  mainHandSlot: {fileID: 1742875510}
+  jewelrySlot: {fileID: 1705697923}
   selectedShader: {fileID: 668521753}
   thisItemSelected: 0
 --- !u!1 &1372053954
