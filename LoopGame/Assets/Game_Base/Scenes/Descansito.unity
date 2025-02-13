@@ -55917,7 +55917,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8066900085294784851, guid: c28236421dc16b34fb710a22080ccb78, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -55942,6 +55943,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d9873a04331bf4890e6762f12e29ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shop: {fileID: 6882541441490809531}
+--- !u!1 &6882541441490809531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2726479791949336472, guid: c28236421dc16b34fb710a22080ccb78, type: 3}
+  m_PrefabInstance: {fileID: 6882541441490809528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

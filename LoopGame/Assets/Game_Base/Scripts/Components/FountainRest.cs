@@ -7,6 +7,7 @@ public class FountainRest : MonoBehaviour
 
     private bool isPlayerinCollider;
     private Animator fountanim;
+    public GameObject shop;
 
 
     private void Start()
@@ -34,13 +35,15 @@ public class FountainRest : MonoBehaviour
         {
             
             isPlayerinCollider = true;
+
+                shop.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-
+            shop.SetActive(false);
             isPlayerinCollider = false;
         }
     }
