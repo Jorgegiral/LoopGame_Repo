@@ -27,9 +27,9 @@ public class PatrolScript : MonoBehaviour
         }
         else
         {
-            FacePlayer(); 
+            FacePlayer();
+            anim.SetBool("isWalking", false);
         }
-        anim.SetBool("isWalking", Mathf.Abs(transform.position.x) > 0.1f);
     }
 
     void Flip()
@@ -70,6 +70,14 @@ public class PatrolScript : MonoBehaviour
     private void Move()
     {
         Vector2 targetPosition = isFacingRight ? rightLimit.position : leftLimit.position;
+        if (Vector2.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
