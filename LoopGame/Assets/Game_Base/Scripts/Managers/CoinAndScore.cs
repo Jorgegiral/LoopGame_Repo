@@ -13,8 +13,6 @@ public class CoinAndScore : MonoBehaviour
 
     private void Update()
     {
-        
-
         UpdateScoreCoinsUI();
     }
     void Awake()

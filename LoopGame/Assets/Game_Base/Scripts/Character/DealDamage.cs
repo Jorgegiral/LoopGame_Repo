@@ -11,7 +11,7 @@ public class DealDamage : MonoBehaviour
     public float damage = 5f;
     private void Start()
     {
-        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();  // Asumiendo que el jugador tiene el tag "Player"
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>(); 
 
     }
 
