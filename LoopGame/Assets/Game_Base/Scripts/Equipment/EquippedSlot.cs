@@ -12,10 +12,9 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image slotImage;
 
     //slot data
-    [SerializeField] private ItemType itemType = new ItemType();
+    [SerializeField] private ItemType itemType;
     private Sprite itemSprite;
     [SerializeField] string itemName;
-    private string itemDescription;
 
     [SerializeField] bool slotInUse;
     public GameObject selectedShader;
@@ -27,9 +26,9 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
         equipmentSOlibrary = GameObject.Find("GearUI").GetComponent<EquipmentSOlibrary>();
-        ResetEquipmentSlot();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -89,7 +88,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
 
                 equipmentSOlibrary.itemSOs[i].EquipItem();
                 slotInUse = true;
-
+                
             }
         }
         PlayerManager.instance.UpdateEquipmentStats();
@@ -99,10 +98,14 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     {
         if (!slotInUse)
         {
+            inventoryManager.DeselectAllSlots();
+            EmptySlot();
+            PlayerManager.instance.TurnOffPreviewStats();
+
             return;
 
         }
-
+     //   if(itemType != gameObject.i)
             inventoryManager.DeselectAllSlots();
             EmptySlot();
 
@@ -144,7 +147,6 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         slotImage.sprite = emptySprite;
         itemName = string.Empty;
         itemSprite = null;
-        itemDescription = string.Empty;
         slotInUse = false;
     }
 }

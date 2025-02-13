@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4509a6e624c614ea10e9ff933b76f1, type: 3}
   m_Name: MageStaff
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Mage Staff
   health: -1
   attack: 4
   speed: 0
