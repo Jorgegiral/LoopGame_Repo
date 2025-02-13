@@ -68,6 +68,8 @@ public class ShopManagement : MonoBehaviour
     }
     public void GoToVillage()
     {
+        GameManager.instance.inShop = false;
+        GameManager.instance.itemsRemain = 0;
         SceneManager.LoadScene(1);
 
     }

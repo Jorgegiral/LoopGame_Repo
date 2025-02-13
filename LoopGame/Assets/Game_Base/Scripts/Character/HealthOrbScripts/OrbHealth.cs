@@ -67,7 +67,7 @@ public class OrbHealth : MonoBehaviour
                 else
                 {
                     
-                    HealDamage(5f);
+                    HealDamage(7f);
                 PlayerManager.instance.AddPotions(-1);
                     PotionReady = false; 
 

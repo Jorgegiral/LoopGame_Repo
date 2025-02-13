@@ -64,18 +64,7 @@ public class PlayerManager : MonoBehaviour
 
         UpdatePotionUI();
     }
-    public void NewGame()
-    {
-    playerMaxHealth = 10f;
-    currentHealth = playerMaxHealth;
-    potions = 3;
-    playerDamage = 5f;
-    jumpForcePlayer = 5f;
-    speed = 4f;
-    dashingpower = 8f;
-    dashingrange = 0.2f;
-     dashCD = 3f;
-    }
+
 
     public void UpdateEquipmentStats()
     {

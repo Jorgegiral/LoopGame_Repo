@@ -43,7 +43,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    public void NewGame()
+    {
+           levelCompleted = false;
+         enemycount = 0;
+        bosskilled = false;
+        dailyVisit = true;
 
+            }
 
     #endregion
 
