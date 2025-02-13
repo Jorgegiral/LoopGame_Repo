@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static GameObject[] persistentObjects = new GameObject[2]; 
+    private static GameObject[] persistentObjects = new GameObject[3]; 
     public int objectIndex;
 
     void Awake()

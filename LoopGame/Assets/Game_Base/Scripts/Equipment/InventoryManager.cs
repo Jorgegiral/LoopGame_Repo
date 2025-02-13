@@ -33,17 +33,15 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            Debug.Log("Buscando item");
             if (itemSlot[i].isFull == false)
             {
                 itemSlot[i].AddItem(itemName, itemSprite,itemType);
-                Debug.Log(" item= "+itemName);
-
+                return;
             }
 
-        }
         
     }
+}
     public void DeselectAllSlots()
     {
         for (int i = 0;i < itemSlot.Length; i++)

@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     public float dashingrange = 0.2f;
     public float dashCD = 3f;
     public bool statsChanged;
+    public bool itemadded;
     [SerializeField] TMP_Text attackText, healthText, attackCDText, speedText, jumpText, dashSpeedText, dashRangeText, dashCDText;
 
     [SerializeField] TMP_Text itemnamepreText, attackpreText, healthpreText, attackCDpreText, speedpreText, jumppreText, dashSpeedpreText, dashRangepreText, dashCDpreText;

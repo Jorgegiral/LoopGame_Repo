@@ -96,20 +96,11 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
      
     public void UnEquipGear()
     {
-        if (!slotInUse)
-        {
-            inventoryManager.DeselectAllSlots();
-            EmptySlot();
-            PlayerManager.instance.TurnOffPreviewStats();
 
-            return;
-
-        }
-     //   if(itemType != gameObject.i)
             inventoryManager.DeselectAllSlots();
-            EmptySlot();
 
             inventoryManager.AddItem(itemName, itemSprite, itemType);
+
             for (int i = 0; i < equipmentSOlibrary.itemSOs.Length; i++)
             {
                 if (equipmentSOlibrary.itemSOs[i].itemName == this.itemName)
@@ -119,6 +110,8 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
             }
             PlayerManager.instance.TurnOffPreviewStats();
         PlayerManager.instance.UpdateEquipmentStats();
+        EmptySlot();
+
     }
     public void CheckGearSlot()
     {
