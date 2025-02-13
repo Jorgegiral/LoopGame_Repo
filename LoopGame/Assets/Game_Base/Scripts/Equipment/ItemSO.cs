@@ -8,7 +8,6 @@ public class ItemSO : ScriptableObject
 {
     public string itemName;
     public float health, attack, speed, jump, dashSpeed, dashRange, DashCD, attackCD;
-    private StatHolder statTextUpdater;
     public Sprite itemSprite;
 
 
@@ -22,11 +21,7 @@ public class ItemSO : ScriptableObject
     public void EquipItem()
     {
 
-  /*      if (statTextUpdater == null)
-        {
-            statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
-        }
-        else {*/
+
             PlayerManager.instance.playerDamage += attack;
             PlayerManager.instance.playerMaxHealth += health;
             PlayerManager.instance.currentHealth += health;
@@ -39,18 +34,14 @@ public class ItemSO : ScriptableObject
             PlayerManager.instance.UpdateEquipmentStats();
             Debug.Log("Stats Changed");
             PlayerManager.instance.statsChanged = true;
-     //   }
+
         
 
 
     }
     public void UnEquipItem()
     {
-  /*      if (statTextUpdater == null)
-        {
-            statTextUpdater = GameObject.Find("StatHolder").GetComponent<StatHolder>();
-        }
-        else { */
+
         PlayerManager.instance.playerDamage -= attack;
         PlayerManager.instance.playerMaxHealth -= health;
         PlayerManager.instance.currentHealth -= health;
@@ -61,7 +52,6 @@ public class ItemSO : ScriptableObject
         PlayerManager.instance.dashCD += DashCD;
         PlayerManager.instance.attackColdown += attackCD;
         PlayerManager.instance.UpdateEquipmentStats();
- //   }
 }
    
 }

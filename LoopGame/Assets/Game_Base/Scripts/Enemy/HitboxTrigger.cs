@@ -44,7 +44,7 @@ public class HitboxTrigger : MonoBehaviour
 
     public void EnemyDamageScaling()
     {
-        enemydamage = enemydamage + (GameManager.instance.score / 10);
+        enemydamage = enemydamage + (CoinAndScore.instance.score / 10);
     }
     private IEnumerator InvincibilityCooldown()
     {

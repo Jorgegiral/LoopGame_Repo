@@ -15,8 +15,8 @@ public class ShopManagement : MonoBehaviour
     {
         GameManager.instance.inShop = true;
         GameManager.instance.dailyVisit = false;
-        GameManager.instance.AddCoins(0);
-        GameManager.instance.AddScore(0);
+        CoinAndScore.instance.AddCoins(0);
+        CoinAndScore.instance.AddScore(0);
         spotRandomizer = Random.Range(1, 101);
         spotSelector = Random.Range(1, 5);
         if (spotRandomizer <= 35)

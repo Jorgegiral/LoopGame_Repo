@@ -107,11 +107,11 @@ public class ChaseEnemy : MonoBehaviour
 
     public void EnemyAttackCDScaling()
     {
-        attackCD = attackCD - (GameManager.instance.score / 100);
+        attackCD = attackCD - (CoinAndScore.instance.score / 100);
     }
     public void EnemySpeedScaling()
     {
-        enemyspeed = enemyspeed + (GameManager.instance.score / 100);
+        enemyspeed = enemyspeed + (CoinAndScore.instance.score / 100);
     }
     private void OnDrawGizmosSelected()
     {

@@ -160,11 +160,11 @@ public class newEnemy : MonoBehaviour
 
     public void EnemyAttackCDScaling()
     {
-        attackCD = attackCD - (GameManager.instance.score/200);
+        attackCD = attackCD - (CoinAndScore.instance.score/150);
     }
     public void EnemySpeedScaling()
     {
-        enemyspeed = enemyspeed + (GameManager.instance.score / 100);
+        enemyspeed = enemyspeed + (CoinAndScore.instance.score / 100);
     }
 }
 

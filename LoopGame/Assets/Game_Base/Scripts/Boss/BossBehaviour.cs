@@ -149,19 +149,19 @@ public class BossBehaviour : MonoBehaviour
 
     public void EnemyFirstAbilityCDScaling()
     {
-        fireballAbilityCooldown = fireballAbilityCooldown - (GameManager.instance.score / 20);
+        fireballAbilityCooldown = fireballAbilityCooldown - (CoinAndScore.instance.score / 10);
     }
     public void EnemySecondAbilityCDScaling()
     {
-        meteorAbilityCooldown = meteorAbilityCooldown - (GameManager.instance.score / 20);
+        meteorAbilityCooldown = meteorAbilityCooldown - (CoinAndScore.instance.score / 10);
     }
     public void EnemyThirdAbilityCDScaling()
     {
-        spikeAbilityCooldown = spikeAbilityCooldown - (GameManager.instance.score / 20);
+        spikeAbilityCooldown = spikeAbilityCooldown - (CoinAndScore.instance.score / 10);
     }
     public void TimeBetweenAttacksScaling()
     {
-        timeBetweenAttacks = timeBetweenAttacks- (GameManager.instance.score / 30);
+        timeBetweenAttacks = timeBetweenAttacks- (CoinAndScore.instance.score / 25);
     }
     #endregion
 }

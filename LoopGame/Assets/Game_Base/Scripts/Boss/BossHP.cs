@@ -45,13 +45,13 @@ public class BossHP : MonoBehaviour
             playercam.gameObject.SetActive(true);
             bosscam.gameObject.SetActive(false);
             arenalimit.SetActive(false);
-            GameManager.instance.AddCoins(25);
+            CoinAndScore.instance.AddCoins(25);
             Destroy(gameObject);
         }
     }
     public void BossHealScaling()
     {
-        maxHealth = maxHealth + (GameManager.instance.score / 10);
+        maxHealth = maxHealth + (CoinAndScore.instance.score / 2);
     }
     private void DropCoin()
     {

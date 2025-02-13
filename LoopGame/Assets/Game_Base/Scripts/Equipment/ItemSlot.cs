@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    //Item data
     public string itemName;
     public Sprite itemSprite;
     public bool isFull;
@@ -18,10 +17,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     int sceneIndex;
 
-    //Item slot
     [SerializeField] private Image itemImage;
 
-    //Equipped slot
     [SerializeField] private EquippedSlot armorSlot, mainHandSlot, jewelrySlot;
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -39,7 +36,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         equipmentSOlibrary = GameObject.Find("GearUI").GetComponent<EquipmentSOlibrary>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -129,8 +125,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
          {
         if (isFull) { 
             int numRandom;
-            numRandom = UnityEngine.Random.Range(5, 12) + GameManager.instance.score/2;
-            GameManager.instance.AddCoins(numRandom);
+            numRandom = UnityEngine.Random.Range(5, 12) + CoinAndScore.instance.score/2;
+            CoinAndScore.instance.AddCoins(numRandom);
             EmptySlot();
         Debug.Log(numRandom);
     }

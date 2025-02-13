@@ -7,8 +7,8 @@ public class ScoreText : MonoBehaviour
 {
     void Start()
     {
-        GameManager.instance.scoreText = gameObject.GetComponent<TMP_Text>();
-        GameManager.instance.UpdateScoreCoinsUI();
+        CoinAndScore.instance.scoreText = gameObject.GetComponent<TMP_Text>();
+        CoinAndScore.instance.UpdateScoreCoinsUI();
     }
 
 

@@ -14,18 +14,18 @@ public class Village : MonoBehaviour
         GameManager.instance.inShop = false;
 
         GameManager.instance.itemsRemain = 0;
-        GameManager.instance.AddCoins(0);
-        GameManager.instance.AddScore(0);
+        CoinAndScore.instance.AddCoins(0);
+        CoinAndScore.instance.AddScore(0);
         GameManager.instance.levelCompleted = false;
         GameManager.instance.enemycount = 0;
         GameManager.instance.bosskilled = false;
         player = GameObject.FindWithTag("Player").transform;
 
-        if (GameManager.instance.score == 0)
+        if (CoinAndScore.instance.score == 0)
         {
             player.transform.position = fuente.position;
         }else
-        if (GameManager.instance.spawnRight && GameManager.instance.score>0)
+        if (GameManager.instance.spawnRight && CoinAndScore.instance.score>0)
         {
             player.transform.position = rightSpawn.position;
         }

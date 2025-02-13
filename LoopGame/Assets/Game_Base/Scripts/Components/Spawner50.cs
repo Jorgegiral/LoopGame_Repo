@@ -10,12 +10,12 @@ public class Spawner50 : MonoBehaviour
     void Start()
     {
         numRandom = Random.Range(0, 2);
-        if (numRandom == 0 && GameManager.instance.score >= 50)
+        if (numRandom == 0 && CoinAndScore.instance.score >= 50)
         {
             Instantiate(chaseEnemy, gameObject.transform.position, Quaternion.identity);
 
         }
-        else if (numRandom == 1 && GameManager.instance.score >= 50)
+        else if (numRandom == 1 && CoinAndScore.instance.score >= 50)
         {
             Instantiate(rangedEnemy, gameObject.transform.position, Quaternion.identity);
         }

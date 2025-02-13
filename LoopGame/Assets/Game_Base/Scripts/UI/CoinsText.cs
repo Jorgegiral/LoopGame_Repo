@@ -7,7 +7,7 @@ public class CoinsText : MonoBehaviour
 {
     void Start()
     {
-        GameManager.instance.coinsText = gameObject.GetComponent<TMP_Text>();
+        CoinAndScore.instance.coinsText = gameObject.GetComponent<TMP_Text>();
     }
 
 }

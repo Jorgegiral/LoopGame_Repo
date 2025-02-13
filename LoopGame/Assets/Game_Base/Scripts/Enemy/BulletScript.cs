@@ -17,7 +17,6 @@ public class BulletScript : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         playerHealth = target.gameObject.GetComponent<OrbHealth>();
         Vector2 movedir = (target.transform.position-transform.position).normalized * speed;
-        //bulletRB.velocity = new Vector2(movedir.x, movedir.y);
         bulletRB.velocity = movedir;
         float angle = Mathf.Atan2(movedir.y, movedir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90);
@@ -36,7 +35,7 @@ public class BulletScript : MonoBehaviour
     }
     void ScaleBulletDamage()
     {
-        bulletDMG = bulletDMG + (GameManager.instance.score / 10);
+        bulletDMG = bulletDMG + (CoinAndScore.instance.score / 10);
     }
 
 }

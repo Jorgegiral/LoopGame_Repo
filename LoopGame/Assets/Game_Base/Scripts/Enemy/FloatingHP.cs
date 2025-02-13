@@ -43,7 +43,7 @@ public class FloatingHP : MonoBehaviour
     }
     public void EnemyHealScaling()
     {
-        maxHealth = maxHealth + (GameManager.instance.score / 9);
+        maxHealth = maxHealth + (CoinAndScore.instance.score / 9);
     }
     private void DropCoin()
     {

@@ -74,7 +74,7 @@ public class PlayerManager : MonoBehaviour
     speed = 4f;
     dashingpower = 8f;
     dashingrange = 0.2f;
-        dashCD = 3f;
+     dashCD = 3f;
     }
 
     public void UpdateEquipmentStats()

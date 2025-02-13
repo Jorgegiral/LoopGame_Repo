@@ -21,22 +21,22 @@ public class Fountain : MonoBehaviour
     {
         if (isPlayerinCollider)
         {
-            if (Input.GetKeyDown(KeyCode.F) && GameManager.instance.coins >= potionCost)
+            if (Input.GetKeyDown(KeyCode.F) && CoinAndScore.instance.coins >= potionCost)
             {
                 AudioManager.Instance.PlaySFX(7);
                 fuenteanim.SetTrigger("Interact");
-                GameManager.instance.AddCoins(-15);
+                CoinAndScore.instance.AddCoins(-15);
                 PlayerManager.instance.AddPotions(1);
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && GameManager.instance.score == 0)
+        if (collision.CompareTag("Player") && CoinAndScore.instance.score == 0)
         {
             tutorial.SetActive(true);
         }
-        else if (collision.CompareTag("Player") && GameManager.instance.score > 0) 
+        else if (collision.CompareTag("Player") && CoinAndScore.instance.score > 0) 
         {
             potionShop.SetActive(true);
             isPlayerinCollider = true;
@@ -44,11 +44,11 @@ public class Fountain : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && GameManager.instance.score == 0)
+        if (collision.CompareTag("Player") && CoinAndScore.instance.score == 0)
         {
             tutorial.SetActive(false);
         }
-        else if (collision.CompareTag("Player") && GameManager.instance.score > 0)
+        else if (collision.CompareTag("Player") && CoinAndScore.instance.score > 0)
         {
             potionShop.SetActive(false);
             isPlayerinCollider = false;

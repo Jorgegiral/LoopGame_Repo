@@ -10,10 +10,6 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
     public static GameManager instance;
-    public TMP_Text scoreText;
-    public TMP_Text coinsText;
-    public int score = 0;
-    public int coins = 0;
     public bool spawnRight;
     public bool levelCompleted = false;
     public int enemycount;
@@ -46,42 +42,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
-    void Start()
-    {
-        UpdateScoreCoinsUI();
-    }
-    #endregion
-    #region Functions
-    public void UpdateScoreCoinsUI()
-    {
-        if (scoreText != null)
-        {
-
-            scoreText.text = "SCORE: " + score;
-        }
-        if (coinsText != null)
-        {
-
-            coinsText.text = "GOLD: " + coins;
-        }
-    }
-    public void NewGame()
-    {
-        score = 0;
-        coins = 0;
-    }
-    public void AddCoins(int points)
-    {
-        coins += points;
-
-        UpdateScoreCoinsUI();
-    }
-    public void AddScore(int points)
-    {
-        score += points;
-
-        UpdateScoreCoinsUI();
     }
 
 

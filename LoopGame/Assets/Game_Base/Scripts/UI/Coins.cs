@@ -10,7 +10,7 @@ public class Coins : MonoBehaviour
         numRandom = Random.Range(1, 3);
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.AddCoins(numRandom);
+            CoinAndScore.instance.AddCoins(numRandom);
             Destroy(gameObject);
 
         }

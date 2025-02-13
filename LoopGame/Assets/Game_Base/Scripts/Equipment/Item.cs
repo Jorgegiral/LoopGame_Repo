@@ -15,7 +15,7 @@ public class Item : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        precioItem = Random.Range(20, 40) + GameManager.instance.score;
+        precioItem = Random.Range(20, 40) + CoinAndScore.instance.score;
 
     }
     void Start()
@@ -33,16 +33,15 @@ public class Item : MonoBehaviour, IPointerClickHandler
     }
     private void OnLeftClick()
     {
-             if (precioItem < GameManager.instance.coins)
+    if (precioItem < CoinAndScore.instance.coins)
            {
-        GameManager.instance.itemBought = true;
+            CoinAndScore.instance.AddCoins(-precioItem);
+            GameManager.instance.itemBought = true;
+             GameManager.instance.itemsRemain -= 1;
 
-        GameManager.instance.AddCoins(-precioItem);
-        GameManager.instance.itemsRemain -= 1;
-
-        inventoryManager.AddItem(itemName, sprite, itemType);
-        preciotext.text = "";
-        Destroy(gameObject);
+            inventoryManager.AddItem(itemName, sprite, itemType);
+           preciotext.text = "";
+             Destroy(gameObject);
      }
     }
 
