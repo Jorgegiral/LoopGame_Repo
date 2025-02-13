@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PotionText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+
+    private void Update()
     {
         PlayerManager.instance.potionText = gameObject.GetComponent<TMP_Text>();
 
     }
-
-
 }
