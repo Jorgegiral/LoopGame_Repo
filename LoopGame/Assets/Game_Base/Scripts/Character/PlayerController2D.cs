@@ -42,13 +42,15 @@ public class PlayerController2D : MonoBehaviour
     
     [SerializeField] TrailRenderer trail;
 
-
+    private AudioSource stepSound;
+    private bool wasGrounded;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerAnim = GetComponent<Animator>();
+        stepSound = GetComponent<AudioSource>();
         cooldownAttackSlider = GameObject.Find("Attack").GetComponent<Image>();
         cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
         isFacingRight = true;
@@ -90,6 +92,23 @@ public class PlayerController2D : MonoBehaviour
                 Flip();
             }
         }
+
+        bool isMoving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
+
+        if (isMoving && !stepSound.isPlaying)
+        {
+            stepSound.Play();
+        }
+        else if (!isMoving)
+        {
+            stepSound.Stop();
+        }
+
+        if (isGrounded && playerRb.velocity.y <= 0 && !wasGrounded)
+        {
+            AudioManager.Instance.PlaySFX(0);
+        }
+        wasGrounded = isGrounded;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -165,6 +184,7 @@ public class PlayerController2D : MonoBehaviour
     {
         canAttack = false;
         playerAnim.SetTrigger("Attack");
+        AudioManager.Instance.PlaySFX(2);
         cooldownTimer = 0f;
     }
 
@@ -191,7 +211,7 @@ public class PlayerController2D : MonoBehaviour
         {
             if (isGrounded)
             {
-                //AudioManager.Instance.PlaySFX(0);
+                AudioManager.Instance.PlaySFX(1);
                 playerRb.AddForce(Vector2.up * PlayerManager.instance.jumpForcePlayer, ForceMode2D.Impulse);
             }
         }
@@ -208,6 +228,7 @@ public class PlayerController2D : MonoBehaviour
     {
         if (context.started && canDash)
         {
+            AudioManager.Instance.PlaySFX(3);
             StartCoroutine(Dash());
         }
     }
