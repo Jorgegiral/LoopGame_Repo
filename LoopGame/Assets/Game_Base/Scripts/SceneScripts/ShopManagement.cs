@@ -13,6 +13,7 @@ public class ShopManagement : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.inShop = true;
         GameManager.instance.dailyVisit = false;
         GameManager.instance.AddCoins(0);
         GameManager.instance.AddScore(0);

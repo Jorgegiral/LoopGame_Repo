@@ -9,8 +9,6 @@ public class Item : MonoBehaviour, IPointerClickHandler
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
     private InventoryManager inventoryManager;
-    [TextArea]
-    [SerializeField] private string itemDescription;
     public ItemType itemType;
     public int precioItem;
     [SerializeField] TMP_Text preciotext;
@@ -35,17 +33,17 @@ public class Item : MonoBehaviour, IPointerClickHandler
     }
     private void OnLeftClick()
     {
-             if (precioItem < GameManager.instance.coins)
-           {
+ //            if (precioItem < GameManager.instance.coins)
+        //   {
         GameManager.instance.itemBought = true;
 
         GameManager.instance.AddCoins(-precioItem);
         GameManager.instance.itemsRemain -= 1;
 
-        inventoryManager.AddItem(itemName, sprite, itemDescription, itemType);
+        inventoryManager.AddItem(itemName, sprite, itemType);
         preciotext.text = "";
         Destroy(gameObject);
-     }
+ //    }
     }
 
 }

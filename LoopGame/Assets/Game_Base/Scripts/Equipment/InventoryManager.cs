@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
-    public InventoryManager instance;
     public GameObject InventoryMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;

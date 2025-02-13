@@ -21,4 +21,4 @@ MonoBehaviour:
   dashRange: 0
   DashCD: 0
   attackCD: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 1912612202, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}

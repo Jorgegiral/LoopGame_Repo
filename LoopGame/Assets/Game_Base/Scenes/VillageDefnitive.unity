@@ -1268,11 +1268,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotImage: {fileID: 67422632}
-  slotName: {fileID: 0}
   itemType: 0
+  itemName: 
+  slotInUse: 0
   selectedShader: {fileID: 64620709}
   thisItemSelected: 0
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
+  itemSOs: []
 --- !u!1001 &70217586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3764,7 +3766,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 237743847}
@@ -6443,10 +6444,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1106189444}
   - {fileID: 1705697920}
   - {fileID: 67422631}
   - {fileID: 1742875507}
-  - {fileID: 1106189444}
   m_Father: {fileID: 610605316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9274,7 +9275,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 657129232}
@@ -15064,7 +15064,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 915277523}
@@ -17597,7 +17596,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 1087778544}
@@ -17773,8 +17771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -163.1, y: 129.8}
-  m_SizeDelta: {x: 533.33, y: 390}
+  m_AnchoredPosition: {x: -162, y: 135}
+  m_SizeDelta: {x: 533.33, y: 391.9536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106189445
 MonoBehaviour:
@@ -18052,6 +18050,7 @@ MonoBehaviour:
   dashSpeedText: {fileID: 58322873}
   dashRangeText: {fileID: 42360154}
   dashCDText: {fileID: 796177288}
+  itemnamepreText: {fileID: 1757935170}
   attackpreText: {fileID: 492226451}
   healthpreText: {fileID: 766981820}
   attackCDpreText: {fileID: 2033253844}
@@ -19283,7 +19282,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 1193154419}
@@ -21767,14 +21765,13 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   isFull: 0
-  itemDescription: 
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
   itemType: 0
   itemImage: {fileID: 668521755}
   armorSlot: {fileID: 67422634}
-  mainHandSlot: {fileID: 1742875510}
-  jewelrySlot: {fileID: 1705697923}
-  selectedShader: {fileID: 632098315}
+  mainHandSlot: {fileID: 1705697923}
+  jewelrySlot: {fileID: 1742875510}
+  selectedShader: {fileID: 668521753}
   thisItemSelected: 0
 --- !u!1 &1372053954
 GameObject:
@@ -25415,11 +25412,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotImage: {fileID: 1705697921}
-  slotName: {fileID: 0}
   itemType: 1
+  itemName: 
+  slotInUse: 0
   selectedShader: {fileID: 1045965627}
   thisItemSelected: 0
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
+  itemSOs: []
 --- !u!1 &1712008010
 GameObject:
   m_ObjectHideFlags: 0
@@ -26233,11 +26232,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotImage: {fileID: 1742875508}
-  slotName: {fileID: 0}
   itemType: 2
+  itemName: 
+  slotInUse: 0
   selectedShader: {fileID: 1802241717}
   thisItemSelected: 0
   emptySprite: {fileID: 433929277, guid: 5dfae2fa56a35964391cebfc1f37e3f4, type: 3}
+  itemSOs: []
 --- !u!1 &1744348442
 GameObject:
   m_ObjectHideFlags: 0
@@ -38153,7 +38154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08775a023be926c4db1908ba1ce5c407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
   InventoryMenu: {fileID: 610605315}
   itemSlot:
   - {fileID: 915277525}
@@ -38274,7 +38274,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 402
   m_TargetDisplay: 0
 --- !u!114 &8452783919660978032
 MonoBehaviour:

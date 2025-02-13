@@ -14,7 +14,7 @@ public class ItemSO : ScriptableObject
 
     public void PreviewEquipment()
     {
-        PlayerManager.instance.PreviewEquipmentStats(attack, health,speed,jump,dashSpeed,dashRange,DashCD,attackCD);
+        PlayerManager.instance.PreviewEquipmentStats(itemName,attack, health,speed,jump,dashSpeed,dashRange,DashCD,attackCD);
     }
 
 

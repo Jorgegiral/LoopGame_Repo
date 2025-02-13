@@ -13,13 +13,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public string itemName;
     public Sprite itemSprite;
     public bool isFull;
-    public string itemDescription;
     public Sprite emptySprite;
     public ItemType itemType;
+
     int sceneIndex;
 
     //Item slot
     [SerializeField] private Image itemImage;
+
     //Equipped slot
     [SerializeField] private EquippedSlot armorSlot, mainHandSlot, jewelrySlot;
     public GameObject selectedShader;
@@ -101,31 +102,30 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         if(itemType == ItemType.armor)
         {
-            armorSlot.EquipGear(itemSprite, itemName, itemDescription);
+            armorSlot.EquipGear(itemSprite, itemName);
         }
         if (itemType == ItemType.mainHand)
         {
-            mainHandSlot.EquipGear(itemSprite, itemName, itemDescription);
+            mainHandSlot.EquipGear(itemSprite, itemName);
         }
         if (itemType == ItemType.jewelry)
         {
-           jewelrySlot.EquipGear(itemSprite, itemName, itemDescription);
+           jewelrySlot.EquipGear(itemSprite, itemName);
         }
         EmptySlot();
 
     }
     private void EmptySlot()
     {
-        itemImage.sprite = null;
+        itemImage.sprite = emptySprite;
         itemName = string.Empty;
-        itemDescription = string.Empty;
 
         isFull = false;
     }
 
     public void OnRightClick()
     {
-          if (sceneIndex == 5)
+          if (GameManager.instance.inShop)
          {
         if (isFull) { 
             int numRandom;

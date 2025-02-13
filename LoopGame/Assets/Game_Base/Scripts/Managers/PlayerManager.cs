@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     public bool statsChanged;
     [SerializeField] TMP_Text attackText, healthText, attackCDText, speedText, jumpText, dashSpeedText, dashRangeText, dashCDText;
 
-    [SerializeField] TMP_Text attackpreText, healthpreText, attackCDpreText, speedpreText, jumppreText, dashSpeedpreText, dashRangepreText, dashCDpreText;
+    [SerializeField] TMP_Text itemnamepreText, attackpreText, healthpreText, attackCDpreText, speedpreText, jumppreText, dashSpeedpreText, dashRangepreText, dashCDpreText;
     [SerializeField] GameObject selectedItemStats;
     void Awake()
     {
@@ -46,6 +46,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         UpdateEquipmentStats();
+        TurnOffPreviewStats();
 
     }
     public void UpdatePotionUI()
@@ -86,13 +87,14 @@ public class PlayerManager : MonoBehaviour
         dashSpeedText.text = PlayerManager.instance.dashingpower.ToString();
         dashCDText.text = PlayerManager.instance.dashCD.ToString();
     }
-    public void PreviewEquipmentStats(float attack, float health, float speed, float jump, float dashSpeed, float dashRange, float dashCD, float attackCD)
+    public void PreviewEquipmentStats(string itemname,float attack, float health, float speed, float jump, float dashSpeed, float dashRange, float dashCD, float attackCD)
     {
+        itemnamepreText.text = itemname;
         attackpreText.text = attack.ToString();
         healthpreText.text = health.ToString();
         attackCDpreText.text = attackCD.ToString();
         speedpreText.text = speed.ToString();
-        jumppreText.text = jump.ToString(); ;
+        jumppreText.text = jump.ToString(); 
         dashRangepreText.text = dashRange.ToString();
         dashSpeedpreText.text = dashSpeed.ToString();
         dashCDpreText.text = dashCD.ToString();
