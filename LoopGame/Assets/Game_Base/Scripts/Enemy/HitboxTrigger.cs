@@ -20,8 +20,14 @@ public class HitboxTrigger : MonoBehaviour
         playerHealth = player.GetComponent<OrbHealth>();
 
 }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && IsEnemyAttacking() && !isInvincible)
+        {
+            ApplyDamage();
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && IsEnemyAttacking() && !isInvincible)
         {
@@ -29,10 +35,10 @@ public class HitboxTrigger : MonoBehaviour
         }
     }
 
+
     private bool IsEnemyAttacking()
     {
         return enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
-        Debug.Log("Atacando");
     }
 
     private void ApplyDamage()

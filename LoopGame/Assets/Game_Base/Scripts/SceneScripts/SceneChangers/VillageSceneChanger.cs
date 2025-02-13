@@ -33,7 +33,7 @@ public class SceneObject : MonoBehaviour
     {
         if ( PlayerManager.instance.potions == 3)
         {
-            numRandom = Random.Range(0, 7);
+            numRandom = Random.Range(0, 8);
             if (numRandom == 2)
             {
                 SceneRandomizer = Random.Range(3, 5);
@@ -42,7 +42,7 @@ public class SceneObject : MonoBehaviour
         }
         else
         {
-            numRandom = Random.Range(0, 6);
+            numRandom = Random.Range(0, 7);
             if (numRandom == 2)
             {
                 SceneRandomizer = Random.Range(2, 5);
