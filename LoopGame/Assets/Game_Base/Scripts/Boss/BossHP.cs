@@ -45,7 +45,7 @@ public class BossHP : MonoBehaviour
             playercam.gameObject.SetActive(true);
             bosscam.gameObject.SetActive(false);
             arenalimit.SetActive(false);
-            CoinAndScore.instance.AddCoins(25);
+            CoinAndScore.instance.AddCoins(30);
             Destroy(gameObject);
         }
     }
