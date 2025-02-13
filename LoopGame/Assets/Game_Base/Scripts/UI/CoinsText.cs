@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class CoinsText : MonoBehaviour
 {
-    void Start()
+
+    private void Update()
     {
         CoinAndScore.instance.coinsText = gameObject.GetComponent<TMP_Text>();
+
     }
 
 }

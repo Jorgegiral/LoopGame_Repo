@@ -13,6 +13,7 @@ TagManager:
   - Attack
   - Left
   - Right
+  - GameOver
   layers:
   - Default
   - TransparentFX

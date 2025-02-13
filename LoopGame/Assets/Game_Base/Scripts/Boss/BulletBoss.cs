@@ -33,7 +33,11 @@ public class BulletBoss : MonoBehaviour
             targetHealth.TakeDamage(bulletdmg);
             Destroy(gameObject);
         }
-        
+        if (collision.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 

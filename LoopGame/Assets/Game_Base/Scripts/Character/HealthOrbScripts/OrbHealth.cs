@@ -10,8 +10,7 @@ public class OrbHealth : MonoBehaviour
     public static OrbHealth instance;
     public float startingHealth;
     public float currentHealth;
-    [SerializeField] private GameObject gameOver;
-
+    [SerializeField] private GameObject gameOverPanel;
     private bool PotionReady = true;
     #endregion
 
@@ -20,6 +19,7 @@ public class OrbHealth : MonoBehaviour
     {
         startingHealth = PlayerManager.instance.playerMaxHealth;
         currentHealth = PlayerManager.instance.currentHealth;
+
     }
     #endregion
 
@@ -30,10 +30,9 @@ public class OrbHealth : MonoBehaviour
         currentHealth -= damage;
         PlayerManager.instance.currentHealth = currentHealth;
 
-        //GAME OVER JORGE
         if (currentHealth <= 0)
         {
-            gameOver.SetActive(true);
+            gameOverPanel.SetActive(true);
             Time.timeScale = 0f;
         }
     }
