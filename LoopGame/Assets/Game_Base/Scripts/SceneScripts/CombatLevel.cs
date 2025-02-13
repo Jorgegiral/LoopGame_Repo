@@ -39,7 +39,7 @@ public class CombatLevel : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.instance.enemycount <= 6)
+        if (GameManager.instance.enemycount <= 3)
         {
             GameManager.instance.levelCompleted = true;
         }
