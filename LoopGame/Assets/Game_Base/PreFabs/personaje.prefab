@@ -151,6 +151,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 0}
   gameOverScene: 
   trail: {fileID: 7821154207628253822}
+  inventoryManager: {fileID: 0}
 --- !u!114 &2401358241879851709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +257,42 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7d93660c-137f-4770-b453-4813a9d32ea6
     m_ActionName: Gameplay/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2392882319272569196, guid: 3ae4852c75aa5eb449024ad899fbe4b7, type: 3}
+        m_TargetAssemblyTypeName: Fountain, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 22163c7c-7057-47f8-8e2a-a287e759bcde
+    m_ActionName: Gameplay/Interact[/XInputControllerWindows/rightShoulder,/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b99aa2ba-7535-495b-9e6e-438c81d4ffe7
+    m_ActionName: Gameplay/Shop[/Keyboard/f,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6166892858102895330}
+        m_TargetAssemblyTypeName: PlayerController2D, Assembly-CSharp
+        m_MethodName: Handleinventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8adc0302-4da5-4bec-bbb9-1e9d88c328f0
+    m_ActionName: Gameplay/Inventory[/Keyboard/i,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -310,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   currentHealth: 0
-  gameOver: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!95 &7175623214827174903
 Animator:
   serializedVersion: 5

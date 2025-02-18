@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
     bool playerinCollider;
     public GameObject shop;
-    private void Update()
+    /*private void Update()
     {
         if (playerinCollider && GameManager.instance.dailyVisit == true)
         {
@@ -16,6 +17,17 @@ public class Shop : MonoBehaviour
 
                 SceneShop();
 
+            }
+        }
+    }*/
+
+    public void HandleShop(InputAction.CallbackContext context)
+    {
+        if (playerinCollider && GameManager.instance.dailyVisit == true)
+        {
+            if (context.started)
+            {
+                SceneShop();
             }
         }
     }

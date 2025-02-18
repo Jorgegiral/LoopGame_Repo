@@ -66,7 +66,7 @@ public class OrbHealth : MonoBehaviour
                 }
                 else
                 {
-                    
+                    AudioManager.Instance.PlaySFX(7);
                     HealDamage(7f);
                 PlayerManager.instance.AddPotions(-1);
                     PotionReady = false; 

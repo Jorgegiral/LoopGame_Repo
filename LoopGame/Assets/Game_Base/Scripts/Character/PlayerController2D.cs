@@ -45,6 +45,9 @@ public class PlayerController2D : MonoBehaviour
     private AudioSource stepSound;
     private bool wasGrounded;
 
+    [Header("Inventory")]
+    [SerializeField] InventoryManager inventoryManager;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -54,7 +57,7 @@ public class PlayerController2D : MonoBehaviour
         cooldownAttackSlider = GameObject.Find("Attack").GetComponent<Image>();
         cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
         isFacingRight = true;
-
+        inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
 
     }
 
@@ -233,8 +236,13 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
+    public void Handleinventory(InputAction.CallbackContext context)
+    {
+        inventoryManager.HandleInventory();
+    }
+
     #endregion
-    
+
 
 
 }
