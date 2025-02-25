@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour, IPointerClickHandler
+public class Item : MonoBehaviour//, IPointerClickHandler
 {
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
@@ -23,7 +23,7 @@ public class Item : MonoBehaviour, IPointerClickHandler
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    /*public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
@@ -43,6 +43,19 @@ public class Item : MonoBehaviour, IPointerClickHandler
              Destroy(gameObject);
             GameManager.instance.slots -= 1;
      }
-    }
+    }*/
+    public void ItemShop()
+    {
+        if (precioItem < CoinAndScore.instance.coins && GameManager.instance.slots > 0)
+        {
+            CoinAndScore.instance.AddCoins(-precioItem);
+            GameManager.instance.itemBought = true;
+            GameManager.instance.itemsRemain -= 1;
 
+            inventoryManager.AddItem(itemName, sprite, itemType);
+            preciotext.text = "";
+            Destroy(gameObject);
+            GameManager.instance.slots -= 1;
+        }
+    }
 }

@@ -152,6 +152,7 @@ MonoBehaviour:
   gameOverScene: 
   trail: {fileID: 7821154207628253822}
   inventoryManager: {fileID: 0}
+  pauseManager: {fileID: 0}
 --- !u!114 &2401358241879851709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8adc0302-4da5-4bec-bbb9-1e9d88c328f0
     m_ActionName: Gameplay/Inventory[/Keyboard/i,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6166892858102895330}
+        m_TargetAssemblyTypeName: PlayerController2D, Assembly-CSharp
+        m_MethodName: Handlepause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f0730448-c4bc-473f-85d3-a9b3ec4aa15e
+    m_ActionName: Gameplay/Pause[/Keyboard/escape,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

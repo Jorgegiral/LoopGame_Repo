@@ -10,10 +10,9 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    void Update()
+    
+    public void pauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
             if (GameManager.instance.currentGameState == GameManager.GameState.GameRunning)
             {
                 PauseMenu();
@@ -22,7 +21,6 @@ public class PauseGame : MonoBehaviour
             {
                 ResumeGame();
             }
-        }
     }
     public void ResumeGame()
     {
@@ -33,7 +31,7 @@ public class PauseGame : MonoBehaviour
     public void PauseMenu()
     {
         GameManager.instance.currentGameState = GameManager.GameState.GamePaused;
-        Time.timeScale = 0f;
         menuPause.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

@@ -47,6 +47,7 @@ public class PlayerController2D : MonoBehaviour
 
     [Header("Inventory")]
     [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] PauseGame pauseManager;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class PlayerController2D : MonoBehaviour
         cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
         isFacingRight = true;
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
-
+        pauseManager = GameObject.Find("UI").GetComponent<PauseGame>();
     }
 
     void Update()
@@ -239,6 +240,14 @@ public class PlayerController2D : MonoBehaviour
     public void Handleinventory(InputAction.CallbackContext context)
     {
         inventoryManager.HandleInventory();
+    }
+
+    public void Handlepause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            pauseManager.pauseGame();
+        }
     }
 
     #endregion
