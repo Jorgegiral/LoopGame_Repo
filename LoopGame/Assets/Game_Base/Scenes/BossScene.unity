@@ -17821,8 +17821,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2662010178832872628, guid: 0d4838335a291b048b67678f088b4c88, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2662010178832872628, guid: 0d4838335a291b048b67678f088b4c88, type: 3}
       propertyPath: MaxDistance
-      value: 11.164003
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2662010178832872628, guid: 0d4838335a291b048b67678f088b4c88, type: 3}
+      propertyPath: MinDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 613801267639623765, guid: 0d4838335a291b048b67678f088b4c88, type: 3}
       propertyPath: m_UiScaleMode
