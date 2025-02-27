@@ -14948,6 +14948,7 @@ GameObject:
   - component: {fileID: 353999741}
   - component: {fileID: 353999740}
   - component: {fileID: 353999742}
+  - component: {fileID: 353999743}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -15026,6 +15027,18 @@ MonoBehaviour:
   m_Damping: 0.5
   m_MaxWindowSize: -1
   m_Padding: 0
+--- !u!114 &353999743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353999739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354891433
 GameObject:
   m_ObjectHideFlags: 0
@@ -113245,6 +113258,7 @@ GameObject:
   - component: {fileID: 984125845}
   - component: {fileID: 984125844}
   - component: {fileID: 984125849}
+  - component: {fileID: 984125850}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -113373,7 +113387,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.578125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -113418,6 +113432,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightSpawn: {fileID: 1895114648}
   leftSpawn: {fileID: 1122148138}
+--- !u!114 &984125850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984125843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 32
+  m_RefResolutionX: 576
+  m_RefResolutionY: 320
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &985786066
 GameObject:
   m_ObjectHideFlags: 0
