@@ -59,7 +59,7 @@ public class PlayerController2D : MonoBehaviour
         cooldownDashSlider = GameObject.Find("Stamine").GetComponent<Image>();
         isFacingRight = true;
         inventoryManager = GameObject.Find("GearUI").GetComponent<InventoryManager>();
-        pauseManager = GameObject.Find("UI").GetComponent<PauseGame>();
+        pauseManager = GameObject.Find("UiPause").GetComponent<PauseGame>();
     }
 
     void Update()
